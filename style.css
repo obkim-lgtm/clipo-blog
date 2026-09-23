@@ -425,7 +425,20 @@ button,input{font-family:inherit;font-size:inherit}
 .aside li a{display:flex;align-items:center;gap:8px;padding:9px 0;border-bottom:1px solid var(--line);font-size:15px;color:var(--ink-2)}
 .aside li:last-child a{border-bottom:0}
 .aside li a:hover{color:var(--blue)}
-.aside .dur{margin-left:auto;font-size:13px;color:var(--mute)}
+.aside .dur{margin-left:auto;font-size:13px;color:var(--mute);flex-shrink:0}
+.aside li a svg{width:10px;height:12px;flex-shrink:0} /* 그림이 칸을 밀지 않게 — 크기 없는 svg 방지 */
+/* 같은 묶음의 영상: 작은 썸네일 + 제목 */
+.aside .vthumb{--t:var(--t-grading);--i:var(--i-grading);width:72px;aspect-ratio:16/9;flex-shrink:0;border-radius:9px;background:var(--t);color:var(--i);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.aside .vthumb[data-cat=start]{--t:var(--t-start);--i:var(--i-start)}
+.aside .vthumb[data-cat=class]{--t:var(--t-class);--i:var(--i-class)}
+.aside .vthumb[data-cat=design]{--t:var(--t-design);--i:var(--i-design)}
+.aside .vthumb[data-cat=files]{--t:var(--t-files);--i:var(--i-files)}
+.aside .vthumb[data-cat=grading]{--t:var(--t-grading);--i:var(--i-grading)}
+.aside .vthumb[data-cat=record]{--t:var(--t-record);--i:var(--i-record)}
+.aside .vthumb[data-cat=account]{--t:var(--t-account);--i:var(--i-account)}
+.aside .vthumb svg{width:28px;height:28px;flex-shrink:0}
+.aside .vt{flex:1;min-width:0;line-height:1.4}
+.aside li a:hover .vt{color:var(--blue)}
 .note{background:var(--blue-bg);border-radius:14px;padding:14px 16px;font-size:15px;color:var(--ink-2);display:flex;gap:10px;align-items:flex-start}
 .note .ic{color:var(--blue);flex-shrink:0;margin-top:2px}
 .crumb{font-size:14px;color:var(--mute)}
