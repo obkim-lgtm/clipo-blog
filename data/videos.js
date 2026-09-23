@@ -28,12 +28,14 @@ window.VIDEOS = [
     summary: '가입부터 교사 인증까지. 이 영상이 끝나면 선생님 계정으로 클리포에 들어와 있어요.' },
   { id: 'S2', cat: 'start', art: 'people_plus', title: '학생 등록하고 수업 만들기', dur: null, yt: null, screen: '학교 설정 · 수업', isNew: false,
     summary: '학생 명렬을 올리고 첫 수업을 만들어요.' },
-  { id: 'S3', cat: 'start', art: 'ruler_pen', guide: 'ch2.html', title: '채점기준 AI로 만들기', dur: null, yt: null, screen: '수행평가 설계', isNew: false,
-    summary: '성취기준을 고르고 키워드 몇 개로 채점기준 초안을 받아 선생님 기준으로 고쳐요.' },
+  { id: 'S3', cat: 'start', art: 'ruler_pen', guide: 'ch2.html', title: '채점기준 AI로 만들기', dur: '1:07', yt: null,
+    mp4: 'video/s3.mp4?v=1', poster: 'video/s3_poster.jpg?v=1', screen: '수행평가 설계', isNew: true,
+    summary: '성취기준을 고르고, 원하는 채점기준을 한두 문장으로 적어 AI 초안을 받아요. 쓸 것만 골라 설계에 넣은 뒤 선생님 기준으로 고쳐요.' },
   { id: 'S4', cat: 'start', art: 'paths', guide: 'ch3.html', title: '답안 받는 방법 고르기', dur: null, yt: null, screen: '수행평가 설계', isNew: false,
     summary: '클리포에 직접 쓰기, 파일로 제출, 종이로 걷어 스캔. 세 가지의 차이를 알고 골라요.' },
-  { id: 'S5', cat: 'start', art: 'medal', guide: 'ch5.html', title: 'AI 채점 결과 확인하고 확정하기', dur: null, yt: null, screen: '수행평가 채점', isNew: false,
-    summary: '예상 점수와 채점 근거를 읽고 점수·피드백을 선생님이 확정해요.' },
+  { id: 'S5', cat: 'start', art: 'medal', guide: 'ch5.html', title: 'AI 채점 결과 확인하고 확정하기', dur: '1:03', yt: null,
+    mp4: 'video/s5.mp4?v=1', poster: 'video/s5_poster.jpg?v=1', screen: '수행평가 채점', isNew: true,
+    summary: '학급 단위로 AI 채점을 돌리고, 학생 답안 옆에서 점수와 채점 근거를 읽어요. 고칠 학생만 손본 뒤 점수를 확정하는 건 선생님이에요.' },
   { id: 'S6', cat: 'start', art: 'notebook', title: '채점 결과로 세특 초안 만들기', dur: null, yt: null, screen: '세부능력 및 특기사항 지원', isNew: false,
     summary: '채점 결과를 바탕으로 학생마다 다른 세특 초안을 받아요.' },
 
@@ -58,7 +60,9 @@ window.VIDEOS = [
 
   // 과제물 관리
   { id: 'C1', cat: 'files', art: 'upload_one', title: '학생 한 명 과제물 따로 올리기', dur: null, yt: null, screen: '과제물 관리', isNew: false, summary: '' },
-  { id: 'C2', cat: 'files', art: 'upload_many', since: '2026-08-06', title: '여러 학생 파일 한 번에 올리기', dur: null, yt: null, screen: '과제물 관리', isNew: false, summary: '' },
+  { id: 'C2', cat: 'files', art: 'upload_many', since: '2026-08-06', title: '여러 학생 파일 한 번에 올리기', dur: '0:33', yt: null,
+    mp4: 'video/c2.mp4?v=1', poster: 'video/c2_poster.jpg?v=1', screen: '과제물 관리', isNew: false,
+    summary: '학생별로 나뉜 과제물 파일을 한 번에 올리면, 파일 이름의 학생 이름으로 자동으로 짝지어져요. 짝이 틀리면 매칭 수정으로 바꿔요.' },
   { id: 'C3', cat: 'files', art: 'scanner', guide: 'ch4.html', title: '반 전체 스캔 PDF 한 장으로 올리기', dur: null, yt: null, screen: '과제물 관리', isNew: false, summary: '' },
   { id: 'C4', cat: 'files', art: 'send', title: '학생이 직접 제출하게 하기', dur: null, yt: null, screen: '과제물 관리 · 학생 화면', isNew: false, summary: '' },
 
