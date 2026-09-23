@@ -55,7 +55,7 @@ window.VIDEOS = [
   { id: 'R1', cat: 'design', art: 'compass', guide: 'ch2.html', title: '채점기준 잘 쓰는 법', dur: '2:26', yt: null,
     mp4: 'video/rubric.mp4?v=4', poster: 'video/rubric_poster.jpg?v=3', screen: '수행평가 설계', isNew: true,
     summary: 'AI 채점이 선생님 점수와 잘 맞으려면 채점기준을 어떻게 써야 할까요? 같은 답안 스무 장을 채점기준만 바꿔 다시 채점해 본 결과와 함께, 잘 맞는 쓰기 네 가지와 피할 것 세 가지를 봐요.' },
-  { id: 'B1', cat: 'design', art: 'target', since: '2026-08-27', title: '교육과정 성취기준 골라 넣기', dur: null, yt: null, screen: '수행평가 설계', isNew: false, summary: '' },
+  { id: 'B1', cat: 'design', art: 'target', title: '교육과정 성취기준 골라 넣기', dur: null, yt: null, screen: '수행평가 설계', isNew: false, summary: '' },
   { id: 'B2', cat: 'design', art: 'tags', title: '키워드로 채점기준 초안 만들기', dur: null, yt: null, screen: '수행평가 설계', isNew: false, summary: '' },
   { id: 'B3', cat: 'design', art: 'checklist', title: '채점요소 정해서 채점기준 만들기', dur: null, yt: null, screen: '수행평가 설계', isNew: false, summary: '' },
   { id: 'B4', cat: 'design', art: 'camera', guide: 'examples.html', title: '쓰던 채점기준표 사진으로 가져오기', dur: null, yt: null, screen: '수행평가 설계', isNew: false, summary: '' },
