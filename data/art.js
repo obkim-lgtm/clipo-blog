@@ -37,6 +37,7 @@
     checklist:   W('<rect x="16" y="14" width="64" height="68" rx="8"/><path d="M28 34l6 6 10-10M28 56l6 6 10-10M54 34h14M54 58h14"/>'),
     camera:      W('<rect x="12" y="30" width="72" height="50" rx="10"/><path d="M34 30l6-10h16l6 10"/><circle cx="48" cy="55" r="13"/>'),
     keyboard:    W('<rect x="10" y="30" width="76" height="40" rx="8"/><path d="M22 42h4M34 42h4M46 42h4M58 42h4M70 42h4M28 58h40"/>'),
+    writing_log: W('<rect x="12" y="12" width="54" height="66" rx="8"/><path d="M24 28h30M24 40h22M24 52h14" stroke-width="4" opacity=".6"/><circle cx="66" cy="64" r="19"/><path d="M66 53v11l7 5"/>'),
 
     // ---- 과제물 관리 ----
     upload_one:  W('<rect x="22" y="14" width="52" height="68" rx="8"/><path d="M48 66V38M36 50l12-12 12 12"/>'),
