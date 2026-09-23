@@ -59,7 +59,9 @@ window.VIDEOS = [
   { id: 'B2', cat: 'design', art: 'tags', title: '키워드로 채점기준 초안 만들기', dur: null, yt: null, screen: '수행평가 설계', isNew: false, summary: '' },
   { id: 'B3', cat: 'design', art: 'checklist', title: '채점요소 정해서 채점기준 만들기', dur: null, yt: null, screen: '수행평가 설계', isNew: false, summary: '' },
   { id: 'B4', cat: 'design', art: 'camera', guide: 'examples.html', title: '쓰던 채점기준표 사진으로 가져오기', dur: null, yt: null, screen: '수행평가 설계', isNew: false, summary: '' },
-  { id: 'B5', cat: 'design', art: 'keyboard', since: '2026-09-02', title: '학생이 클리포에 직접 쓰는 과제 만들기', dur: null, yt: null, screen: '수행평가 설계', isNew: false, summary: '' },
+  // B5 = 직접 쓰는 과제 한 편에 다문항(09-22) + 작성 과정 기록(이탈 로깅, 09-02)을 함께(올립 09-23 "같은 내용")
+  { id: 'B5', cat: 'design', art: 'writing_log', since: '2026-09-22', title: '학생이 클리포에 직접 쓰는 과제 만들기', dur: null, yt: null, screen: '수행평가 설계 · 과제물 관리', isNew: false,
+    summary: '문항을 여러 개 나눠 내고, 학생은 클리포에서 문항마다 답을 써요. 제출 뒤에는 과제물 관리에서 글자 수가 어떻게 늘었는지, 쓰는 동안 다른 화면을 본 기록을 볼 수 있어요. 태도를 판단하는 근거가 아니라 답안을 이해하는 참고 정보예요.' },
 
   // 과제물 관리
   { id: 'C1', cat: 'files', art: 'upload_one', title: '학생 한 명 과제물 따로 올리기', dur: null, yt: null, screen: '과제물 관리', isNew: false, summary: '' },
@@ -68,8 +70,6 @@ window.VIDEOS = [
     summary: '학생별로 나뉜 과제물 파일을 한 번에 올리면, 파일 이름의 학생 이름으로 자동으로 짝지어져요. 짝이 틀리면 매칭 수정으로 바꿔요.' },
   { id: 'C3', cat: 'files', art: 'scanner', guide: 'ch4.html', title: '반 전체 스캔 PDF 한 장으로 올리기', dur: null, yt: null, screen: '과제물 관리', isNew: false, summary: '' },
   { id: 'C4', cat: 'files', art: 'send', title: '학생이 직접 제출하게 하기', dur: null, yt: null, screen: '과제물 관리 · 학생 화면', isNew: false, summary: '' },
-  { id: 'C6', cat: 'files', art: 'writing_log', since: '2026-09-02', title: '학생 작성 과정 기록 확인하기', dur: null, yt: null, screen: '과제물 관리', isNew: false,
-    summary: '학생이 클리포에서 직접 쓴 과제는 제출 뒤 과제물 관리에서 작성 과정을 볼 수 있어요. 글자 수가 어떻게 늘었는지, 쓰는 동안 다른 화면을 본 기록이 남아요. 태도를 판단하는 근거가 아니라 답안을 이해하는 참고 정보예요.' },
 
   // 수행평가 채점
   { id: 'D1', cat: 'grading', art: 'magnifier', guide: 'ch4.html', title: 'AI 채점 전에 확인하기', dur: null, yt: null, screen: '수행평가 채점', isNew: false, summary: '' },
