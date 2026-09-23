@@ -18,7 +18,7 @@
   function vcard(v) {
     var foot = v.since ? '<span class="badge upd">' + fmtShort(v.since) + ' 업데이트</span>' : (v.isNew ? '<span class="badge new">신규</span>' : '<span></span>');
     foot += v.dur ? '<span class="badge dur">' + TRI + ' ' + esc(v.dur) + '</span>' : '<span class="badge soon">준비 중</span>';
-    return '<a class="vcard" href="video.html?v=' + v.id + '" data-cat="' + v.cat + '" data-title="' + esc(v.title) + '">'
+    return '<a class="vcard' + (v.dur ? '' : ' soon') + '" href="video.html?v=' + v.id + '" data-cat="' + v.cat + '" data-title="' + esc(v.title) + '">'
       + '<div class="art">' + ((v.art && ART[v.art]) || ART['cat_' + v.cat]) + '</div>'
       + '<div class="cat">' + esc(CATS[v.cat].name) + '</div><div class="t">' + esc(v.title) + '</div>'
       + '<div class="foot">' + foot + '</div></a>';
@@ -212,7 +212,8 @@
   }
 
   if (page === 'video') {
-    var v = byId(qs('v')) || VIDEOS[0];
+    // 목록에 없는 주소(예: 배포 직후 옛 목록이 캐시된 경우)는 다른 영상 대신 '준비 중'으로 보인다
+    var v = byId(qs('v')) || { id: '', cat: 'start', title: '준비 중인 영상', dur: null, screen: '—' };
     document.title = v.title + ' · 클리포 블로그';
     $('#crumb').innerHTML = '<a href="learn.html">배우기</a> › <a href="learn.html#' + v.cat + '">' + esc(CATS[v.cat].name) + '</a>';
     $('#player').innerHTML = playerInner(v);
@@ -277,7 +278,7 @@
   function playerInner(v) {
     if (v && v.mp4) return '<video controls preload="metadata" playsinline' + (v.poster ? ' poster="' + v.poster + '"' : '') + ' style="position:absolute;inset:0;width:100%;height:100%;background:#000"><source src="' + v.mp4 + '" type="video/mp4"></video>';
     if (v && v.yt) return '<iframe src="https://www.youtube.com/embed/' + v.yt + '" title="' + esc(v.title) + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-    return '<div class="ico">' + PLAY + '</div><div>' + (v ? esc(v.title) : '') + '</div><div style="font-size:13px;opacity:.7">영상 준비 중</div>';
+    return '<div class="ico">' + PLAY + '</div><div>' + (v ? esc(v.title) : '') + '</div><div style="font-size:14px;opacity:.75;line-height:1.5;text-align:center">준비 중입니다.<br>올립이 추석 때 만들 수 있는 만큼 만드는 중</div>';
   }
   function subtabs(keys) {
     var show = function () {
