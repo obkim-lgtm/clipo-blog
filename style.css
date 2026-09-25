@@ -439,6 +439,9 @@ button,input{font-family:inherit;font-size:inherit}
 .aside .vthumb svg{width:28px;height:28px;flex-shrink:0}
 .aside .vt{flex:1;min-width:0;line-height:1.4}
 .aside li a:hover .vt{color:var(--blue)}
+/* 재생목록에서 지금 보는 영상 — 굵기는 그대로, 색·바탕으로만(폭이 들썩이지 않게) */
+.aside li a.on{background:var(--blue-bg);margin:0 -10px;padding:9px 10px;border-radius:10px;border-bottom-color:transparent}
+.aside li a.on .vt,.aside li a.on .dur{color:var(--blue)}
 .note{background:var(--blue-bg);border-radius:14px;padding:14px 16px;font-size:15px;color:var(--ink-2);display:flex;gap:10px;align-items:flex-start}
 .note .ic{color:var(--blue);flex-shrink:0;margin-top:2px}
 .crumb{font-size:14px;color:var(--mute)}

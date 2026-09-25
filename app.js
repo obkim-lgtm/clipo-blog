@@ -220,11 +220,16 @@
     $('#v-title').textContent = v.title;
     $('#v-meta').innerHTML = '<span class="kind">' + esc(CATS[v.cat].name) + '</span><span>' + (v.dur ? esc(v.dur) : '준비 중') + '</span><span>관련 화면: ' + esc(v.screen) + '</span>';
     $('#v-body').innerHTML = v.summary ? '<p>' + esc(v.summary) + '</p>' : '<p>영상 요약은 대본이 확정되면 들어가요.</p>';
-    var rel = VIDEOS.filter(function (x) { return x.cat === v.cat && x.id !== v.id; }).slice(0, 4);
+    // 같은 탭 재생목록 전체를 순서대로, 지금 보는 영상은 표시(09-25 올립). 준비 중인 영상은 빼되 지금 영상은 남긴다
+    var rel = VIDEOS.filter(function (x) { return x.cat === v.cat && (x.dur || x.id === v.id); });
+    var at = rel.indexOf(v);
+    var relH = $('#v-related').previousElementSibling;
+    if (relH && at > -1) relH.textContent = CATS[v.cat].name + ' · ' + (at + 1) + '/' + rel.length;
     $('#v-related').innerHTML = rel.map(function (x) {
       // 썸네일 = 배우기 카드와 같은 묶음별 파스텔 + 스티커 그림
       var art = (x.art && ART[x.art]) || ART['cat_' + x.cat] || '';
-      return '<li><a href="video.html?v=' + x.id + '"><span class="vthumb" data-cat="' + esc(x.cat) + '">' + art + '</span>'
+      var on = x.id === v.id ? ' class="on" aria-current="page"' : '';
+      return '<li><a href="video.html?v=' + x.id + '"' + on + '><span class="vthumb" data-cat="' + esc(x.cat) + '">' + art + '</span>'
         + '<span class="vt">' + esc(x.title) + '</span><span class="dur">' + (x.dur ? esc(x.dur) : '준비 중') + '</span></a></li>'; }).join('') || '<li><span class="empty">같은 묶음의 다른 영상이 없어요.</span></li>';
     var posts = published(POSTS).filter(function (p) { return (p.videos || []).indexOf(v.id) > -1; });
     $('#v-posts').innerHTML = posts.length ? posts.map(function (p) { return '<li><a href="post.html?p=' + p.id + '"><span class="kind ' + p.type + '">' + kindOf(p) + '</span><span>' + esc(p.title) + '</span></a></li>'; }).join('') : '<li><span style="color:var(--mute);font-size:14px">관련 글이 없어요.</span></li>';
