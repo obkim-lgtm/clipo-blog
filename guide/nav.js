@@ -12,8 +12,8 @@ const PAGES=[
 ];
 // 순서대로 읽는 흐름 밖에 있는 참고 문서
 const REFS=[
+ {file:'contest.html',num:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 00-3.5 10.9c.9.7 1.5 1.7 1.5 2.8V17h4v-.3c0-1.1.6-2.1 1.5-2.8A6 6 0 0012 3z"/></svg>',title:'채점기준 꿀팁'},       // 꿀팁(어떻게 쓰나) 먼저 → 예시(과목별로 보기)
  {file:'examples.html',num:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 016.5 3H20v15H6.5A2.5 2.5 0 004 20.5z"/><path d="M4 20.5A2.5 2.5 0 016.5 23H20v-5"/><path d="M9 7h7"/></svg>',title:'과목별 채점 예시'},   // 번호 대신 홈 카드와 같은 표시
- {file:'contest.html',num:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 00-3.5 10.9c.9.7 1.5 1.7 1.5 2.8V17h4v-.3c0-1.1.6-2.1 1.5-2.8A6 6 0 0012 3z"/></svg>',title:'채점기준 꿀팁'},
 ];
 // 연구 사례는 소제목 대신 사례 목록을 하위로 펼친다
 const CASES=[
@@ -52,7 +52,7 @@ const CASES=[
   };
   // 시작하기(홈)는 가이드·사례 모음을 모두 안내하는 문서라 그룹 밖 맨 위에 둔다
   let tree=`<ul>${PAGES.map(item).join('')}</ul>`;
-  tree+=`<div class="grp">예시와 사례</div><ul>${REFS.map(item).join('')}</ul>`;
+  tree+=`<div class="grp">꿀팁과 예시</div><ul>${REFS.map(item).join('')}</ul>`;
   document.querySelector('.wrap').insertAdjacentHTML('afterbegin',`<aside class="side${closed?' closed':''}" id="side">${tree}</aside>`);
   if(closed) document.body.classList.add('side-closed');
   // 오른쪽 목차. 소제목이 없는 문서도 **빈 칸을 그대로 둔다** —
