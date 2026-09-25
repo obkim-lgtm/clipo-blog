@@ -2,11 +2,12 @@
 // since: 이 기능이 업데이트된 날짜(YYYY-MM-DD). 있으면 배우기 '최근 업데이트된 기능'에 90일간 노출. art: 카드 그림 키(data/art.js). mp4: 직접 재생 파일(있으면 yt보다 우선). dur: "1:20" 게시됨 / null 준비 중. yt: 유튜브 ID(게시 후). screen: 관련 제품 화면(2단계 맥락 링크용).
 window.CATS = {
   start:   { name: '시작하기',      desc: '한 학기 흐름 순서로 보는 재생목록' },
-  class:   { name: '수업·학생',     desc: '학생 등록, 수업, 권한' },
+  class:   { name: '수업·참여 학생', desc: '수업 만들기, 참여 학생, 수업 보관' },
   design:  { name: '수행평가 설계', desc: '성취기준, 채점기준 AI 생성' },
   files:   { name: '과제물 관리',   desc: '개별·일괄·스캔 업로드, 학생 제출' },
   grading: { name: '수행평가 채점', desc: 'AI 채점 결과 확인, 재채점, 내보내기' },
   record:  { name: '생기부',        desc: '세특·창체·행특 초안' },
+  school:  { name: '학교 설정',     desc: '학생 계정, 선생님 관리' },
   account: { name: '계정·이용권',   desc: '크레딧, 이용권, 학교 도입, 소속 변경' },
 };
 
@@ -46,25 +47,39 @@ window.VIDEOS = [
     mp4: 'video/s6.mp4?v=2', poster: 'video/s6_poster.jpg?v=2', screen: '수행평가 채점 · 세부능력 및 특기사항 지원', isNew: false,
     summary: '수행평가 채점 목록에서 평가를 마감한 뒤, 채점 결과로 학생마다 다른 세특 초안을 받아요. 기록 근거를 보며 고치고, 정하는 건 선생님이에요.' },
 
-  // 수업·학생
-  { id: 'A1', cat: 'class', art: 'sheet', title: '학생 명렬 엑셀로 한 번에 등록하기', dur: null, yt: null, screen: '학교 설정 · 학생', isNew: false, summary: '' },
-  { id: 'A2', cat: 'class', art: 'lock', title: '학생 계정 비밀번호 바꿔 주기', dur: null, yt: null, screen: '학교 설정 · 학생', isNew: false, summary: '' },
-  { id: 'A4', cat: 'class', art: 'crown', title: '대표교사 바꾸기', dur: null, yt: null, screen: '학교 설정 · 선생님', isNew: false, summary: '' },
-  { id: 'A5', cat: 'class', art: 'stamp', title: '동료 교사 인증 승인하기', dur: null, yt: null, screen: '학교 설정 · 선생님', isNew: false, summary: '' },
-  { id: 'A6', cat: 'class', art: 'phone', title: '학생 로그인 방법 안내하기', dur: null, yt: null, screen: '학생 화면', isNew: false, summary: '' },
+  // 수업·참여 학생 — 수업 단위. 학생 '계정'(등록·비밀번호)은 학교 설정 탭(09-25 올립: 말을 갈라 헷갈리지 않게 — 수업 쪽은 '참여 학생')
+  { id: 'A8', cat: 'class', art: 'cat_class', title: '수업 만들기', dur: '0:21', yt: null,
+    mp4: 'video/a8.mp4?v=1', poster: 'video/a8_poster.jpg?v=1', screen: '홈 · 내 수업', isNew: false,
+    summary: '홈의 수업 만들기에서 학기·학년, 교육과정과 과목, 수업명, 반 편성 방식을 정해요. 과목이 목록에 없으면 내 정보에서 담당 교과를 먼저 맞춰요.' },
+  { id: 'A9', cat: 'class', art: 'people_plus', title: '참여 학생 더하고 빼기', dur: '0:25', yt: null,
+    mp4: 'video/a9.mp4?v=1', poster: 'video/a9_poster.jpg?v=1', screen: '수업 홈 · 참여 학생 관리', isNew: false,
+    summary: '수업 홈의 참여 학생 관리에서 반별 학생을 확인하고 더하거나 빼요. 전학생은 수업에 저절로 들어오지 않아 직접 더해요.' },
+  { id: 'A6', cat: 'class', art: 'phone', title: '참여 학생에게 로그인 방법 안내하기', dur: null, yt: null, screen: '학생 화면', isNew: false, summary: '' },
   { id: 'A7', cat: 'class', art: 'box', title: '수업 보관하고 다시 꺼내기', dur: null, yt: null, screen: '홈 · 내 수업', isNew: false, summary: '' },
 
-  // 수행평가 설계
+  // 수행평가 설계 — 순서 = 제품 `수행평가 만들기` 메뉴(새로 만들기 · 복사해서 만들기 · 평가계획에서 가져오기) → 채점기준 AI → 원칙 → 직접 쓰는 과제 (올립 09-25)
+  // B1 = 새로 만들기 한 편에 성취기준 고르기(고르면 상·중·하 자동, 직접 고칠 수 있음) · 채점기준 직접 추가 · 미제출·미응시 처리까지(옛 B3·B7 합침)
+  { id: 'B1', cat: 'design', art: 'target', title: '수행평가 새로 만들기', dur: '1:00', yt: null,
+    mp4: 'video/b1.mp4?v=1', poster: 'video/b1_poster.jpg?v=1', screen: '수행평가 설계', isNew: false,
+    summary: '이름과 성취기준을 넣고, 채점기준을 직접 적어 수행평가를 만들어요. 성취기준을 고르면 상·중·하 성취수준이 채워지고, 점수 산출 방법과 미제출·미응시 점수, 과제물 받는 방법까지 정한 뒤 저장해요.' },
+  // B6 = 복사는 평가계획 쪽(평가계획 만들기 → 복사해서 만들기, 다른 선생님의 평가계획) → 수행평가 설계에서 평가계획에서 가져오기(09-25 올립)
+  { id: 'B6', cat: 'design', art: 'book_tags', title: '다른 선생님 평가계획 복사해서 쓰기', dur: '0:30', yt: null,
+    mp4: 'video/b6.mp4?v=1', poster: 'video/b6_poster.jpg?v=1', screen: '평가계획 · 수행평가 설계', isNew: false,
+    summary: '평가계획의 복사해서 만들기에서 다른 선생님이 만든 평가계획을 찾아 복사해요. 복사한 계획은 수행평가 설계에서 평가계획에서 가져오기로 불러와요.' },
+  { id: 'P1', cat: 'design', art: 'clipboard', title: '평가계획에서 가져와 만들기', dur: '0:35', yt: null,
+    mp4: 'video/p1.mp4?v=1', poster: 'video/p1_poster.jpg?v=1', screen: '평가계획 · 수행평가 설계', isNew: false,
+    summary: '왼쪽 메뉴 평가계획에서 계획을 만들어 두면 여러 수행평가에서 쓸 수 있어요. 수행평가 설계에서 평가계획에서 가져오기로 골라 적용해요.' },
+  // B2 = 채점기준 AI 생성 창의 방법들(한두 문장 · 활동지 올리기 · 쓰던 채점기준표 사진)을 한 편에(옛 B4·B8 합침)
+  { id: 'B2', cat: 'design', art: 'tags', guide: 'ch2.html', title: '채점기준 AI로 만들기: 문장·활동지·사진', dur: '0:49', yt: null,
+    mp4: 'video/b2.mp4?v=1', poster: 'video/b2_poster.jpg?v=1', screen: '수행평가 설계', isNew: false,
+    summary: '채점기준 AI 생성 창에서 한두 문장으로 적거나, 활동지 이미지를 올리거나, 채점요소와 급간 수만 정하거나, 쓰던 채점기준표 사진을 올려 초안을 받아요. 쓸 것만 골라 적용해요.' },
   // 원칙 영상(2~3분) — AI 채점 가이드 2장 기반, 시연 계정 실제 화면. 영상 소스 clipo_promo_video `Learn-Rubric` (09-23 첫 게시, 내용은 다듬는 중)
   { id: 'R1', cat: 'design', art: 'compass', guide: 'ch2.html', title: '채점기준 잘 쓰는 법', dur: '2:26', yt: null,
     mp4: 'video/rubric.mp4?v=4', poster: 'video/rubric_poster.jpg?v=3', screen: '수행평가 설계', isNew: false,
     summary: 'AI 채점이 선생님 점수와 잘 맞으려면 채점기준을 어떻게 써야 할까요? 같은 답안 스무 장을 채점기준만 바꿔 다시 채점해 본 결과와 함께, 잘 맞는 쓰기 네 가지와 피할 것 세 가지를 봐요.' },
-  { id: 'B1', cat: 'design', art: 'target', title: '교육과정 성취기준 골라 넣기', dur: null, yt: null, screen: '수행평가 설계', isNew: false, summary: '' },
-  { id: 'B2', cat: 'design', art: 'tags', title: '키워드로 채점기준 초안 만들기', dur: null, yt: null, screen: '수행평가 설계', isNew: false, summary: '' },
-  { id: 'B3', cat: 'design', art: 'checklist', title: '채점요소 정해서 채점기준 만들기', dur: null, yt: null, screen: '수행평가 설계', isNew: false, summary: '' },
-  { id: 'B4', cat: 'design', art: 'camera', guide: 'examples.html', title: '쓰던 채점기준표 사진으로 가져오기', dur: null, yt: null, screen: '수행평가 설계', isNew: false, summary: '' },
   // B5 = 직접 쓰는 과제 한 편에 다문항(09-22) + 작성 과정 기록(이탈 로깅, 09-02)을 함께(올립 09-23 "같은 내용")
-  { id: 'B5', cat: 'design', art: 'writing_log', since: '2026-09-22', title: '학생이 클리포에 직접 쓰는 과제 만들기', dur: null, yt: null, screen: '수행평가 설계 · 과제물 관리', isNew: false,
+  { id: 'B5', cat: 'design', art: 'writing_log', since: '2026-09-22', title: '학생이 클리포에 직접 쓰는 과제 만들기', dur: '0:50', yt: null,
+    mp4: 'video/b5.mp4?v=1', poster: 'video/b5_poster.jpg?v=1', screen: '수행평가 설계 · 과제물 관리', isNew: false,
     summary: '문항을 여러 개 나눠 내고, 학생은 클리포에서 문항마다 답을 써요. 제출 뒤에는 과제물 관리에서 글자 수가 어떻게 늘었는지, 쓰는 동안 다른 화면을 본 기록을 볼 수 있어요. 태도를 판단하는 근거가 아니라 답안을 이해하는 참고 정보예요.' },
 
   // 과제물 관리
@@ -90,6 +105,12 @@ window.VIDEOS = [
   { id: 'E4', cat: 'record', art: 'quote', title: '일화 몇 줄로 행특 초안 만들기', dur: null, yt: null, screen: '행동특성 및 종합기록 지원', isNew: false, summary: '' },
   { id: 'E5', cat: 'record', art: 'byte_ruler', title: 'NEIS 글자 수에 맞추기', dur: null, yt: null, screen: '생기부 공통', isNew: false, summary: '' },
   { id: 'E6', cat: 'record', art: 'apple', since: '2026-06-25', title: '초등 교과학습발달상황 초안 만들기', dur: null, yt: null, screen: '교과학습발달상황 지원', isNew: false, summary: '' },
+
+  // 학교 설정 — 제품 메뉴 [학교 설정](학생 · 선생님 · 학교 이용권 · 공유 크레딧). 목록은 다음 차례에 정의
+  { id: 'A1', cat: 'school', art: 'sheet', title: '학생 계정 엑셀로 한 번에 만들기', dur: null, yt: null, screen: '학교 설정 · 학생', isNew: false, summary: '' },
+  { id: 'A2', cat: 'school', art: 'lock', title: '학생 비밀번호 바꿔 주기', dur: null, yt: null, screen: '학교 설정 · 학생', isNew: false, summary: '' },
+  { id: 'A4', cat: 'school', art: 'crown', title: '대표교사 바꾸기', dur: null, yt: null, screen: '학교 설정 · 선생님', isNew: false, summary: '' },
+  { id: 'A5', cat: 'school', art: 'stamp', title: '동료 교사 인증 승인하기', dur: null, yt: null, screen: '학교 설정 · 선생님', isNew: false, summary: '' },
 
   // 계정·이용권
   { id: 'F1', cat: 'account', art: 'coins', title: 'AI 크레딧 차감 방식 알아보기', dur: null, yt: null, screen: '이용권 관리', isNew: false, summary: '' },

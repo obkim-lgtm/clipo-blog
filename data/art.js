@@ -11,6 +11,7 @@
     cat_files:   W('<rect x="26" y="26" width="48" height="58" rx="8"/><rect x="18" y="16" width="48" height="58" rx="8"/><path d="M30 36h24M30 48h24M30 60h14" stroke-width="4" opacity=".6"/>'),
     cat_grading: W('<circle cx="48" cy="42" r="26"/><path d="M36 42l9 9 17-18" stroke-width="6"/><path d="M34 64l-6 22 20-10 20 10-6-22"/>'),
     cat_record:  W('<rect x="18" y="14" width="56" height="68" rx="8"/><path d="M18 30h56"/><path d="M32 46h28M32 58h28M32 70h16" stroke-width="4" opacity=".6"/><path d="M70 44l12 12-22 22-14 2 2-14z"/>'),
+    cat_school:  W('<rect x="18" y="26" width="60" height="58" rx="4"/><path d="M12 26h72M40 14h16v12H40z"/><path d="M30 42h8M44 42h8M58 42h8M30 56h8M44 56h8M58 56h8M42 84V70h12v14"/>'),
     cat_account: W('<rect x="12" y="26" width="72" height="46" rx="10"/><path d="M12 40h72"/><rect x="22" y="50" width="20" height="10" rx="3"' + SOLID + ' opacity=".5"/><circle cx="70" cy="56" r="7"' + SOLID + ' opacity=".35"/>'),
 
     // ---- 시작하기 ----
