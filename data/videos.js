@@ -6,7 +6,7 @@ window.CATS = {
   design:  { name: '수행평가 설계', desc: '성취기준, 채점기준 AI 생성' },
   files:   { name: '과제물 관리',   desc: '개별·일괄·스캔 업로드, 학생 제출' },
   grading: { name: '수행평가 채점', desc: 'AI 채점, 점수 확정, 피드백 공개, 마감' },
-  record:  { name: '생기부',        desc: '세특·창체·행특 초안' },
+  record:  { name: '생기부',        desc: '세특·창체·행특 초안과 다듬기' },
   school:  { name: '학교 설정',     desc: '학생 계정, 선생님 관리' },
   account: { name: '계정·이용권',   desc: '크레딧, 이용권, 학교 도입, 소속 변경' },
 };
@@ -118,13 +118,22 @@ window.VIDEOS = [
     mp4: 'video/d11.mp4?v=1', poster: 'video/d11_poster.jpg?v=1', screen: '수행평가 채점', isNew: false,
     summary: '채점 목록에서 마감하면 과제물을 더 올리거나 바꿀 수 없어요. 세특 초안은 마감한 수행평가로만 만들어요.' },
 
-  // 생기부
-  { id: 'E1', cat: 'record', art: 'compass', since: '2026-07-22', title: '세특 초안 방향 바꿔 다시 받기', dur: null, yt: null, screen: '세부능력 및 특기사항 지원', isNew: false, summary: '' },
-  { id: 'E2', cat: 'record', art: 'book_tags', title: '채점 없이 키워드로 세특 만들기', dur: null, yt: null, screen: '세특 간편 생성기', isNew: false, summary: '' },
-  { id: 'E3', cat: 'record', art: 'clipboard', title: '활동지·설문 올려 창체 초안 만들기', dur: null, yt: null, screen: '창의적 체험활동', isNew: false, summary: '' },
-  { id: 'E4', cat: 'record', art: 'quote', title: '일화 몇 줄로 행특 초안 만들기', dur: null, yt: null, screen: '행동특성 및 종합기록 지원', isNew: false, summary: '' },
-  { id: 'E5', cat: 'record', art: 'byte_ruler', title: 'NEIS 글자 수에 맞추기', dur: null, yt: null, screen: '생기부 공통', isNew: false, summary: '' },
-  { id: 'E6', cat: 'record', art: 'apple', since: '2026-06-25', title: '초등 교과학습발달상황 초안 만들기', dur: null, yt: null, screen: '교과학습발달상황 지원', isNew: false, summary: '' },
+  // 생기부 — 순서 = 수업 세특 → 다듬기 → 간편 생성기 → 창체 → 행특 (09-25 올립). 초등 교과학습발달상황(E6)은 뺌, NEIS 글자 수(E5)는 E0·E1 안에서
+  { id: 'E0', cat: 'record', art: 'notebook', title: '채점 결과로 세특 초안 만들기', dur: '1:15', yt: null,
+    mp4: 'video/e0.mp4?v=1', poster: 'video/e0_poster.jpg?v=1', screen: '수행평가 채점 · 세부능력 및 특기사항 지원', isNew: false,
+    summary: '세특은 마감한 수행평가로만 만들어요. 채점 목록에서 마감한 뒤 생성 옵션을 정하고, 학생마다 다른 초안을 받아 기록 근거를 보며 고쳐요.' },
+  { id: 'E1', cat: 'record', art: 'compass', since: '2026-07-22', title: '세특 초안 다듬기', dur: '0:38', yt: null,
+    mp4: 'video/e1.mp4?v=1', poster: 'video/e1_poster.jpg?v=1', screen: '세부능력 및 특기사항 지원 · 세특 간편 생성기', isNew: false,
+    summary: 'AI 기록 다듬기에서 학생을 여러 명 고르고 "분량을 줄여 줘"처럼 방향을 적으면 다시 써 줘요. 화살표로 다듬기 전 기록과 비교해요.' },
+  { id: 'E2', cat: 'record', art: 'book_tags', title: '채점 없이 세특 만들기 (간편 생성기)', dur: '0:56', yt: null,
+    mp4: 'video/e2.mp4?v=1', poster: 'video/e2_poster.jpg?v=1', screen: '세특 간편 생성기', isNew: false,
+    summary: '채점한 과제물이 없어도 과목·성취기준과 학생별 키워드·활동, 자기평가서 같은 자료로 세특 초안을 만들어요. 엑셀로 내려받아 나이스에 올려요.' },
+  { id: 'E3', cat: 'record', art: 'clipboard', title: '활동지·설문 올려 창체 초안 만들기', dur: '1:10', yt: null,
+    mp4: 'video/e3.mp4?v=1', poster: 'video/e3_poster.jpg?v=1', screen: '창의적 체험활동', isNew: false,
+    summary: '자율·진로·동아리 활동을 추가하고 학생 자료를 올리면, AI가 분석해 추천한 항목을 골라 초안을 만들어요. 완성한 기록은 엑셀로 내보내요.' },
+  { id: 'E4', cat: 'record', art: 'quote', title: '키워드와 일화로 행특 초안 만들기', dur: '1:15', yt: null,
+    mp4: 'video/e4.mp4?v=2', poster: 'video/e4_poster.jpg?v=2', screen: '행동특성 및 종합기록 지원', isNew: false,
+    summary: '학생 그룹을 만들고 키워드 사전에서 고르거나 일화를 적으면 행특 초안이 나와요. 가져와서 선생님 말로 다듬어 저장하고, 엑셀로 내려받아요.' },
 
   // 학교 설정 — 제품 메뉴 [학교 설정](학생 · 선생님 · 학교 이용권 · 공유 크레딧). 목록은 다음 차례에 정의
   { id: 'A1', cat: 'school', art: 'sheet', title: '학생 계정 엑셀로 한 번에 만들기', dur: null, yt: null, screen: '학교 설정 · 학생', isNew: false, summary: '' },
