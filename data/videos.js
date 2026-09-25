@@ -5,7 +5,7 @@ window.CATS = {
   class:   { name: '수업·참여 학생', desc: '수업 만들기, 참여 학생, 수업 보관' },
   design:  { name: '수행평가 설계', desc: '성취기준, 채점기준 AI 생성' },
   files:   { name: '과제물 관리',   desc: '개별·일괄·스캔 업로드, 학생 제출' },
-  grading: { name: '수행평가 채점', desc: 'AI 채점 결과 확인, 재채점, 내보내기' },
+  grading: { name: '수행평가 채점', desc: 'AI 채점, 점수 확정, 피드백 공개, 마감' },
   record:  { name: '생기부',        desc: '세특·창체·행특 초안' },
   school:  { name: '학교 설정',     desc: '학생 계정, 선생님 관리' },
   account: { name: '계정·이용권',   desc: '크레딧, 이용권, 학교 도입, 소속 변경' },
@@ -104,10 +104,19 @@ window.VIDEOS = [
     summary: '종이 과제물은 AI가 글씨를 읽은 뒤 채점해요. 활동지는 한 단으로, 채점 표시는 스캔한 뒤에, 답은 답란 안에. 잘못 읽히기 쉬운 표기와 글씨, 받는 방법별 차이, 파일 조건까지 AI 채점 가이드 3장 순서로 봐요.' },
 
   // 수행평가 채점
-  { id: 'D1', cat: 'grading', art: 'magnifier', guide: 'ch4.html', title: 'AI 채점 전에 확인하기', dur: null, yt: null, screen: '수행평가 채점', isNew: false, summary: '' },
-  { id: 'D2', cat: 'grading', art: 'bubble_score', title: '채점 근거 읽고 점수 고치기', dur: null, yt: null, screen: '수행평가 채점', isNew: false, summary: '' },
-  { id: 'D3', cat: 'grading', art: 'bubble_pen', title: '피드백 초안 다듬기', dur: null, yt: null, screen: '수행평가 채점', isNew: false, summary: '' },
-  { id: 'D4', cat: 'grading', art: 'refresh', title: '다시 채점하기', dur: null, yt: null, screen: '수행평가 채점', isNew: false, summary: '' },
+  // 순서 = 채점 전 확인 → 점수 매기기(근거·고치기·재실행·확정) → 피드백·공개 → 마감 (09-25 올립: D2+재실행+확정 합침, D4 없앰). D6 OCR·D7 동료 확인은 배포 뒤
+  { id: 'D1', cat: 'grading', art: 'magnifier', guide: 'ch4.html', title: 'AI로 채점할 수 있는 답안', dur: '1:05', yt: null,
+    mp4: 'video/d1.mp4?v=1', poster: 'video/d1_poster.jpg?v=1', screen: '수행평가 채점', isNew: false,
+    summary: '줄글·수식·표·그림 답안은 채점돼요. 직접 그린 그래프나 개수 세기는 결과를 한 번 확인하고, 지도 위 표기는 아직 어려워요.' },
+  { id: 'D2', cat: 'grading', art: 'bubble_score', guide: 'ch5.html', title: 'AI 채점하고 점수 확정하기', dur: '1:26', yt: null,
+    mp4: 'video/d2.mp4?v=1', poster: 'video/d2_poster.jpg?v=1', screen: '수행평가 채점', isNew: false,
+    summary: '학급 단위로 AI 채점을 돌리고 채점 근거를 읽으며 점수를 고쳐요. 결과가 많이 다르면 재실행하고, 마지막에 점수를 일괄 확정해요.' },
+  { id: 'D3', cat: 'grading', art: 'bubble_pen', title: '피드백 다듬고 학생에게 공개하기', dur: '1:19', yt: null,
+    mp4: 'video/d3.mp4?v=1', poster: 'video/d3_poster.jpg?v=1', screen: '수행평가 채점', isNew: false,
+    summary: 'AI 피드백 초안을 선생님 피드백 칸으로 옮겨 다듬고, 결과 공개에서 학생이 클리포로 볼지 PDF로 받을지 정해요.' },
+  { id: 'D11', cat: 'grading', art: 'lock', title: '평가 마감하고 마감 취소하기', dur: '0:20', yt: null,
+    mp4: 'video/d11.mp4?v=1', poster: 'video/d11_poster.jpg?v=1', screen: '수행평가 채점', isNew: false,
+    summary: '채점 목록에서 마감하면 과제물을 더 올리거나 바꿀 수 없어요. 세특 초안은 마감한 수행평가로만 만들어요.' },
 
   // 생기부
   { id: 'E1', cat: 'record', art: 'compass', since: '2026-07-22', title: '세특 초안 방향 바꿔 다시 받기', dur: null, yt: null, screen: '세부능력 및 특기사항 지원', isNew: false, summary: '' },

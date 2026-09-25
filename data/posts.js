@@ -146,7 +146,7 @@ window.POSTS = [
       '<p>기존에는 세 가지 모델 중 골라 썼지만, 모든 교과에서 가장 좋은 성능을 보인 모델 하나에 집중해 더 빠르게 좋은 변화를 전하려고 해요.</p>',
       '<h3>이런 점은 안심하세요</h3>',
       '<ul><li>그동안 채점한 결과는 그대로 보존돼요.</li><li>같은 답안을 새 모델로 다시 채점하면 정확도가 향상된 결과를 받아요.</li><li>학생 평가 자료, 세특 기록은 모두 안전하게 유지돼요.</li></ul>'
-    ], videos: ['D4'] },
+    ], videos: ['D2'] },
 
   { id: 'u-260520', type: 'update', date: '2026-05-20', version: 'v2.21', notice: 'https://clipo.ai/teachers/helps/notices/81n9GG8avE6n9jOteLkvMQ',
     title: '채점이 더 정확해졌어요',
