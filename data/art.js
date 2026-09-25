@@ -29,6 +29,7 @@
     stairs:      W('<path d="M12 80h20V60h20V40h20V20h12"/><path d="M66 12l12 8-6 12" opacity=".5"/>'),
     crown:       W('<path d="M16 66L22 30l18 16 8-22 8 22 18-16 6 36z"/><path d="M16 66h64v12H16z"/>'),
     stamp:       W('<rect x="18" y="62" width="60" height="16" rx="4"/><path d="M40 62V46a8 8 0 0116 0v16"/><circle cx="48" cy="28" r="10"/>'),
+    phone_up:    W('<rect x="30" y="12" width="36" height="72" rx="8"/><path d="M44 74h8"/><path d="M48 58V32M38 42l10-10 10 10"/>'),
     phone:       W('<rect x="30" y="12" width="36" height="72" rx="8"/><path d="M44 72h8"/><path d="M10 46h28M28 36l10 10-10 10"/>'),
     box:         W('<rect x="14" y="26" width="68" height="16" rx="4"/><path d="M20 42v34a6 6 0 006 6h44a6 6 0 006-6V42"/><path d="M40 56h16"/>'),
 

@@ -5,9 +5,9 @@ window.CATS = {
   class:   { name: '수업·참여 학생', desc: '수업 만들기, 참여 학생, 수업 보관' },
   design:  { name: '수행평가 설계', desc: '성취기준, 채점기준 AI 생성' },
   files:   { name: '과제물 관리',   desc: '개별·일괄·스캔 업로드, 학생 제출' },
-  grading: { name: '수행평가 채점', desc: 'AI 채점, 점수 확정, 피드백 공개, 마감' },
+  grading: { name: '수행평가 채점', desc: 'AI 채점, 점수 확정, 피드백 공개' },
   record:  { name: '생기부',        desc: '세특·창체·행특 초안과 다듬기' },
-  school:  { name: '학교 설정',     desc: '학생 계정, 선생님 관리' },
+  school:  { name: '학교 설정',     desc: '학생 계정, 선생님 인증, 이용권, 소속 변경' },
   account: { name: '계정·이용권',   desc: '크레딧, 이용권, 학교 도입, 소속 변경' },
 };
 
@@ -16,7 +16,7 @@ window.GUIDE_CH = {
   'index.html': 'AI 채점은 어떻게 동작하나요?',
   'ch1.html': 'AI는 이렇게 채점해요', 'ch2.html': '채점기준은 이렇게 써요', 'ch3.html': '과제물은 이렇게 준비해요',
   'ch4.html': '이런 답안까지 채점돼요', 'ch5.html': '결과가 다를 땐 이렇게 해요', 'ch6.html': '자주 묻는 질문',
-  'examples.html': '과목별 채점 예시'
+  'examples.html': '과목별 채점 예시', 'contest.html#tips': '선생님들이 찾은 채점기준 꿀팁'
 };
 window.GUIDE_BY_CAT = { design: 'ch2.html', files: 'ch3.html', grading: 'ch5.html' };
 
@@ -54,8 +54,12 @@ window.VIDEOS = [
   { id: 'A9', cat: 'class', art: 'people_plus', title: '참여 학생 더하고 빼기', dur: '0:25', yt: null,
     mp4: 'video/a9.mp4?v=2', poster: 'video/a9_poster.jpg?v=2', screen: '수업 홈 · 참여 학생 관리', isNew: false,
     summary: '수업 홈의 참여 학생 관리에서 반별 학생을 확인하고 더하거나 빼요. 전학생은 수업에 저절로 들어오지 않아 직접 더해요.' },
-  { id: 'A6', cat: 'class', art: 'phone', title: '참여 학생에게 로그인 방법 안내하기', dur: null, yt: null, screen: '학생 화면', isNew: false, summary: '' },
-  { id: 'A7', cat: 'class', art: 'box', title: '수업 보관하고 다시 꺼내기', dur: null, yt: null, screen: '홈 · 내 수업', isNew: false, summary: '' },
+  { id: 'A6', cat: 'class', art: 'phone', title: '참여 학생에게 로그인 방법 안내하기', dur: '0:46', yt: null,
+    mp4: 'video/a6.mp4?v=1', poster: 'video/a6_poster.jpg?v=1', screen: '학생 로그인 화면', isNew: false,
+    summary: '학생은 clipo.ai에서 학생 로그인을 골라 학년도·학교를 고르고, 아이디(학번)와 초기 비밀번호(이름 영문 자판)로 들어와요. 비밀번호를 잊으면 선생님이 바꿔 줘요.' },
+  { id: 'A7', cat: 'class', art: 'box', title: '수업 보관하고 다시 꺼내기', dur: '0:35', yt: null,
+    mp4: 'video/a7.mp4?v=1', poster: 'video/a7_poster.jpg?v=1', screen: '홈 · 내 수업', isNew: false,
+    summary: '다 쓴 수업은 카드 메뉴에서 보관해요. 보관한 수업 보기를 켜면 다시 보이고, 보관 해지로 진행 중 목록에 돌려놔요.' },
 
   // 수행평가 설계 — 순서 = 제품 `수행평가 만들기` 메뉴(새로 만들기 · 복사해서 만들기 · 평가계획에서 가져오기) → 채점기준 AI → 원칙 → 직접 쓰는 과제 (올립 09-25)
   // B1 = 새로 만들기 한 편에 성취기준 고르기(고르면 상·중·하 자동, 직접 고칠 수 있음) · 채점기준 직접 추가 · 미제출·미응시 처리까지(옛 B3·B7 합침)
@@ -74,8 +78,8 @@ window.VIDEOS = [
     mp4: 'video/b2.mp4?v=2', poster: 'video/b2_poster.jpg?v=2', screen: '수행평가 설계', isNew: false,
     summary: '채점기준 AI 생성 창에서 한두 문장으로 적거나, 활동지 이미지를 올리거나, 채점요소와 급간 수만 정하거나, 쓰던 채점기준표 사진을 올려 초안을 받아요. 쓸 것만 골라 적용해요.' },
   // 원칙 영상(2~3분) — AI 채점 가이드 2장 기반, 시연 계정 실제 화면. 영상 소스 clipo_promo_video `Learn-Rubric` (09-23 첫 게시, 내용은 다듬는 중)
-  { id: 'R1', cat: 'design', art: 'compass', guide: 'ch2.html', title: '채점기준 잘 쓰는 법', dur: '2:26', yt: null,
-    mp4: 'video/rubric.mp4?v=6', poster: 'video/rubric_poster.jpg?v=5', screen: '수행평가 설계', isNew: false,
+  { id: 'R1', cat: 'design', art: 'compass', guide: 'contest.html#tips', title: '채점기준 잘 쓰는 법', dur: '2:26', yt: null,
+    mp4: 'video/rubric.mp4?v=7', poster: 'video/rubric_poster.jpg?v=6', screen: '수행평가 설계', isNew: false,
     summary: 'AI는 채점기준 문장에 적힌 것만, 적힌 대로 봐요. AI가 볼 곳을 알려 주고, 판단을 하나로 모으고, 만점의 높이를 맞추는 세 가지 원칙을 선생님들이 실제로 고친 문장 전·후와 결과로 봐요.' },
   // B5 = 직접 쓰는 과제 한 편에 다문항(09-22) + 작성 과정 기록(이탈 로깅, 09-02)을 함께(올립 09-23 "같은 내용")
   { id: 'B5', cat: 'design', art: 'writing_log', since: '2026-09-22', title: '학생이 클리포에 직접 쓰는 과제 만들기', dur: '0:50', yt: null,
@@ -96,7 +100,7 @@ window.VIDEOS = [
   { id: 'C4', cat: 'files', art: 'send', title: '학생 작성 과정 기록 보기', dur: '0:35', yt: null,
     mp4: 'video/c4.mp4?v=1', poster: 'video/c4_poster.jpg?v=1', screen: '과제물 관리', isNew: false,
     summary: '학생이 클리포에서 직접 쓴 과제는 과제 제출 현황에서 글자 수와 작성 기록을 볼 수 있어요. 글자 수가 늘어난 흐름, 다른 화면을 본 횟수와 시간이 그래프로 나와요. 평가의 참고자료이고 부정행위를 판단하지 않아요.' },
-  { id: 'C6', cat: 'files', art: 'phone', title: '학생은 이렇게 제출해요', dur: '0:36', yt: null,
+  { id: 'C6', cat: 'files', art: 'phone_up', title: '학생 제출 화면 살펴보기', dur: '0:36', yt: null,
     mp4: 'video/c6.mp4?v=1', poster: 'video/c6_poster.jpg?v=1', screen: '학생 화면', isNew: false,
     summary: '학생은 과제 목록에서 제출하기를 눌러 과제 안내와 문항을 읽고 답을 써요. 다 쓰면 과제 제출을 누르고, 마감 전까지는 수정해서 다시 낼 수 있어요.' },
   { id: 'R2', cat: 'files', art: 'compass', guide: 'ch3.html', title: 'AI가 잘 읽는 과제물 준비하기', dur: '1:38', yt: null,
@@ -104,7 +108,7 @@ window.VIDEOS = [
     summary: '종이 과제물은 AI가 글씨를 읽은 뒤 채점해요. 활동지는 한 단으로, 채점 표시는 스캔한 뒤에, 답은 답란 안에. 잘못 읽히기 쉬운 표기와 글씨, 받는 방법별 차이, 파일 조건까지 AI 채점 가이드 3장 순서로 봐요.' },
 
   // 수행평가 채점
-  // 순서 = 채점 전 확인 → 점수 매기기(근거·고치기·재실행·확정) → 피드백·공개 → 마감 (09-25 올립: D2+재실행+확정 합침, D4 없앰). D6 OCR·D7 동료 확인은 배포 뒤
+  // 순서 = 채점 전 확인 → 점수 매기기(근거·고치기·재실행·확정) → 피드백·공개 (09-25 올립: D2+재실행+확정 합침, D4 없앰, D11 마감은 20초라 뺌 — 마감은 S6·E0 앞부분에 있음). D6 OCR·D7 동료 확인은 배포 뒤
   { id: 'D1', cat: 'grading', art: 'magnifier', guide: 'ch4.html', title: 'AI로 채점할 수 있는 답안', dur: '1:05', yt: null,
     mp4: 'video/d1.mp4?v=1', poster: 'video/d1_poster.jpg?v=1', screen: '수행평가 채점', isNew: false,
     summary: '줄글·수식·표·그림 답안은 채점돼요. 직접 그린 그래프나 개수 세기는 결과를 한 번 확인하고, 지도 위 표기는 아직 어려워요.' },
@@ -114,9 +118,6 @@ window.VIDEOS = [
   { id: 'D3', cat: 'grading', art: 'bubble_pen', title: '피드백 다듬고 학생에게 공개하기', dur: '1:19', yt: null,
     mp4: 'video/d3.mp4?v=1', poster: 'video/d3_poster.jpg?v=1', screen: '수행평가 채점', isNew: false,
     summary: 'AI 피드백 초안을 선생님 피드백 칸으로 옮겨 다듬고, 결과 공개에서 학생이 클리포로 볼지 PDF로 받을지 정해요.' },
-  { id: 'D11', cat: 'grading', art: 'lock', title: '평가 마감하고 마감 취소하기', dur: '0:20', yt: null,
-    mp4: 'video/d11.mp4?v=1', poster: 'video/d11_poster.jpg?v=1', screen: '수행평가 채점', isNew: false,
-    summary: '채점 목록에서 마감하면 과제물을 더 올리거나 바꿀 수 없어요. 세특 초안은 마감한 수행평가로만 만들어요.' },
 
   // 생기부 — 순서 = 수업 세특 → 다듬기 → 간편 생성기 → 창체 → 행특 (09-25 올립). 초등 교과학습발달상황(E6)은 뺌, NEIS 글자 수(E5)는 E0·E1 안에서
   { id: 'E0', cat: 'record', art: 'notebook', title: '채점 결과로 세특 초안 만들기', dur: '1:15', yt: null,
@@ -136,15 +137,26 @@ window.VIDEOS = [
     summary: '학생 그룹을 만들고 키워드 사전에서 고르거나 일화를 적으면 행특 초안이 나와요. 가져와서 선생님 말로 다듬어 저장하고, 엑셀로 내려받아요.' },
 
   // 학교 설정 — 제품 메뉴 [학교 설정](학생 · 선생님 · 학교 이용권 · 공유 크레딧). 목록은 다음 차례에 정의
-  { id: 'A1', cat: 'school', art: 'sheet', title: '학생 계정 엑셀로 한 번에 만들기', dur: null, yt: null, screen: '학교 설정 · 학생', isNew: false, summary: '' },
-  { id: 'A2', cat: 'school', art: 'lock', title: '학생 비밀번호 바꿔 주기', dur: null, yt: null, screen: '학교 설정 · 학생', isNew: false, summary: '' },
-  { id: 'A4', cat: 'school', art: 'crown', title: '대표교사 바꾸기', dur: null, yt: null, screen: '학교 설정 · 선생님', isNew: false, summary: '' },
-  { id: 'A5', cat: 'school', art: 'stamp', title: '동료 교사 인증 승인하기', dur: null, yt: null, screen: '학교 설정 · 선생님', isNew: false, summary: '' },
+  // 학교 설정 — 화면 탭 순서(학생 → 선생님 → 학교 이용권 → 공유 크레딧) + 소속 변경 (09-25 올립: A4 대표교사 바꾸기는 A5에 합침, 소속 변경 F4는 계정 탭에서 옮김 — 데이터 삭제 정책)
+  { id: 'A1', cat: 'school', art: 'sheet', title: '학생 계정 만들기 (한 명씩·엑셀로)', dur: '0:32', yt: null,
+    mp4: 'video/a1.mp4?v=1', poster: 'video/a1_poster.jpg?v=1', screen: '학교 설정 · 학생', isNew: false,
+    summary: '대표교사가 학교 설정의 학생에서 한 명씩 또는 엑셀 양식으로 학생 계정을 만들어요. 아이디는 자동으로 만들어지고 초기 비밀번호는 영문 학생명이에요.' },
+  { id: 'A2', cat: 'school', art: 'lock', title: '학생 비밀번호 바꾸고 정보 고치기', dur: '0:25', yt: null,
+    mp4: 'video/a2.mp4?v=1', poster: 'video/a2_poster.jpg?v=1', screen: '학교 설정 · 학생', isNew: false,
+    summary: '학생을 체크하고 비밀번호 변경에서 새 비밀번호를 넣어요. 반·번호·이름은 수정에서 고치고, 계정 삭제는 대표교사만 해요.' },
+  { id: 'A5', cat: 'school', art: 'stamp', title: '선생님 인증 승인하고 권한 바꾸기', dur: '0:30', yt: null,
+    mp4: 'video/a5.mp4?v=1', poster: 'video/a5_poster.jpg?v=1', screen: '학교 설정 · 선생님', isNew: false,
+    summary: '대표교사가 인증 대기에서 새 선생님을 승인하거나 거절하고, 권한 변경에서 대표교사·일반교사를 바꿔요. 대표교사는 한 명 이상 필요해요.' },
+  { id: 'A10', cat: 'school', art: 'coins', title: '학교 이용권·공유 크레딧 관리하기', dur: '0:31', yt: null,
+    mp4: 'video/a10.mp4?v=1', poster: 'video/a10_poster.jpg?v=1', screen: '학교 설정 · 학교 이용권 관리', isNew: false,
+    summary: '학교 이용권에 등록된 선생님과 이용 기간을 보고, 추가 충전 크레딧을 학교 선생님들과 나눠 써요. 나눠 준 크레딧은 되돌릴 수 없어요.' },
+  { id: 'F4', cat: 'school', art: 'swap_school', title: '학교 옮길 때 소속 바꾸기', dur: '0:36', yt: null,
+    mp4: 'video/f4.mp4?v=1', poster: 'video/f4_poster.jpg?v=1', screen: '내 정보', isNew: false,
+    summary: '소속을 바꾸면 이전 학교 학생의 평가·기록 데이터가 지워져요. 필요한 자료를 먼저 받아 두고, 내 정보에서 소속을 바꾼 뒤 새 학교에 인증을 요청해요.' },
 
   // 계정·이용권
   { id: 'F1', cat: 'account', art: 'coins', title: 'AI 크레딧 차감 방식 알아보기', dur: null, yt: null, screen: '이용권 관리', isNew: false, summary: '' },
   { id: 'F2', cat: 'account', art: 'ticket', title: '이용권 사고 쿠폰 등록하기', dur: null, yt: null, screen: '이용권 관리', isNew: false, summary: '' },
   { id: 'F3', cat: 'account', art: 'building', title: '학교 단체로 도입하기', dur: null, yt: null, screen: '요금제 알아보기', isNew: false, summary: '' },
-  { id: 'F4', cat: 'account', art: 'swap_school', title: '학교 옮길 때 소속 바꾸기', dur: null, yt: null, screen: '내 정보', isNew: false, summary: '' },
   { id: 'F5', cat: 'account', art: 'receipt', title: '견적서·영수증 받기', dur: null, yt: null, screen: '이용권 관리', isNew: false, summary: '' },
 ];
