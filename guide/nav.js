@@ -15,10 +15,13 @@ const REFS=[
  {file:'examples.html',num:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 016.5 3H20v15H6.5A2.5 2.5 0 004 20.5z"/><path d="M4 20.5A2.5 2.5 0 016.5 23H20v-5"/><path d="M9 7h7"/></svg>',title:'과목별 채점 예시'},   // 번호 대신 홈 카드와 같은 표시
  {file:'contest.html',num:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 00-3.5 10.9c.9.7 1.5 1.7 1.5 2.8V17h4v-.3c0-1.1.6-2.1 1.5-2.8A6 6 0 0012 3z"/></svg>',title:'에크연 × 클리포 연구 사례'},
 ];
-// 연구 사례는 소제목 대신 사례 목록을 하위로 펼친다 (2·3등은 심사 뒤 추가)
+// 연구 사례는 소제목 대신 사례 목록을 하위로 펼친다
 const CASES=[
  {file:'contest_1.html',title:'1등 · 중학교 영어'},
- {title:'2등·3등 · 심사 후 공개'},
+ {file:'contest_2.html',title:'2등 · 중학교 역사'},
+ {file:'contest_3.html',title:'2등 · 고등학교 미술'},
+ {file:'contest_4.html',title:'3등 · 초등학교 사회'},
+ {file:'contest_5.html',title:'3등 · 중학교 수학'},
 ];
 (function(){
   const here=location.pathname.split('/').pop()||'index.html';
@@ -98,3 +101,19 @@ const CASES=[
   menuBtn.addEventListener('click',()=>setClosed(!side.classList.contains('closed'),true));
   side.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ if(isPhone()) setClosed(true,false); }));
 })();
+
+// 연구 사례 세트 탭: 평가 설계 · 과제물 · 채점 예시. 학생을 고르면 과제물과 채점 예시가 같은 학생으로 함께 바뀐다
+document.querySelectorAll('.cs').forEach(cs=>{
+  const tab=t=>{
+    cs.querySelectorAll('.cs-tabs button').forEach(b=>{const on=b.dataset.t===t;b.classList.toggle('on',on);b.setAttribute('aria-selected',on)});
+    cs.querySelectorAll('.cs-p').forEach(p=>p.hidden=p.dataset.p!==t);
+  };
+  const stu=i=>{
+    cs.querySelectorAll('.cs-stu button').forEach(b=>b.classList.toggle('on',b.dataset.s===i));
+    cs.querySelectorAll('.cs-s').forEach(d=>d.hidden=d.dataset.s!==i);
+  };
+  cs.querySelectorAll('.cs-tabs button').forEach(b=>b.addEventListener('click',()=>tab(b.dataset.t)));
+  cs.querySelectorAll('.cs-stu button').forEach(b=>b.addEventListener('click',()=>stu(b.dataset.s)));
+  cs.querySelectorAll('.cs-go').forEach(b=>b.addEventListener('click',()=>{tab(b.dataset.go);cs.scrollIntoView({block:'start'})}));
+});
+// 세트 탭 끝
