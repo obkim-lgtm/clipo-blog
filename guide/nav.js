@@ -102,7 +102,7 @@ const CASES=[
   side.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ if(isPhone()) setClosed(true,false); }));
 })();
 
-// 연구 사례 세트 탭: 평가 설계 · 과제물 · 채점 예시. 학생을 고르면 과제물과 채점 예시가 같은 학생으로 함께 바뀐다
+// 연구 사례 세트 탭: 평가 설계 · 과제물과 채점 결과. 학생 선택, 과제물 쪽 넘기기
 document.querySelectorAll('.cs').forEach(cs=>{
   const tab=t=>{
     cs.querySelectorAll('.cs-tabs button').forEach(b=>{const on=b.dataset.t===t;b.classList.toggle('on',on);b.setAttribute('aria-selected',on)});
@@ -114,6 +114,16 @@ document.querySelectorAll('.cs').forEach(cs=>{
   };
   cs.querySelectorAll('.cs-tabs button').forEach(b=>b.addEventListener('click',()=>tab(b.dataset.t)));
   cs.querySelectorAll('.cs-stu button').forEach(b=>b.addEventListener('click',()=>stu(b.dataset.s)));
-  cs.querySelectorAll('.cs-go').forEach(b=>b.addEventListener('click',()=>{tab(b.dataset.go);cs.scrollIntoView({block:'start'})}));
+  // 과제물을 누르면 그 자리에서 크게(한 칸 전체), 다시 누르면 원래대로
+  cs.querySelectorAll('.rv-img').forEach(b=>b.addEventListener('click',()=>{
+    const rv=b.closest('.rv');const z=rv.classList.toggle('zoom');
+    rv.querySelector('.rv-cap').textContent=z?'다시 누르면 작게 돌아가요':'과제물을 누르면 이 자리에서 크게 볼 수 있어요';
+    const hd=parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header'))||60;
+    scrollTo({top:rv.getBoundingClientRect().top+scrollY-hd-(cs.querySelector('.cs-stu')?90:16)});
+  }));
+  cs.querySelectorAll('.rv-sheet').forEach(sh=>sh.querySelectorAll('.rv-pg button').forEach(b=>b.addEventListener('click',()=>{
+    sh.querySelectorAll('.rv-pg button').forEach(x=>x.classList.toggle('on',x===b));
+    sh.querySelectorAll('.rv-img').forEach(a=>a.hidden=a.dataset.pg!==b.dataset.pg);
+  })));
 });
 // 세트 탭 끝
