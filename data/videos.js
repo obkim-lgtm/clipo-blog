@@ -48,18 +48,15 @@ window.VIDEOS = [
     summary: '수행평가 채점 목록에서 평가를 마감한 뒤, 채점 결과로 학생마다 다른 세특 초안을 받아요. 기록 근거를 보며 고치고, 정하는 건 선생님이에요.' },
 
   // 수업·참여 학생 — 수업 단위. 학생 '계정'(등록·비밀번호)은 학교 설정 탭(09-25 올립: 말을 갈라 헷갈리지 않게 — 수업 쪽은 '참여 학생')
-  { id: 'A8', cat: 'class', art: 'cat_class', title: '수업 만들기', dur: '0:21', yt: null,
-    mp4: 'video/a8.mp4?v=2', poster: 'video/a8_poster.jpg?v=4', screen: '홈 · 내 수업', isNew: false,
-    summary: '홈의 수업 만들기에서 학기·학년, 교육과정과 과목, 수업명, 반 편성 방식을 정해요. 과목이 목록에 없으면 내 정보에서 담당 교과를 먼저 맞춰요.' },
-  { id: 'A9', cat: 'class', art: 'people_plus', title: '참여 학생 더하고 빼기', dur: '0:25', yt: null,
-    mp4: 'video/a9.mp4?v=2', poster: 'video/a9_poster.jpg?v=4', screen: '수업 홈 · 참여 학생 관리', isNew: false,
-    summary: '수업 홈의 참여 학생 관리에서 반별 학생을 확인하고 더하거나 빼요. 전학생은 수업에 저절로 들어오지 않아 직접 더해요.' },
+  { id: 'A8', cat: 'class', art: 'cat_class', title: '수업 만들고 수정·보관·삭제하기', dur: '0:46', yt: null,
+    mp4: 'video/a8.mp4?v=3', poster: 'video/a8_poster.jpg?v=5', screen: '홈 · 내 수업', isNew: false,
+    summary: '홈의 수업 만들기에서 학기·학년, 과목, 수업명을 정해요. 만든 수업은 카드 메뉴에서 고치고, 다 쓴 수업은 보관해요. 삭제한 수업은 복구할 수 없어요.' },
+  { id: 'A9', cat: 'class', art: 'people_plus', title: '참여 학생 더하고 빼기', dur: '0:36', yt: null,
+    mp4: 'video/a9.mp4?v=3', poster: 'video/a9_poster.jpg?v=5', screen: '수업 홈 · 참여 학생 추가 / 제외', isNew: false,
+    summary: '학교 설정에 등록된 학생만 수업에 넣을 수 있어요. 학생이 없으면 학교 설정에서 먼저 만들고, 수업 홈의 참여 학생 추가 / 제외에서 더하거나 빼요. 제외한 학생의 과제·평가 데이터는 지워져요.' },
   { id: 'A6', cat: 'class', art: 'phone', title: '참여 학생에게 로그인 방법 안내하기', dur: '0:46', yt: null,
     mp4: 'video/a6.mp4?v=1', poster: 'video/a6_poster.jpg?v=3', screen: '학생 로그인 화면', isNew: false,
     summary: '학생은 clipo.ai에서 학생 로그인을 골라 학년도·학교를 고르고, 아이디(학번)와 초기 비밀번호(이름 영문 자판)로 들어와요. 비밀번호를 잊으면 선생님이 바꿔 줘요.' },
-  { id: 'A7', cat: 'class', art: 'box', title: '수업 보관하고 다시 꺼내기', dur: '0:35', yt: null,
-    mp4: 'video/a7.mp4?v=1', poster: 'video/a7_poster.jpg?v=3', screen: '홈 · 내 수업', isNew: false,
-    summary: '다 쓴 수업은 카드 메뉴에서 보관해요. 보관한 수업 보기를 켜면 다시 보이고, 보관 해지로 진행 중 목록에 돌려놔요.' },
 
   // 수행평가 설계 — 순서 = 제품 `수행평가 만들기` 메뉴(새로 만들기 · 복사해서 만들기 · 평가계획에서 가져오기) → 채점기준 AI → 원칙 → 직접 쓰는 과제 (올립 09-25)
   // B1 = 새로 만들기 한 편에 성취기준 고르기(고르면 상·중·하 자동, 직접 고칠 수 있음) · 채점기준 직접 추가 · 미제출·미응시 처리까지(옛 B3·B7 합침)
