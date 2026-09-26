@@ -180,7 +180,8 @@ button,input{font-family:inherit;font-size:inherit}
 .badge.new{background:var(--green);color:#fff}
 .badge.dur{background:rgba(31,36,48,.88);color:#fff;font-variant-numeric:tabular-nums}
 .badge.soon{background:rgba(255,255,255,.75);color:var(--mute)}
-.badge.upd{background:#fff;color:var(--blue)}
+.badge.upd{background:none;padding:7px 0;color:var(--i,var(--blue));font-weight:600;gap:6px} /* 09-26 올립: 흰 알약이 카드와 안 어울림 → 카드 위 탭 이름처럼 글자만(탭 색) + 점 */
+.badge.upd::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor}
 .recent{margin-top:40px}
 .vcard.hidden{display:none}
 
