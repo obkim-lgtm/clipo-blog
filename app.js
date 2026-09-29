@@ -295,9 +295,19 @@
   // 마지막 영상이면 배우기 목록으로. 자동 넘김은 하지 않는다(선생님이 멈춰 따라 하는 흐름을 끊지 않게). ?play=1로 들어오면 바로 재생
   function endCard(v, rel, fromStart) {
     var vid = $('#player video'); if (!vid) return;
-    var nx = !fromStart && v.next ? byId(v.next) : null; // 시작하기에서는 시작하기 순서를 따른다
-    if (!nx) { var i = rel.indexOf(v); nx = i > -1 ? rel[i + 1] : null; }
-    if (nx && !nx.dur) nx = null;
+    // 다음 영상(09-29 올립: 끝 화면엔 항상 다음 영상) — 같은 목록의 다음 → 목록 끝이면 다음 탭의 첫 영상(마지막 탭이면 첫 탭으로)
+    var ready = function (x) { return x && x.dur; };
+    var i = rel.indexOf(v), nx = null;
+    for (var j = i + 1; j < rel.length && !nx; j++) if (ready(rel[j]) && rel[j].id !== v.id) nx = rel[j];
+    var nxStart = fromStart && !!nx;
+    if (!nx) {
+      var cats = Object.keys(CATS).filter(function (k) { return k !== 'start'; });
+      var ci = fromStart ? -1 : cats.indexOf(v.cat);
+      for (var step = 1; step <= cats.length && !nx; step++) {
+        var k = cats[(ci + step + cats.length) % cats.length];
+        nx = VIDEOS.filter(function (x) { return x.cat === k && ready(x) && x.id !== v.id; })[0] || null;
+      }
+    }
     if (qs('play')) { var pr = vid.play(); if (pr && pr.catch) pr.catch(function () {}); }
     vid.addEventListener('ended', function () {
       var old = $('#player .endcard'); if (old) old.remove();
@@ -306,7 +316,7 @@
         ? '<div class="ec-in"><span class="ec-k">다음 영상</span>'
           + (nx.poster ? '<img class="ec-img" src="' + nx.poster + '" alt="">' : '')
           + '<b class="ec-t">' + esc(nx.title) + '</b><span class="ec-d">' + esc(CATS[nx.cat].name) + ' · ' + esc(nx.dur) + '</span>'
-          + '<div class="ec-b"><button type="button" class="btn-o sm" data-replay>다시 보기</button><a class="btn sm" href="video.html?v=' + nx.id + (fromStart ? '&from=start' : '') + '&play=1">다음 영상 보기</a></div></div>'
+          + '<div class="ec-b"><button type="button" class="btn-o sm" data-replay>다시 보기</button><a class="btn sm" href="video.html?v=' + nx.id + (nxStart ? '&from=start' : '') + '&play=1">다음 영상 보기</a></div></div>'
         : '<div class="ec-in"><b class="ec-t">' + esc(fromStart ? CATS.start.name : CATS[v.cat].name) + ' 영상을 다 봤어요</b>'
           + '<div class="ec-b"><button type="button" class="btn-o sm" data-replay>다시 보기</button><a class="btn sm" href="learn.html">배우기 목록으로</a></div></div>';
       c.querySelector('[data-replay]').addEventListener('click', function () { c.remove(); vid.currentTime = 0; vid.play(); });
