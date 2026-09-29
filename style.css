@@ -164,6 +164,8 @@ button,input{font-family:inherit;font-size:inherit}
 .playlist li a:hover{background:rgba(255,255,255,.7);color:var(--i-start)}
 .playlist li a.on{background:#fff;color:var(--i-start);box-shadow:var(--sh)}
 .playlist .dur{margin-left:auto;font-size:13px;color:var(--mute);font-variant-numeric:tabular-nums}
+.playlist .pl-note{margin:10px 4px 0;font-size:14px;color:var(--mute);line-height:1.5;word-break:keep-all;flex-shrink:0}
+.playlist .pl-note a{color:var(--blue);font-weight:600}
 .playlist .tri{width:10px;height:12px;flex-shrink:0;color:var(--i-start)}
 
 /* 영상 카드 — 묶음별 파스텔 + 스티커 그림 */

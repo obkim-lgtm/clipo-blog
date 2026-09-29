@@ -9,6 +9,8 @@
   var fmtDate = function (iso) { var d = new Date(iso); return d.getFullYear() + '.' + String(d.getMonth() + 1).padStart(2, '0') + '.' + String(d.getDate()).padStart(2, '0'); };
   var byId = function (id) { for (var i = 0; i < VIDEOS.length; i++) if (VIDEOS[i].id === id) return VIDEOS[i]; return null; };
   var qs = function (k) { return new URLSearchParams(location.search).get(k); };
+  // 시작하기 재생목록(videos.js START) — 기능 탭 영상을 골라 이은 순서표
+  var startList = function () { return (window.START || []).map(byId).filter(Boolean); };
   if (/[?&]draft/.test(location.search)) document.addEventListener('click', function (e) {
     var a = e.target.closest('a[href]'); if (!a) return; var h = a.getAttribute('href');
     if (/^(post|news|learn|video|training|index)\.html/.test(h) && h.indexOf('draft') < 0) a.setAttribute('href', h + (h.indexOf('?') > -1 ? '&' : '?') + 'draft=1');
@@ -100,17 +102,17 @@
     var side = $('#side-cats'), main = $('#learn-main');
     var keys = Object.keys(CATS);
     side.innerHTML = keys.map(function (k) {
-      var n = VIDEOS.filter(function (v) { return v.cat === k; }).length;
+      var n = k === 'start' ? startList().length : VIDEOS.filter(function (v) { return v.cat === k; }).length;
       return '<a href="#' + k + '" data-cat="' + k + '"><span class="ico" data-ic="' + k + '" style="color:var(--i-' + k + ')"></span>' + esc(CATS[k].name) + '<span class="n">' + n + '</span></a>';
     }).join('');
 
     // 추천 재생목록 = 시작하기
-    var start = VIDEOS.filter(function (v) { return v.cat === 'start'; });
+    var start = startList();
     var first = start[0];
     var html = '<section class="featured" id="start"><div class="player" id="player">' + playerInner(first) + '</div>'
       + '<div class="playlist"><h2>' + esc(CATS.start.name) + '<small>동영상 ' + start.length + '개</small></h2><ul>'
-      + start.map(function (v, i) { return '<li><a href="video.html?v=' + v.id + '" data-pl="' + v.id + '"' + (i === 0 ? ' class="on"' : '') + '>' + TRI + '<span>' + esc(v.title) + '</span><span class="dur">' + (v.dur ? esc(v.dur) : '준비 중') + '</span></a></li>'; }).join('')
-      + '</ul></div></section>';
+      + start.map(function (v, i) { return '<li><a href="video.html?v=' + v.id + '&from=start" data-pl="' + v.id + '"' + (i === 0 ? ' class="on"' : '') + '>' + TRI + '<span>' + esc(v.title) + '</span><span class="dur">' + (v.dur ? esc(v.dur) : '준비 중') + '</span></a></li>'; }).join('')
+      + '</ul><p class="pl-note">학생 계정·수업 준비는 <a href="#class">수업·참여 학생</a> · <a href="#school">학교 설정</a>에서 봐요.</p></div></section>';
 
     // 최근 업데이트된 기능 (since가 90일 이내) — 갈래가 아니라 구분 섹션
     var cut = Date.now() - 90 * 864e5;
@@ -213,7 +215,9 @@
 
   if (page === 'video') {
     // 목록에 없는 주소(예: 배포 직후 옛 목록이 캐시된 경우)는 다른 영상 대신 '준비 중'으로 보인다
-    var v = byId(qs('v')) || { id: '', cat: 'start', title: '준비 중인 영상', dur: null, screen: '—' };
+    var vq = qs('v'); if (window.ALIAS && ALIAS[vq]) vq = ALIAS[vq]; // 예전 시작하기 전용 주소 → 짝 영상
+    var v = byId(vq) || { id: '', cat: 'start', title: '준비 중인 영상', dur: null, screen: '—' };
+    var fromStart = qs('from') === 'start' || v.cat === 'start';
     document.title = v.title + ' · 클리포 블로그';
     $('#crumb').innerHTML = '<a href="learn.html">배우기</a> › <a href="learn.html#' + v.cat + '">' + esc(CATS[v.cat].name) + '</a>';
     $('#player').innerHTML = playerInner(v);
@@ -221,19 +225,21 @@
     $('#v-meta').innerHTML = '<span class="kind">' + esc(CATS[v.cat].name) + '</span><span>' + (v.dur ? esc(v.dur) : '준비 중') + '</span><span>관련 화면: ' + esc(v.screen) + '</span>';
     $('#v-body').innerHTML = v.summary ? '<p>' + esc(v.summary) + '</p>' : '<p>영상 요약은 대본이 확정되면 들어가요.</p>';
     // 같은 탭 재생목록 전체를 순서대로, 지금 보는 영상은 표시(09-25 올립). 준비 중인 영상은 빼되 지금 영상은 남긴다
-    var rel = VIDEOS.filter(function (x) { return x.cat === v.cat && (x.dur || x.id === v.id); });
+    // 시작하기에서 들어왔으면 시작하기 순서로(09-29)
+    var rel = fromStart ? startList() : VIDEOS.filter(function (x) { return x.cat === v.cat && (x.dur || x.id === v.id); });
     var at = rel.indexOf(v);
     var relH = $('#v-related').previousElementSibling;
-    if (relH && at > -1) relH.textContent = CATS[v.cat].name + ' · ' + (at + 1) + '/' + rel.length;
+    if (relH && at > -1) relH.textContent = (fromStart ? CATS.start.name : CATS[v.cat].name) + ' · ' + (at + 1) + '/' + rel.length;
+    var fromQ = fromStart ? '&from=start' : '';
     $('#v-related').innerHTML = rel.map(function (x) {
       // 썸네일 = 배우기 카드와 같은 묶음별 파스텔 + 스티커 그림
       var art = (x.art && ART[x.art]) || ART['cat_' + x.cat] || '';
       var on = x.id === v.id ? ' class="on" aria-current="page"' : '';
-      return '<li><a href="video.html?v=' + x.id + '"' + on + '><span class="vthumb" data-cat="' + esc(x.cat) + '">' + art + '</span>'
+      return '<li><a href="video.html?v=' + x.id + fromQ + '"' + on + '><span class="vthumb" data-cat="' + esc(x.cat) + '">' + art + '</span>'
         + '<span class="vt">' + esc(x.title) + '</span><span class="dur">' + (x.dur ? esc(x.dur) : '준비 중') + '</span></a></li>'; }).join('') || '<li><span class="empty">같은 묶음의 다른 영상이 없어요.</span></li>';
     var posts = published(POSTS).filter(function (p) { return (p.videos || []).indexOf(v.id) > -1; });
     $('#v-posts').innerHTML = posts.length ? posts.map(function (p) { return '<li><a href="post.html?p=' + p.id + '"><span class="kind ' + p.type + '">' + kindOf(p) + '</span><span>' + esc(p.title) + '</span></a></li>'; }).join('') : '<li><span style="color:var(--mute);font-size:14px">관련 글이 없어요.</span></li>';
-    endCard(v, rel);
+    endCard(v, rel, fromStart);
     var gch = v.guide || (window.GUIDE_BY_CAT || {})[v.cat];
     if (gch && window.GUIDE_CH && GUIDE_CH[gch]) {
       var g = $('#v-guide'); g.style.display = '';
@@ -287,9 +293,9 @@
 
   // 영상 끝 '다음 영상 보기'(09-29 올립) — 다음 = v.next(묶음을 건너 잇는 이론 R0→R1→R2 등), 없으면 같은 묶음의 다음 영상.
   // 마지막 영상이면 배우기 목록으로. 자동 넘김은 하지 않는다(선생님이 멈춰 따라 하는 흐름을 끊지 않게). ?play=1로 들어오면 바로 재생
-  function endCard(v, rel) {
+  function endCard(v, rel, fromStart) {
     var vid = $('#player video'); if (!vid) return;
-    var nx = v.next ? byId(v.next) : null;
+    var nx = !fromStart && v.next ? byId(v.next) : null; // 시작하기에서는 시작하기 순서를 따른다
     if (!nx) { var i = rel.indexOf(v); nx = i > -1 ? rel[i + 1] : null; }
     if (nx && !nx.dur) nx = null;
     if (qs('play')) { var pr = vid.play(); if (pr && pr.catch) pr.catch(function () {}); }
@@ -300,8 +306,8 @@
         ? '<div class="ec-in"><span class="ec-k">다음 영상</span>'
           + (nx.poster ? '<img class="ec-img" src="' + nx.poster + '" alt="">' : '')
           + '<b class="ec-t">' + esc(nx.title) + '</b><span class="ec-d">' + esc(CATS[nx.cat].name) + ' · ' + esc(nx.dur) + '</span>'
-          + '<div class="ec-b"><button type="button" class="btn-o sm" data-replay>다시 보기</button><a class="btn sm" href="video.html?v=' + nx.id + '&play=1">다음 영상 보기</a></div></div>'
-        : '<div class="ec-in"><b class="ec-t">' + esc(CATS[v.cat].name) + ' 영상을 다 봤어요</b>'
+          + '<div class="ec-b"><button type="button" class="btn-o sm" data-replay>다시 보기</button><a class="btn sm" href="video.html?v=' + nx.id + (fromStart ? '&from=start' : '') + '&play=1">다음 영상 보기</a></div></div>'
+        : '<div class="ec-in"><b class="ec-t">' + esc(fromStart ? CATS.start.name : CATS[v.cat].name) + ' 영상을 다 봤어요</b>'
           + '<div class="ec-b"><button type="button" class="btn-o sm" data-replay>다시 보기</button><a class="btn sm" href="learn.html">배우기 목록으로</a></div></div>';
       c.querySelector('[data-replay]').addEventListener('click', function () { c.remove(); vid.currentTime = 0; vid.play(); });
       $('#player').appendChild(c);

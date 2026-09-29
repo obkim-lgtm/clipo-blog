@@ -19,33 +19,17 @@ window.GUIDE_CH = {
   'examples.html': '과목별 채점 예시', 'contest.html#tips': '선생님들이 찾은 채점기준 꿀팁'
 };
 window.GUIDE_BY_CAT = { design: 'ch2.html', files: 'ch3.html', grading: 'ch5.html' };
+// 시작하기 = 기능 탭 영상을 한 학기 핵심 순서로 이은 재생목록(09-29 올립: 핵심만, 안 겹치게). 영상은 한 벌만 둔다.
+// S0 → 이론 R0·R1·R2(영상 끝 말이 다음 편을 가리킴) → 올리기 C3 → 채점 D2 → 공개 D3 → 세특 E0. 학생·수업 준비는 재생목록 아래 한 줄로 안내
+window.START = ['S0', 'R0', 'R1', 'R2', 'C3', 'D2', 'D3', 'E0'];
+// 예전 시작하기 전용 영상 주소 → 짝 영상(FAQ·글 링크가 깨지지 않게)
+window.ALIAS = { S1: 'A1', S2: 'A8', S3: 'B2', S4: 'B1', S5: 'D2', D5: 'D3', S6: 'E0' };
 
 window.VIDEOS = [
   // 시작하기
   { id: 'S0', cat: 'start', art: 'intro', guide: 'index.html', title: '클리포는 어떤 서비스인가요?', dur: '2:39', yt: null,
     mp4: 'https://training.clipo.ai/video/clipo_promo.mp4', poster: 'video/s0_poster.jpg?v=2', screen: '전체', isNew: false,
     summary: '서·논술형 채점부터 생기부 기록까지, 선생님의 한 학기를 클리포로 어떻게 보내는지 2분 40초로 봐요. AI가 점수와 기록을 정하지 않아요. 제안을 읽고 결정하는 건 언제나 선생님이에요.' },
-  { id: 'S1', cat: 'start', art: 'people_plus', title: '학교 설정에서 학생 계정 만들기', dur: '0:29', yt: null,
-    mp4: 'video/s1.mp4?v=3', poster: 'video/s1_poster.jpg?v=4', screen: '학교 설정', isNew: false,
-    summary: '수업에 넣을 학생은 학교 설정의 학생 관리에서 먼저 만들어요. 한 명씩 또는 엑셀로 한 번에 만들고, 비밀번호도 여기서 바꿔 줘요.' },
-  { id: 'S2', cat: 'start', art: 'cat_class', title: '수업 만들고 학생 넣기', dur: '0:30', yt: null,
-    mp4: 'video/s2.mp4?v=4', poster: 'video/s2_poster.jpg?v=5', screen: '수업', isNew: false,
-    summary: '홈에서 첫 수업을 만들고, 수업 홈의 참여 학생 관리에서 반별 학생을 확인하거나 더하고 빼요.' },
-  { id: 'S3', cat: 'start', art: 'ruler_pen', guide: 'ch2.html', title: '채점기준 AI로 만들기', dur: '1:11', yt: null,
-    mp4: 'video/s3.mp4?v=3', poster: 'video/s3_poster.jpg?v=4', screen: '수행평가 설계', isNew: false,
-    summary: '성취기준을 고르고, 원하는 채점기준을 한두 문장으로 적어 AI 초안을 받아요. 쓸 것만 골라 설계에 넣은 뒤 선생님 기준으로 고쳐요.' },
-  { id: 'S4', cat: 'start', art: 'paths', guide: 'ch3.html', title: '과제물 받는 방법 정하고 올리기', dur: '1:04', yt: null,
-    mp4: 'video/s4.mp4?v=4', poster: 'video/s4_poster.jpg?v=5', screen: '수행평가 설계 · 과제물 관리', isNew: false,
-    summary: '설계에서 종이로 걷을지, 학생이 클리포에서 낼지 정해요. 걷은 답안은 과제물 관리에서 스캔 PDF나 학생별 파일로 한 번에 올려요.' },
-  { id: 'S5', cat: 'start', art: 'medal', guide: 'ch5.html', title: 'AI 채점 결과 확인하고 확정하기', dur: '1:07', yt: null,
-    mp4: 'video/s5.mp4?v=3', poster: 'video/s5_poster.jpg?v=4', screen: '수행평가 채점', isNew: false,
-    summary: '학급 단위로 AI 채점을 돌리고, 학생 답안 옆에서 점수와 채점 근거를 읽어요. 고칠 학생만 손본 뒤 점수를 확정하는 건 선생님이에요.' },
-  { id: 'D5', cat: 'start', art: 'export', title: '채점 결과 학생에게 공개하기', dur: '0:49', yt: null,
-    mp4: 'video/d5.mp4?v=3', poster: 'video/d5_poster.jpg?v=4', screen: '수행평가 채점', isNew: false,
-    summary: '결과 공개에서 학생이 클리포에서 볼지, PDF로 출력할지 골라요. 공개할 학생·항목·기간을 정하고, 채점 결과 파일은 학급 채점 현황에서 받아요.' },
-  { id: 'S6', cat: 'start', art: 'notebook', title: '채점 결과로 세특 초안 만들기', dur: '1:18', yt: null,
-    mp4: 'video/s6.mp4?v=4', poster: 'video/s6_poster.jpg?v=5', screen: '수행평가 채점 · 세부능력 및 특기사항 지원', isNew: false,
-    summary: '수행평가 채점 목록에서 평가를 마감한 뒤, 채점 결과로 학생마다 다른 세특 초안을 받아요. 기록 근거를 보며 고치고, 정하는 건 선생님이에요.' },
 
   // 수업·참여 학생 — 수업 단위. 학생 '계정'(등록·비밀번호)은 학교 설정 탭(09-25 올립: 말을 갈라 헷갈리지 않게 — 수업 쪽은 '참여 학생')
   { id: 'A8', cat: 'class', art: 'cat_class', title: '수업 만들고 수정·보관·삭제하기', dur: '0:50', yt: null,
@@ -79,8 +63,8 @@ window.VIDEOS = [
     mp4: 'video/b2.mp4?v=3', poster: 'video/b2_poster.jpg?v=4', screen: '수행평가 설계', isNew: false,
     summary: '채점기준 AI 생성 창에서 한두 문장으로 적거나, 활동지 이미지를 올리거나, 채점요소와 급간 수만 정하거나, 쓰던 채점기준표 사진을 올려 초안을 받아요. 쓸 것만 골라 적용해요.' },
   // 원칙 영상(2~3분) — AI 채점 가이드 2장 기반, 시연 계정 실제 화면. 영상 소스 clipo_promo_video `Learn-Rubric` (09-23 첫 게시, 내용은 다듬는 중)
-  { id: 'R1', cat: 'design', art: 'compass', guide: 'contest.html#tips', next: 'R2', title: '채점기준 잘 쓰는 법', dur: '4:20', yt: null,
-    mp4: 'video/rubric.mp4?v=9', poster: 'video/rubric_poster.jpg?v=9', screen: '수행평가 설계', isNew: false,
+  { id: 'R1', cat: 'design', art: 'compass', guide: 'contest.html#tips', next: 'R2', title: '채점기준 잘 쓰는 법', dur: '4:26', yt: null,
+    mp4: 'video/rubric.mp4?v=10', poster: 'video/rubric_poster.jpg?v=9', screen: '수행평가 설계', isNew: false,
     summary: '초4 사회·고1 미술·고1 영어·중2 역사·중2 수학 선생님이 채점기준을 어떻게 고쳤고, 그랬더니 AI 채점이 어떻게 달라졌는지 봐요. 어디를 볼지, 어떻게 가를지, 만점을 어디까지 둘지 세 가지로 정리해요.' },
   // B5 = 직접 쓰는 과제 한 편에 다문항(09-22) + 작성 과정 기록(이탈 로깅, 09-02)을 함께(올립 09-23 "같은 내용")
   { id: 'B5', cat: 'design', art: 'writing_log', since: '2026-09-22', title: '학생이 클리포에 직접 쓰는 과제 만들기', dur: '0:54', yt: null,

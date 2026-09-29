@@ -122,7 +122,7 @@ window.POSTS = [
       '<p>생성된 초안에 좋아요·싫어요로 의견을 남길 수 있어요. 남긴 평가는 초안 품질을 개선하는 데 참고해요.</p>',
       '<h3>초안 다듬기, 더 쉽게</h3>',
       '<p>[기록 다듬기] 버튼 구성을 직관적으로 바꿨어요. 여러 명의 기록도 한 번에 선택해 다듬을 수 있어요.</p>'
-    ], videos: ['S6', 'E1'] },
+    ], videos: ['E0', 'E1'] },
 
   { id: 'u-260604', type: 'update', date: '2026-06-04', version: 'v2.22', notice: 'https://clipo.ai/teachers/helps/notices/Do3W23NAUUGv9C7MZFRHYw',
     title: '창의적 체험활동 기록 초안을 만들 수 있어요',
@@ -182,7 +182,7 @@ window.POSTS = [
       '<p>AI 채점 모델이 v3.0에서 v3.1로 올라갔어요. 특히 수학 교과의 풀이 과정 부분점수 인식에 집중했어요. 과학을 포함한 다른 교과도 순차적으로 개선해요.</p>',
       '<h3>함께 바뀐 것</h3>',
       '<ul><li>채점기준 AI 생성 버튼을 누르면 세 가지 방식이 바로 열려요.</li><li>채점 결과와 피드백에 수식이 표시되고, 학생 답안 작성 때 수식 입력기가 있어요.</li><li>파일 하나당 20MB 제한 안내</li><li>PDF 보기 관련 오류 여러 건 수정(대문자 확장자, 회전 정보, 구형 브라우저)</li></ul>'
-    ], videos: ['D5', 'B2'] },
+    ], videos: ['D3', 'B2'] },
 
   { id: 'u-260317', type: 'update', date: '2026-03-17', version: 'v2.16.0', notice: 'https://clipo.ai/teachers/helps/notices/APJs1Wvom0SgvlRotASWJQ',
     title: '무료 체험 크레딧이 하루 50개로 늘었어요',
@@ -273,7 +273,7 @@ window.POSTS = [
 
       '<p class="muted">출처: OECD, Results from TALIS 2024 (2025) · Gallup·Walton Family Foundation, Teaching for Tomorrow (2025.6.24, 미국 공립 K-12 교사 2,232명, 2025.3.18~4.11 조사). 수치는 각 조사 원문 기준이에요.</p>'
     ],
-    videos: ['S5', 'D2'] },
+    videos: ['D2'] },
 
   { id: 's-2609-contest', type: 'story', tag: '현장', date: '2026-09-22', thumb: 'img/story_2609_contest.jpg?v=2',  // 썸네일 원본 = thumbs/story_2609_contest.html (공모전 사이트 모양)
     title: 'AI 점수가 내 점수와 가까워지는 채점기준, 선생님들이 찾은 3가지',
