@@ -75,7 +75,11 @@ window.VIDEOS = [
     mp4: 'video/b2.mp4?v=3', poster: 'video/b2_poster.jpg?v=4', screen: '수행평가 설계', isNew: false,
     summary: '채점기준 AI 생성 창에서 한두 문장으로 적거나, 활동지 이미지를 올리거나, 채점요소와 급간 수만 정하거나, 쓰던 채점기준표 사진을 올려 초안을 받아요. 쓸 것만 골라 적용해요.' },
   // 원칙 영상(2~3분) — AI 채점 가이드 2장 기반, 시연 계정 실제 화면. 영상 소스 clipo_promo_video `Learn-Rubric` (09-23 첫 게시, 내용은 다듬는 중)
-  { id: 'R1', cat: 'design', art: 'compass', guide: 'contest.html#tips', title: '채점기준 잘 쓰는 법', dur: '2:29', yt: null,
+  // 이론 묶음 R0 → R1 → R2 (09-29, 연수 덱 v4 PART 1). next = 영상 끝 '다음 영상 보기'가 묶음을 건너 잇는 곳
+  { id: 'R0', cat: 'design', art: 'compass', guide: 'ch1.html', next: 'R1', title: '수행평가, 제대로 하고 싶은데', dur: '2:20', yt: null,
+    mp4: 'video/r0.mp4?v=1', poster: 'video/r0_poster.jpg?v=1', screen: '연수 자료 · 수행평가의 원칙', isNew: false,
+    summary: '서·논술형 수행평가가 왜 필요하고 왜 늘리기 어려운지, AI와 함께 어떤 원칙으로 풀지 짚어요. 답안을 읽고 초안을 만드는 건 클리포, 기준과 점수를 정하는 건 선생님이에요.' },
+  { id: 'R1', cat: 'design', art: 'compass', guide: 'contest.html#tips', next: 'R2', title: '채점기준 잘 쓰는 법', dur: '2:29', yt: null,
     mp4: 'video/rubric.mp4?v=8', poster: 'video/rubric_poster.jpg?v=8', screen: '수행평가 설계', isNew: false,
     summary: 'AI는 채점기준 문장에 적힌 것만, 적힌 대로 봐요. AI가 볼 곳을 알려 주고, 판단을 하나로 모으고, 만점의 높이를 맞추는 세 가지 원칙을 선생님들이 실제로 고친 문장 전·후와 결과로 봐요.' },
   // B5 = 직접 쓰는 과제 한 편에 다문항(09-22) + 작성 과정 기록(이탈 로깅, 09-02)을 함께(올립 09-23 "같은 내용")

@@ -233,6 +233,7 @@
         + '<span class="vt">' + esc(x.title) + '</span><span class="dur">' + (x.dur ? esc(x.dur) : '준비 중') + '</span></a></li>'; }).join('') || '<li><span class="empty">같은 묶음의 다른 영상이 없어요.</span></li>';
     var posts = published(POSTS).filter(function (p) { return (p.videos || []).indexOf(v.id) > -1; });
     $('#v-posts').innerHTML = posts.length ? posts.map(function (p) { return '<li><a href="post.html?p=' + p.id + '"><span class="kind ' + p.type + '">' + kindOf(p) + '</span><span>' + esc(p.title) + '</span></a></li>'; }).join('') : '<li><span style="color:var(--mute);font-size:14px">관련 글이 없어요.</span></li>';
+    endCard(v, rel);
     var gch = v.guide || (window.GUIDE_BY_CAT || {})[v.cat];
     if (gch && window.GUIDE_CH && GUIDE_CH[gch]) {
       var g = $('#v-guide'); g.style.display = '';
@@ -283,6 +284,30 @@
   // 왼쪽 열 아이콘 채우기
   function fillIcons() { if (!window.ICONS) return; document.querySelectorAll('.ico[data-ic]').forEach(function (el) { if (!el.firstChild && ICONS[el.getAttribute('data-ic')]) el.innerHTML = ICONS[el.getAttribute('data-ic')]; }); }
   fillIcons();
+
+  // 영상 끝 '다음 영상 보기'(09-29 올립) — 다음 = v.next(묶음을 건너 잇는 이론 R0→R1→R2 등), 없으면 같은 묶음의 다음 영상.
+  // 마지막 영상이면 배우기 목록으로. 자동 넘김은 하지 않는다(선생님이 멈춰 따라 하는 흐름을 끊지 않게). ?play=1로 들어오면 바로 재생
+  function endCard(v, rel) {
+    var vid = $('#player video'); if (!vid) return;
+    var nx = v.next ? byId(v.next) : null;
+    if (!nx) { var i = rel.indexOf(v); nx = i > -1 ? rel[i + 1] : null; }
+    if (nx && !nx.dur) nx = null;
+    if (qs('play')) { var pr = vid.play(); if (pr && pr.catch) pr.catch(function () {}); }
+    vid.addEventListener('ended', function () {
+      var old = $('#player .endcard'); if (old) old.remove();
+      var c = document.createElement('div'); c.className = 'endcard';
+      c.innerHTML = nx
+        ? '<div class="ec-in"><span class="ec-k">다음 영상</span>'
+          + (nx.poster ? '<img class="ec-img" src="' + nx.poster + '" alt="">' : '')
+          + '<b class="ec-t">' + esc(nx.title) + '</b><span class="ec-d">' + esc(CATS[nx.cat].name) + ' · ' + esc(nx.dur) + '</span>'
+          + '<div class="ec-b"><button type="button" class="btn-o sm" data-replay>다시 보기</button><a class="btn sm" href="video.html?v=' + nx.id + '&play=1">다음 영상 보기</a></div></div>'
+        : '<div class="ec-in"><b class="ec-t">' + esc(CATS[v.cat].name) + ' 영상을 다 봤어요</b>'
+          + '<div class="ec-b"><button type="button" class="btn-o sm" data-replay>다시 보기</button><a class="btn sm" href="learn.html">배우기 목록으로</a></div></div>';
+      c.querySelector('[data-replay]').addEventListener('click', function () { c.remove(); vid.currentTime = 0; vid.play(); });
+      $('#player').appendChild(c);
+    });
+    vid.addEventListener('play', function () { var o = $('#player .endcard'); if (o) o.remove(); });
+  }
 
   function playerInner(v) {
     if (v && v.mp4) return '<video controls preload="metadata" playsinline' + (v.poster ? ' poster="' + v.poster + '"' : '') + ' style="position:absolute;inset:0;width:100%;height:100%;background:#000"><source src="' + v.mp4 + '" type="video/mp4"></video>';
