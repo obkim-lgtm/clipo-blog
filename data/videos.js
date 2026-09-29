@@ -46,7 +46,7 @@ window.VIDEOS = [
   // B1 = 새로 만들기 한 편에 성취기준 고르기(고르면 상·중·하 자동, 직접 고칠 수 있음) · 채점기준 직접 추가 · 미제출·미응시 처리까지(옛 B3·B7 합침)
   // 이론 묶음 R0 → R1 → R2. R0는 설계 탭 맨 앞(09-29 올립: 초반에 볼 영상 — 새로 만들기보다 먼저)(09-29, 연수 덱 v4 PART 1). next = 영상 끝 '다음 영상 보기'가 묶음을 건너 잇는 곳
   { id: 'R0', cat: 'design', art: 'compass', guide: 'ch1.html', next: 'R1', title: '수행평가, AI와 함께 제대로 하는 법', dur: '2:20', yt: null,
-    mp4: 'video/r0.mp4?v=1', poster: 'video/r0_poster.jpg?v=2', screen: '연수 자료 · 수행평가의 원칙', isNew: false,
+    mp4: 'video/r0.mp4?v=2', poster: 'video/r0_poster.jpg?v=2', screen: '연수 자료 · 수행평가의 원칙', isNew: false,
     summary: '서·논술형 수행평가가 왜 필요하고 왜 늘리기 어려운지, AI와 함께 어떤 원칙으로 풀지 짚어요. 답안을 읽고 초안을 만드는 건 클리포, 기준과 점수를 정하는 건 선생님이에요.' },
   { id: 'B1', cat: 'design', art: 'target', title: '수행평가 새로 만들기', dur: '1:04', yt: null,
     mp4: 'video/b1.mp4?v=3', poster: 'video/b1_poster.jpg?v=4', screen: '수행평가 설계', isNew: false,
@@ -63,8 +63,8 @@ window.VIDEOS = [
     mp4: 'video/b2.mp4?v=3', poster: 'video/b2_poster.jpg?v=4', screen: '수행평가 설계', isNew: false,
     summary: '채점기준 AI 생성 창에서 한두 문장으로 적거나, 활동지 이미지를 올리거나, 채점요소와 급간 수만 정하거나, 쓰던 채점기준표 사진을 올려 초안을 받아요. 쓸 것만 골라 적용해요.' },
   // 원칙 영상(2~3분) — AI 채점 가이드 2장 기반, 시연 계정 실제 화면. 영상 소스 clipo_promo_video `Learn-Rubric` (09-23 첫 게시, 내용은 다듬는 중)
-  { id: 'R1', cat: 'design', art: 'compass', guide: 'contest.html#tips', next: 'R2', title: '채점기준 잘 쓰는 법', dur: '4:26', yt: null,
-    mp4: 'video/rubric.mp4?v=10', poster: 'video/rubric_poster.jpg?v=9', screen: '수행평가 설계', isNew: false,
+  { id: 'R1', cat: 'design', art: 'compass', guide: 'contest.html#tips', next: 'R2', title: '채점기준 잘 쓰는 법', dur: '4:29', yt: null,
+    mp4: 'video/rubric.mp4?v=11', poster: 'video/rubric_poster.jpg?v=9', screen: '수행평가 설계', isNew: false,
     summary: '초4 사회·고1 미술·고1 영어·중2 역사·중2 수학 선생님이 채점기준을 어떻게 고쳤고, 그랬더니 AI 채점이 어떻게 달라졌는지 봐요. 어디를 볼지, 어떻게 가를지, 만점을 어디까지 둘지 세 가지로 정리해요.' },
   // B5 = 직접 쓰는 과제 한 편에 다문항(09-22) + 작성 과정 기록(이탈 로깅, 09-02)을 함께(올립 09-23 "같은 내용")
   { id: 'B5', cat: 'design', art: 'writing_log', since: '2026-09-22', title: '학생이 클리포에 직접 쓰는 과제 만들기', dur: '0:54', yt: null,
@@ -88,8 +88,8 @@ window.VIDEOS = [
   { id: 'C6', cat: 'files', art: 'phone_up', title: '학생 제출 화면 살펴보기', dur: '0:40', yt: null,
     mp4: 'video/c6.mp4?v=2', poster: 'video/c6_poster.jpg?v=3', screen: '학생 화면', isNew: false,
     summary: '학생은 과제 목록에서 제출하기를 눌러 과제 안내와 문항을 읽고 답을 써요. 다 쓰면 과제 제출을 누르고, 마감 전까지는 수정해서 다시 낼 수 있어요.' },
-  { id: 'R2', cat: 'files', art: 'compass', guide: 'ch3.html', next: 'C3', title: 'AI가 잘 읽는 과제물 준비하기', dur: '1:31', yt: null,
-    mp4: 'video/prepare.mp4?v=3', poster: 'video/prepare_poster.jpg?v=4', screen: '과제물 관리', isNew: false,
+  { id: 'R2', cat: 'files', art: 'compass', guide: 'ch3.html', next: 'C3', title: 'AI가 잘 읽는 과제물 준비하기', dur: '1:32', yt: null,
+    mp4: 'video/prepare.mp4?v=4', poster: 'video/prepare_poster.jpg?v=4', screen: '과제물 관리', isNew: false,
     summary: '종이 과제물은 AI가 글씨를 먼저 읽어요. 활동지를 만들 때, 학생이 쓸 때, 걷어서 올릴 때 — 잘못 읽히기 쉬운 것과 대신 할 것을 봐요.' },
 
   // 수행평가 채점
