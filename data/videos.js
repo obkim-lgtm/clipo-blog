@@ -104,9 +104,9 @@ window.VIDEOS = [
   { id: 'C6', cat: 'files', art: 'phone_up', title: '학생 제출 화면 살펴보기', dur: '0:40', yt: null,
     mp4: 'video/c6.mp4?v=2', poster: 'video/c6_poster.jpg?v=3', screen: '학생 화면', isNew: false,
     summary: '학생은 과제 목록에서 제출하기를 눌러 과제 안내와 문항을 읽고 답을 써요. 다 쓰면 과제 제출을 누르고, 마감 전까지는 수정해서 다시 낼 수 있어요.' },
-  { id: 'R2', cat: 'files', art: 'compass', guide: 'ch3.html', title: 'AI가 잘 읽는 과제물 준비하기', dur: '1:42', yt: null,
-    mp4: 'video/prepare.mp4?v=2', poster: 'video/prepare_poster.jpg?v=3', screen: '과제물 관리', isNew: false,
-    summary: '종이 과제물은 AI가 글씨를 읽은 뒤 채점해요. 활동지는 한 단으로, 채점 표시는 스캔한 뒤에, 답은 답란 안에. 잘못 읽히기 쉬운 표기와 글씨, 받는 방법별 차이, 파일 조건까지 AI 채점 가이드 3장 순서로 봐요.' },
+  { id: 'R2', cat: 'files', art: 'compass', guide: 'ch3.html', next: 'C3', title: 'AI가 잘 읽는 과제물 준비하기', dur: '1:31', yt: null,
+    mp4: 'video/prepare.mp4?v=3', poster: 'video/prepare_poster.jpg?v=4', screen: '과제물 관리', isNew: false,
+    summary: '종이 과제물은 AI가 글씨를 먼저 읽어요. 활동지를 만들 때, 학생이 쓸 때, 걷어서 올릴 때 — 잘못 읽히기 쉬운 것과 대신 할 것을 봐요.' },
 
   // 수행평가 채점
   // 순서 = 채점 전 확인 → 점수 매기기(근거·고치기·재실행·확정) → 피드백·공개 (09-25 올립: D2+재실행+확정 합침, D4 없앰, D11 마감은 20초라 뺌 — 마감은 S6·E0 앞부분에 있음). D6 OCR·D7 동료 확인은 배포 뒤
