@@ -224,7 +224,7 @@
     $('#v-title').textContent = v.title;
     $('#v-meta').innerHTML = '<span class="kind">' + esc(CATS[v.cat].name) + '</span><span>' + (v.dur ? esc(v.dur) : '준비 중') + '</span><span>관련 화면: ' + esc(v.screen) + '</span>';
     $('#v-body').innerHTML = v.summary ? '<p>' + esc(v.summary) + '</p>' : '<p>영상 요약은 대본이 확정되면 들어가요.</p>';
-    // 같은 탭 재생목록 전체를 순서대로, 지금 보는 영상은 표시(09-25 올립). 준비 중인 영상은 빼되 지금 영상은 남긴다
+    // 같은 탭 재생목록 전체를 순서대로, 지금 보는 영상은 표시. 준비 중인 영상은 빼되 지금 영상은 남긴다
     // 시작하기에서 들어왔으면 시작하기 순서로(09-29)
     var rel = fromStart ? startList() : VIDEOS.filter(function (x) { return x.cat === v.cat && (x.dur || x.id === v.id); });
     var at = rel.indexOf(v);
@@ -291,11 +291,11 @@
   function fillIcons() { if (!window.ICONS) return; document.querySelectorAll('.ico[data-ic]').forEach(function (el) { if (!el.firstChild && ICONS[el.getAttribute('data-ic')]) el.innerHTML = ICONS[el.getAttribute('data-ic')]; }); }
   fillIcons();
 
-  // 영상 끝 '다음 영상 보기'(09-29 올립) — 다음 = v.next(묶음을 건너 잇는 이론 R0→R1→R2 등), 없으면 같은 묶음의 다음 영상.
+  // 영상 끝 '다음 영상 보기' — 다음 = v.next(묶음을 건너 잇는 이론 R0→R1→R2 등), 없으면 같은 묶음의 다음 영상.
   // 마지막 영상이면 배우기 목록으로. 자동 넘김은 하지 않는다(선생님이 멈춰 따라 하는 흐름을 끊지 않게). ?play=1로 들어오면 바로 재생
   function endCard(v, rel, fromStart) {
     var vid = $('#player video'); if (!vid) return;
-    // 다음 영상(09-29 올립: 끝 화면엔 항상 다음 영상) — 같은 목록의 다음 → 목록 끝이면 다음 탭의 첫 영상(마지막 탭이면 첫 탭으로)
+    // 다음 영상 — 같은 목록의 다음 → 목록 끝이면 다음 탭의 첫 영상(마지막 탭이면 첫 탭으로)
     var ready = function (x) { return x && x.dur; };
     var i = rel.indexOf(v), nx = null;
     for (var j = i + 1; j < rel.length && !nx; j++) if (ready(rel[j]) && rel[j].id !== v.id) nx = rel[j];
@@ -328,7 +328,7 @@
   function playerInner(v) {
     if (v && v.mp4) return '<video controls preload="metadata" playsinline' + (v.poster ? ' poster="' + v.poster + '"' : '') + ' style="position:absolute;inset:0;width:100%;height:100%;background:#000"><source src="' + v.mp4 + '" type="video/mp4"></video>';
     if (v && v.yt) return '<iframe src="https://www.youtube.com/embed/' + v.yt + '" title="' + esc(v.title) + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-    return '<div class="ico">' + PLAY + '</div><div>' + (v ? esc(v.title) : '') + '</div><div style="font-size:14px;opacity:.75;line-height:1.5;text-align:center">준비 중입니다.<br>올립이 추석 때 만들 수 있는 만큼 만드는 중</div>';
+    return '<div class="ico">' + PLAY + '</div><div>' + (v ? esc(v.title) : '') + '</div><div style="font-size:14px;opacity:.75;line-height:1.5;text-align:center">준비 중이에요.</div>';
   }
   function subtabs(keys) {
     var show = function () {
