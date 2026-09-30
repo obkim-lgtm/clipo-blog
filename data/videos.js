@@ -39,7 +39,7 @@ window.VIDEOS = [
     mp4: 'video/a9.mp4?v=4', poster: 'video/a9_poster.jpg?v=5', screen: '수업 홈 · 참여 학생 추가 / 제외', isNew: false,
     summary: '학교 설정에 등록된 학생만 수업에 넣을 수 있어요. 학생이 없으면 학교 설정에서 먼저 만들고, 수업 홈의 참여 학생 추가 / 제외에서 더하거나 빼요. 제외한 학생의 과제·평가 데이터는 지워져요.' },
   { id: 'A6', cat: 'class', art: 'phone', title: '참여 학생에게 로그인 방법 안내하기', dur: '0:49', yt: null,
-    mp4: 'video/a6.mp4?v=2', poster: 'video/a6_poster.jpg?v=3', screen: '학생 로그인 화면', isNew: false,
+    mp4: 'video/a6.mp4?v=3', poster: 'video/a6_poster.jpg?v=3', screen: '학생 로그인 화면', isNew: false,
     summary: '학생은 clipo.ai에서 학생 로그인을 골라 학년도·학교를 고르고, 선생님이 알려 준 아이디와 초기 비밀번호로 들어와요. 비밀번호를 잊으면 선생님이 바꿔 줘요.' },
 
   // 수행평가 설계 — 순서 = 제품 `수행평가 만들기` 메뉴(새로 만들기 · 복사해서 만들기 · 평가계획에서 가져오기) → 채점기준 AI → 원칙 → 직접 쓰는 과제
@@ -124,7 +124,7 @@ window.VIDEOS = [
   // 학교 설정 — 제품 메뉴 [학교 설정](학생 · 선생님 · 학교 이용권 · 공유 크레딧). 목록은 다음 차례에 정의
   // 학교 설정 — 화면 탭 순서(학생 → 선생님 → 학교 이용권 → 공유 크레딧) + 소속 변경
   { id: 'A1', cat: 'school', art: 'sheet', title: '학생 계정 만들기 (한 명씩·엑셀로)', dur: '0:36', yt: null,
-    mp4: 'video/a1.mp4?v=2', poster: 'video/a1_poster.jpg?v=3', screen: '학교 설정 · 학생', isNew: false,
+    mp4: 'video/a1.mp4?v=3', poster: 'video/a1_poster.jpg?v=4', screen: '학교 설정 · 학생', isNew: false,
     summary: '대표교사가 학교 설정의 학생에서 한 명씩 또는 엑셀 양식으로 학생 계정을 만들어요. 아이디와 초기 비밀번호는 자동으로 만들어져요.' },
   { id: 'A2', cat: 'school', art: 'lock', title: '학생 비밀번호 바꾸고 정보 고치기', dur: '0:28', yt: null,
     mp4: 'video/a2.mp4?v=2', poster: 'video/a2_poster.jpg?v=3', screen: '학교 설정 · 학생', isNew: false,
