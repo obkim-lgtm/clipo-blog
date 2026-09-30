@@ -233,6 +233,8 @@ button,input{font-family:inherit;font-size:inherit}
 [data-tag="현장"]{--tb:var(--orange-bg);--tc:var(--orange)}
 [data-tag="교육 트렌드"]{--tb:var(--t-start);--tc:var(--i-start)}
 [data-tag="평가 소식"]{--tb:var(--t-files);--tc:var(--i-files)}
+[data-tag="평가 팁"]{--tb:var(--t-grading);--tc:var(--i-grading)}
+[data-tag="활용 사례"]{--tb:var(--t-class);--tc:var(--i-class)}
 .kind.story[data-tag]{background:var(--tb,var(--orange-bg));color:var(--tc,var(--orange))}
 .filter .chip[data-tag]:not(.on){background:var(--tb);color:var(--tc);border-color:transparent}
 
@@ -380,6 +382,7 @@ button,input{font-family:inherit;font-size:inherit}
 @media (max-width:700px){.hb{padding:26px 22px}.hb h2{font-size:22px}.hb-art{display:none}}
 .hb-open{--hc:var(--i-files);background:linear-gradient(120deg,#dff7ea 0%,#eefbf3 55%,#e9efff 100%)}
 .hb-school{--hc:var(--blue);background:linear-gradient(120deg,#e2eeff 0%,#e9efff 55%,#efe9ff 100%)}
+.hb-adopt{--hc:var(--i-account);background:linear-gradient(120deg,#dff5fb 0%,#ecf9fd 55%,#e9efff 100%)}
 .hb-instructor{--hc:var(--i-start);background:linear-gradient(120deg,#ebe9ff 0%,#efe9ff 55%,#fff0f6 100%)}
 .fi.xl{width:132px;height:132px;border-radius:32px;padding:22px;background:var(--t,#fff);box-shadow:var(--sh);transform:rotate(-6deg)}
 

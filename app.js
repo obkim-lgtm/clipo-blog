@@ -190,7 +190,7 @@
       if (el.classList.contains('fi')) { el.style.setProperty('--t', 'var(--t-' + t + ')'); el.style.setProperty('--i', 'var(--i-' + t + ')'); el.innerHTML = art; return; }
       el.insertAdjacentHTML('afterbegin', '<div class="fi" style="--t:var(--t-' + t + ');--i:var(--i-' + t + ')">' + art + '</div>');
     });
-    subtabs(['open', 'past', 'school', 'instructor']);
+    subtabs(['open', 'past', 'school', 'instructor', 'adopt']);
   }
 
   if (page === 'news') {

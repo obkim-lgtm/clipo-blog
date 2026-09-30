@@ -47,7 +47,7 @@ const CASES=[
   }
   // 상단 바
   document.body.insertAdjacentHTML('afterbegin',`
-  <header class="hdr blog-hdr"><div class="bh-in"><button class="menu-btn" id="menuBtn" aria-label="문서 목록 접기·펼치기" aria-expanded="${closed?'false':'true'}"><i></i></button><a class="bh-brand" href="../index.html"><img src="clipo_wordmark.svg" alt="CLIPO"><span>블로그</span></a><nav class="bh-nav"><a href="../index.html">홈</a><a href="../learn.html">배우기</a><a class="on" href="index.html">AI 채점 가이드</a><a href="../training.html">연수</a><a href="../news.html">소식</a></nav><div class="bh-r"><a class="bh-cta" href="https://clipo.ai" target="_blank" rel="noopener">CLIPO 바로가기</a></div></div></header>`);
+  <header class="hdr blog-hdr"><div class="bh-in"><button class="menu-btn" id="menuBtn" aria-label="문서 목록 접기·펼치기" aria-expanded="${closed?'false':'true'}"><i></i></button><a class="bh-brand" href="../index.html"><img src="clipo_wordmark.svg" alt="CLIPO"><span>블로그</span></a><nav class="bh-nav"><a href="../index.html">홈</a><a href="../learn.html">배우기</a><a class="on" href="index.html">AI 채점 가이드</a><a href="../training.html">연수·도입</a><a href="../news.html">소식</a></nav><div class="bh-r"><a class="bh-cta" href="https://clipo.ai" target="_blank" rel="noopener">CLIPO 바로가기</a></div></div></header>`);
   // 왼쪽 문서 목록
   const subList=heads.length?`<ul>${heads.map(h=>`<li><a href="#${h.id}" data-sub="${h.id}">${esc(h.textContent)}</a></li>`).join('')}</ul>`:'';
   const item=p=>{
