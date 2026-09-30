@@ -9,24 +9,28 @@
   var fmtDate = function (iso) { var d = new Date(iso); return d.getFullYear() + '.' + String(d.getMonth() + 1).padStart(2, '0') + '.' + String(d.getDate()).padStart(2, '0'); };
   var byId = function (id) { for (var i = 0; i < VIDEOS.length; i++) if (VIDEOS[i].id === id) return VIDEOS[i]; return null; };
   var qs = function (k) { return new URLSearchParams(location.search).get(k); };
+  // 글·영상마다 고유 주소(build.py가 post-<id>.html · video-<id>.html 을 만든다 — 공유 미리보기에 제목·그림이 따로 잡히게)
+  var postUrl = function (id) { return 'post-' + id + '.html'; };
+  var videoUrl = function (id, q) { return 'video-' + id + '.html' + (q ? '?' + q : ''); };
+  var pageId = function (k) { return qs(k) || document.body.getAttribute('data-id'); };
   // 시작하기 재생목록(videos.js START) — 기능 탭 영상을 골라 이은 순서표
   var startList = function () { return (window.START || []).map(byId).filter(Boolean); };
   if (/[?&]draft/.test(location.search)) document.addEventListener('click', function (e) {
     var a = e.target.closest('a[href]'); if (!a) return; var h = a.getAttribute('href');
-    if (/^(post|news|learn|video|training|index)\.html/.test(h) && h.indexOf('draft') < 0) a.setAttribute('href', h + (h.indexOf('?') > -1 ? '&' : '?') + 'draft=1');
+    if (/^(post|news|learn|video|training|index)[\w-]*\.html/.test(h) && h.indexOf('draft') < 0) a.setAttribute('href', h + (h.indexOf('?') > -1 ? '&' : '?') + 'draft=1');
   }, true);
 
   /* ---------- 공용 렌더 ---------- */
-  function vcard(v) {
+  function vcard(v, q) {
     var foot = v.since ? '<span class="badge upd">' + fmtShort(v.since) + ' 업데이트</span>' : (v.isNew ? '<span class="badge new">신규</span>' : '<span></span>');
     foot += v.dur ? '<span class="badge dur">' + TRI + ' ' + esc(v.dur) + '</span>' : '<span class="badge soon">준비 중</span>';
-    return '<a class="vcard' + (v.dur ? '' : ' soon') + '" href="video.html?v=' + v.id + '" data-cat="' + v.cat + '" data-title="' + esc(v.title) + '">'
+    return '<a class="vcard' + (v.dur ? '' : ' soon') + '" href="' + videoUrl(v.id, typeof q === 'string' ? q : '') + '" data-cat="' + v.cat + '" data-title="' + esc(v.title) + '">'
       + '<div class="art">' + ((v.art && ART[v.art]) || ART['cat_' + v.cat]) + '</div>'
       + '<div class="cat">' + esc(CATS[v.cat].name) + '</div><div class="t">' + esc(v.title) + '</div>'
       + '<div class="foot">' + foot + '</div></a>';
   }
   function pcard(p) {
-    return '<a class="pcard" href="' + (p.link || ('post.html?p=' + p.id)) + '" data-tag="' + esc(p.tag || '') + '">'
+    return '<a class="pcard" href="' + (p.link || postUrl(p.id)) + '" data-tag="' + esc(p.tag || '') + '">'
       + '<div class="thumb">' + (p.thumb ? '<img src="' + p.thumb + '" alt="" loading="lazy">' : '') + '</div><div class="in">'
       + '<div class="meta"><span class="kind ' + p.type + '" data-tag="' + esc(p.tag || '') + '">' + kindOf(p) + '</span>' + fmtDate(p.date) + '</div>'
       + '<div class="t">' + esc(p.title) + '</div><div class="d">' + esc(p.summary) + '</div></div></a>';
@@ -59,20 +63,20 @@
   function kindOf(p) { return p.type === 'update' ? '업데이트' : (p.tag || '이야기'); }
   function metaTags(p) {
     var t = '';
-    if (p.version) t += '<span class="ver">' + esc(p.version) + '</span>';
     if (new Date(p.date) > new Date()) t += '<span class="soonlbl">예정</span>';
     else if (p.draft) t += '<span class="soonlbl">초안</span>';
     return t;
   }
   function releaseItem(p) {
     // 영상 연결(videos)은 데이터에 남기되, 게시된 영상(dur 있음)만 화면에 보인다
-    var tags = (p.videos || []).map(function (id) { var v = byId(id); return v && v.dur ? '<a class="chip" href="video.html?v=' + v.id + '">' + TRI + ' ' + esc(v.title) + '</a>' : ''; }).join('');
+    var tags = (p.videos || []).map(function (id) { var v = byId(id); return v && v.dur ? '<a class="chip" href="' + videoUrl(v.id) + '">' + TRI + ' ' + esc(v.title) + '</a>' : ''; }).join('');
     return '<li class="rel"><div class="date-row"><span class="date">' + fmtDate(p.date) + '</span>' + metaTags(p) + '</div>'
-      + '<h3><a href="post.html?p=' + p.id + '">' + esc(p.title) + '</a></h3>'
+      + '<h3><a href="' + postUrl(p.id) + '">' + esc(p.title) + '</a></h3>'
       + '<p class="sum">' + esc(p.summary) + '</p>' + (tags ? '<div class="tags">' + tags + '</div>' : '') + '</li>';
   }
   var SHOW_DRAFTS = /[?&]draft/.test(location.search); // 초안(draft)은 숨김. 주소에 ?draft=1 을 붙이면 미리보기
-  var published = function (list) { return list.filter(function (p) { return SHOW_DRAFTS || !p.draft; }); };
+  // minor(버그 수정·약관·문구 손질)는 목록에서 빼고 주소로만 열린다
+  var published = function (list) { return list.filter(function (p) { return SHOW_DRAFTS || (!p.draft && !p.minor); }); };
 
   /* ---------- 페이지별 ---------- */
   var page = document.body.getAttribute('data-page');
@@ -81,15 +85,14 @@
     var open = TRAININGS.filter(function (t) { return t.form && new Date(t.date) >= new Date(); }).sort(function (a, b) { return a.date > b.date ? 1 : -1; });
     $('#home-training').innerHTML = open.length ? '<div class="tlist">' + open.slice(0, 1).map(tcard).join('') + '</div>' : '<div class="empty">지금 모집 중인 연수가 없어요. 다음 연수는 소식에서 먼저 알려 드릴게요.</div>';
     if (open.length > 1) $('#home-training').previousElementSibling.querySelector('a').textContent = '모집 중 ' + open.length + '개 모두 보기 ›';
-    // 게시된 영상 먼저, 3장이 안 차면 시작하기 예정 영상으로 채운다
-    // 히어로 버튼이 이미 트는 소개 영상(S0)은 여기서 뺀다 — 같은 화면에 같은 영상이 두 번 보이지 않게
-    var vids = VIDEOS.filter(function (v) { return v.dur && v.id !== 'S0'; }).concat(VIDEOS.filter(function (v) { return !v.dur && v.cat === 'start'; }));
-    $('#home-videos').innerHTML = '<div class="grid">' + vids.slice(0, 3).map(vcard).join('') + '</div>';
+    // 홈 배우기 칸 = 시작하기 재생목록의 앞 3편. 히어로 버튼이 트는 소개 영상(S0)은 뺀다 — 같은 화면에 같은 영상이 두 번 보이지 않게
+    var vids = startList().filter(function (v) { return v.dur && v.id !== 'S0'; });
+    $('#home-videos').innerHTML = '<div class="grid">' + vids.slice(0, 3).map(function (v) { return vcard(v, 'from=start'); }).join('') + '</div>';
     var ups = published(POSTS).filter(function (p) { return p.type === 'update'; }).sort(function (a, b) { return a.date < b.date ? 1 : -1; });
     // 소식 열은 소식 탭의 두 갈래(업데이트 / 이야기)를 그대로: 업데이트 2건 + 최신 이야기 1건(작은 썸네일 줄)
     var stories = published(POSTS).filter(function (p) { return p.type === 'story'; }).sort(function (a, b) { return a.date < b.date ? 1 : -1; }).slice(0, 2);
     var storyRow = stories.length ? '<div class="nb-cap">이야기</div>' + stories.map(function (story) {
-      return '<a class="srow" href="' + (story.link || ('post.html?p=' + story.id)) + '">'
+      return '<a class="srow" href="' + (story.link || postUrl(story.id)) + '">'
         + '<span class="srow-th">' + (story.thumb ? '<img src="' + story.thumb + '" alt="" loading="lazy">' : '') + '</span>'
         + '<span class="srow-in"><span class="meta"><span class="kind story" data-tag="' + esc(story.tag || '') + '">' + kindOf(story) + '</span>' + fmtDate(story.date) + '</span>'
         + '<span class="srow-t">' + esc(story.title) + '</span></span></a>'; }).join('') : '';
@@ -111,7 +114,7 @@
     var first = start[0];
     var html = '<section class="featured" id="start"><div class="player" id="player">' + playerInner(first) + '</div>'
       + '<div class="playlist"><h2>' + esc(CATS.start.name) + '<small>동영상 ' + start.length + '개</small></h2><ul>'
-      + start.map(function (v, i) { return '<li><a href="video.html?v=' + v.id + '&from=start" data-pl="' + v.id + '"' + (i === 0 ? ' class="on"' : '') + '>' + TRI + '<span>' + esc(v.title) + '</span><span class="dur">' + (v.dur ? esc(v.dur) : '준비 중') + '</span></a></li>'; }).join('')
+      + start.map(function (v, i) { return '<li><a href="' + videoUrl(v.id, 'from=start') + '" data-pl="' + v.id + '"' + (i === 0 ? ' class="on"' : '') + '>' + TRI + '<span>' + esc(v.title) + '</span><span class="dur">' + (v.dur ? esc(v.dur) : '준비 중') + '</span></a></li>'; }).join('')
       + '</ul><p class="pl-note">학생 계정·수업 준비는 <a href="#class">수업·참여 학생</a> · <a href="#school">학교 설정</a>에서 봐요.</p></div></section>';
 
     // 최근 업데이트된 기능 (since가 90일 이내) — 갈래가 아니라 구분 섹션
@@ -215,10 +218,11 @@
 
   if (page === 'video') {
     // 목록에 없는 주소(예: 배포 직후 옛 목록이 캐시된 경우)는 다른 영상 대신 '준비 중'으로 보인다
-    var vq = qs('v'); if (window.ALIAS && ALIAS[vq]) vq = ALIAS[vq]; // 예전 시작하기 전용 주소 → 짝 영상
+    var vq = pageId('v'); if (window.ALIAS && ALIAS[vq]) vq = ALIAS[vq]; // 예전 시작하기 전용 주소 → 짝 영상
     var v = byId(vq) || { id: '', cat: 'start', title: '준비 중인 영상', dur: null, screen: '—' };
     var fromStart = qs('from') === 'start' || v.cat === 'start';
     document.title = v.title + ' · 클리포 블로그';
+    if (v.id) document.body.setAttribute('data-share', videoUrl(v.id));
     $('#crumb').innerHTML = '<a href="learn.html">배우기</a> › <a href="learn.html#' + v.cat + '">' + esc(CATS[v.cat].name) + '</a>';
     $('#player').innerHTML = playerInner(v);
     $('#v-title').textContent = v.title;
@@ -230,15 +234,15 @@
     var at = rel.indexOf(v);
     var relH = $('#v-related').previousElementSibling;
     if (relH && at > -1) relH.textContent = (fromStart ? CATS.start.name : CATS[v.cat].name) + ' · ' + (at + 1) + '/' + rel.length;
-    var fromQ = fromStart ? '&from=start' : '';
+    var fromQ = fromStart ? 'from=start' : '';
     $('#v-related').innerHTML = rel.map(function (x) {
       // 썸네일 = 배우기 카드와 같은 묶음별 파스텔 + 스티커 그림
       var art = (x.art && ART[x.art]) || ART['cat_' + x.cat] || '';
       var on = x.id === v.id ? ' class="on" aria-current="page"' : '';
-      return '<li><a href="video.html?v=' + x.id + fromQ + '"' + on + '><span class="vthumb" data-cat="' + esc(x.cat) + '">' + art + '</span>'
+      return '<li><a href="' + videoUrl(x.id, fromQ) + '"' + on + '><span class="vthumb" data-cat="' + esc(x.cat) + '">' + art + '</span>'
         + '<span class="vt">' + esc(x.title) + '</span><span class="dur">' + (x.dur ? esc(x.dur) : '준비 중') + '</span></a></li>'; }).join('') || '<li><span class="empty">같은 묶음의 다른 영상이 없어요.</span></li>';
     var posts = published(POSTS).filter(function (p) { return (p.videos || []).indexOf(v.id) > -1; });
-    $('#v-posts').innerHTML = posts.length ? posts.map(function (p) { return '<li><a href="post.html?p=' + p.id + '"><span class="kind ' + p.type + '">' + kindOf(p) + '</span><span>' + esc(p.title) + '</span></a></li>'; }).join('') : '<li><span style="color:var(--mute);font-size:14px">관련 글이 없어요.</span></li>';
+    $('#v-posts').innerHTML = posts.length ? posts.map(function (p) { return '<li><a href="' + postUrl(p.id) + '"><span class="kind ' + p.type + '">' + kindOf(p) + '</span><span>' + esc(p.title) + '</span></a></li>'; }).join('') : '<li><span style="color:var(--mute);font-size:14px">관련 글이 없어요.</span></li>';
     endCard(v, rel, fromStart);
     var gch = v.guide || (window.GUIDE_BY_CAT || {})[v.cat];
     if (gch && window.GUIDE_CH && GUIDE_CH[gch]) {
@@ -248,9 +252,10 @@
   }
 
   if (page === 'post') {
-    var p = null; for (var i = 0; i < POSTS.length; i++) if (POSTS[i].id === qs('p')) p = POSTS[i];
+    var p = null; for (var i = 0; i < POSTS.length; i++) if (POSTS[i].id === pageId('p')) p = POSTS[i];
     p = p || POSTS[0];
     document.title = p.title + ' · 클리포 블로그';
+    document.body.setAttribute('data-share', postUrl(p.id));
     var kindName = p.type === 'update' ? '업데이트' : '이야기';
     $('#crumb').innerHTML = '<a href="news.html">소식</a> › <a href="news.html#' + p.type + '">' + kindName + '</a>';
     $('#p-title').textContent = p.title;
@@ -287,6 +292,26 @@
     }
   }
 
+  // 공유: 휴대폰은 공유 창, PC는 주소 복사 + 토스트. 주소는 글·영상의 고유 주소(재생목록·초안 표시는 뺀다)
+  var shareBtn = $('#share');
+  if (shareBtn) {
+    var sid = document.body.getAttribute('data-share') || '';
+    var surl = sid ? new URL(sid, location.href).href : location.href;
+    var toast = function (msg) {
+      var t = $('#toast');
+      if (!t) { t = document.createElement('div'); t.id = 'toast'; t.className = 'toast'; t.setAttribute('role', 'status'); document.body.appendChild(t); }
+      t.textContent = msg; t.classList.add('on');
+      clearTimeout(toast.t); toast.t = setTimeout(function () { t.classList.remove('on'); }, 2200);
+    };
+    shareBtn.addEventListener('click', function () {
+      if (navigator.share && window.matchMedia('(pointer:coarse)').matches) { navigator.share({ title: document.title, url: surl }).catch(function () {}); return; }
+      var done = function () { toast('링크를 복사했어요'); };
+      var fail = function () { toast('주소창의 주소를 복사해 주세요'); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(surl).then(done, fail);
+      else { var ta = document.createElement('textarea'); ta.value = surl; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); done(); } catch (e) { fail(); } ta.remove(); }
+    });
+  }
+
   // 왼쪽 열 아이콘 채우기
   function fillIcons() { if (!window.ICONS) return; document.querySelectorAll('.ico[data-ic]').forEach(function (el) { if (!el.firstChild && ICONS[el.getAttribute('data-ic')]) el.innerHTML = ICONS[el.getAttribute('data-ic')]; }); }
   fillIcons();
@@ -316,7 +341,7 @@
         ? '<div class="ec-in"><span class="ec-k">다음 영상</span>'
           + (nx.poster ? '<img class="ec-img" src="' + nx.poster + '" alt="">' : '')
           + '<b class="ec-t">' + esc(nx.title) + '</b><span class="ec-d">' + esc(CATS[nx.cat].name) + ' · ' + esc(nx.dur) + '</span>'
-          + '<div class="ec-b"><button type="button" class="btn-o sm" data-replay>다시 보기</button><a class="btn sm" href="video.html?v=' + nx.id + (nxStart ? '&from=start' : '') + '&play=1">다음 영상 보기</a></div></div>'
+          + '<div class="ec-b"><button type="button" class="btn-o sm" data-replay>다시 보기</button><a class="btn sm" href="' + videoUrl(nx.id, (nxStart ? 'from=start&' : '') + 'play=1') + '">다음 영상 보기</a></div></div>'
         : '<div class="ec-in"><b class="ec-t">' + esc(fromStart ? CATS.start.name : CATS[v.cat].name) + ' 영상을 다 봤어요</b>'
           + '<div class="ec-b"><button type="button" class="btn-o sm" data-replay>다시 보기</button><a class="btn sm" href="learn.html">배우기 목록으로</a></div></div>';
       c.querySelector('[data-replay]').addEventListener('click', function () { c.remove(); vid.currentTime = 0; vid.play(); });
