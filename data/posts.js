@@ -246,7 +246,7 @@ window.POSTS = [
 
   // ---------- 현장 이야기 ----------
   // ---------- 평가 팁·교육 트렌드·연수 글(09-30 게시) + 활용 사례 초안(draft — 주소에 ?draft=1 을 붙이면 보인다). 주제 계획은 docs/content_plan.md ----------
-  { id: 's-2610-rubric4', type: 'story', tag: '평가 팁', date: '2026-09-30', thumb: 'img/tip_2610_rubric4.jpg',
+  { id: 's-2610-rubric4', type: 'story', tag: '평가 팁', date: '2026-09-30', thumb: 'img/tip_2610_rubric4.jpg?v=2',
     title: '2학기 수행평가, 채점기준은 이 네 가지 방식으로 써 보세요',
     summary: '같은 답안도 채점기준을 어떻게 쓰느냐에 따라 AI 점수가 선생님 점수와 맞는 정도가 달라져요. 잘 맞았던 네 가지 쓰기와 고쳐 쓴 예시를 모았어요.',
     body: [
@@ -267,7 +267,7 @@ window.POSTS = [
       '<a class="go-card" href="guide/ch2.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>AI 채점 가이드 2장 · 채점기준은 이렇게 써요</b><span>실제 채점기준과 채점 근거, 고치기 전후 예시</span></span><span class="go-more">전체 보기 ›</span></a>'
     ], videos: ['R1', 'B2'] },
 
-  { id: 's-2610-worksheet', type: 'story', tag: '평가 팁', date: '2026-09-30', thumb: 'img/tip_2610_worksheet.jpg',
+  { id: 's-2610-worksheet', type: 'story', tag: '평가 팁', date: '2026-09-30', thumb: 'img/tip_2610_worksheet.jpg?v=2',
     title: '활동지를 만들기 전에 챙기면 좋은 세 가지',
     summary: '손으로 쓴 답안은 활동지 모양과 스캔 방법에 따라 읽히는 정도가 달라져요. 학생에게 따로 안내하지 않아도 선생님이 바로 할 수 있는 것부터 모았어요.',
     body: [
@@ -288,7 +288,7 @@ window.POSTS = [
       '<a class="go-card" href="guide/ch3.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>AI 채점 가이드 3장 · 과제물은 이렇게 준비해요</b><span>잘못 읽히는 표기와 권장 표기를 그림으로 비교</span></span><span class="go-more">전체 보기 ›</span></a>'
     ], videos: ['R2', 'C3', 'B5'] },
 
-  { id: 's-2610-case-ele-social', type: 'story', tag: '활용 사례', date: '2026-10-20', draft: true, thumb: 'img/case_2610_ele_social.jpg',
+  { id: 's-2610-case-ele-social', type: 'story', tag: '활용 사례', date: '2026-10-20', draft: true, thumb: 'img/case_2610_ele_social.jpg?v=2',
     title: '초등 4학년 사회, 활동지 칸 이름을 채점기준에 넣었더니',
     summary: '성취수준 문장을 그대로 넣었을 때는 두루뭉술한 답안도 상이 나왔어요. 활동지 칸 이름과 셀 수 있는 조건으로 바꾸자 세 답안 모두 선생님 점수와 같아졌어요.',
     body: [
@@ -306,7 +306,7 @@ window.POSTS = [
       '<a class="go-card" href="guide/contest_4.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>선생님 사례 · 초등학교 4학년 사회</b><span>고치기 전후 채점기준, 과제물과 채점 결과</span></span><span class="go-more">전체 보기 ›</span></a>'
     ], videos: ['R1'] },
 
-  { id: 's-2610-training', type: 'story', tag: '현장', date: '2026-09-30', thumb: 'img/story_2610_training.jpg',
+  { id: 's-2610-training', type: 'story', tag: '현장', date: '2026-09-30', thumb: 'img/story_2610_training.jpg?v=2',
     title: '올해 실전 연수 열세 번, 선생님들이 남긴 말',
     summary: '2월부터 9월까지 현직 선생님이 직접 여는 온라인 연수를 열세 번 열었어요. 어떤 과목에서 어떤 이야기가 오갔는지, 참여한 선생님들의 말과 함께 돌아봐요.',
     body: [
@@ -325,7 +325,7 @@ window.POSTS = [
       '<a class="go-card" href="training.html#past"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>지난 연수 자료 보기</b><span>과목별 연수 자료와 선생님 후기</span></span><span class="go-more">전체 보기 ›</span></a>'
     ], videos: [] },
 
-  { id: 's-2610-answer-types', type: 'story', tag: '평가 팁', date: '2026-09-30', thumb: 'img/tip_2610_answer_types.jpg',
+  { id: 's-2610-answer-types', type: 'story', tag: '평가 팁', date: '2026-09-30', thumb: 'img/tip_2610_answer_types.jpg?v=2',
     title: '손글씨·수식·그림, 어디까지 AI 채점이 되나요',
     summary: '과제를 내기 전에 답안 형태부터 확인해 보세요. 채점할 수 있는 것, 결과를 한 번 확인하면 좋은 것, 아직 어려운 것을 나눠 정리했어요.',
     body: [
@@ -349,7 +349,7 @@ window.POSTS = [
       '<a class="go-card" href="guide/ch4.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>AI 채점 가이드 4장 · 이런 답안까지 채점돼요</b><span>답안 형태별 실제 채점 화면</span></span><span class="go-more">전체 보기 ›</span></a>'
     ], videos: ['D1', 'R2'] },
 
-  { id: 's-2611-case-high-eng', type: 'story', tag: '활용 사례', date: '2026-11-03', draft: true, thumb: 'img/case_2611_high_eng.jpg',
+  { id: 's-2611-case-high-eng', type: 'story', tag: '활용 사례', date: '2026-11-03', draft: true, thumb: 'img/case_2611_high_eng.jpg?v=2',
     title: '고등학교 1학년 영어, 실제로 세는 것을 채점기준에 적었더니',
     summary: '평가계획에 공개한 채점기준을 그대로 넣었을 때는 여섯 명 모두 선생님 점수와 달랐어요. 문장 수와 오류 수처럼 실제로 세는 것을 적자 세 명이 같아졌어요.',
     body: [
@@ -365,7 +365,7 @@ window.POSTS = [
       '<a class="go-card" href="guide/contest_6.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>선생님 사례 · 고등학교 1학년 영어</b><span>고치기 전후 채점기준, 학생별 점수 비교</span></span><span class="go-more">전체 보기 ›</span></a>'
     ], videos: ['R1'] },
 
-  { id: 's-2611-case-mid-math', type: 'story', tag: '활용 사례', date: '2026-11-17', draft: true, thumb: 'img/case_2611_mid_math.jpg',
+  { id: 's-2611-case-mid-math', type: 'story', tag: '활용 사례', date: '2026-11-17', draft: true, thumb: 'img/case_2611_mid_math.jpg?v=2',
     title: '중학교 2학년 수학, AI가 만든 채점기준을 한 번 읽고 고쳤더니',
     summary: '시험지를 올려 받은 채점기준을 그대로 썼더니 두 문항에서 어긋났어요. 문항이 묻는 범위와 인정할 다른 풀이를 적자 선생님 판단과 같아졌어요.',
     body: [
@@ -382,7 +382,7 @@ window.POSTS = [
     ], videos: ['B2', 'R1'] },
 
   // 출처: OECD, Results from TALIS 2024 (2025-10) 1장 'Teaching for today's world' — 수치는 2026-09-30 원문 대조. 중학교(lower secondary) 교사 기준, OECD 평균
-  { id: 's-2611-trend-talis-ai', type: 'story', tag: '교육 트렌드', date: '2026-09-30', thumb: 'img/trend_2611_talis_ai.jpg',
+  { id: 's-2611-trend-talis-ai', type: 'story', tag: '교육 트렌드', date: '2026-09-30', thumb: 'img/trend_2611_talis_ai.jpg?v=2',
     title: '선생님 3명 중 1명이 AI를 써요. 채점에 쓰는 선생님은 그중 26%',
     summary: 'OECD가 55개 나라와 지역의 선생님에게 물었어요. AI를 쓰는 선생님은 아직 3명 중 1명이고, 주로 수업 준비에 써요. 채점과 평가에 쓰는 비율은 그보다 낮았어요.',
     body: [
@@ -397,7 +397,7 @@ window.POSTS = [
       '<p class="muted">출처: OECD, Results from TALIS 2024 (2025). 중학교 교사 기준, OECD 평균이에요. 수치는 조사 원문 기준이에요.</p>'
     ], videos: ['D2', 'B5'] },
 
-  { id: 's-2612-case-high-art', type: 'story', tag: '활용 사례', date: '2026-12-08', draft: true, thumb: 'img/case_2612_high_art.jpg',
+  { id: 's-2612-case-high-art', type: 'story', tag: '활용 사례', date: '2026-12-08', draft: true, thumb: 'img/case_2612_high_art.jpg?v=2',
     title: '고등학교 1학년 미술, 한 요소에 사고 하나만 담았더니',
     summary: '비평문 한 편의 AI 점수가 50점 중 42점으로 높게 나왔어요. 묶여 있던 요소를 나누자 27점이 되어 선생님 채점과 1점 차이가 됐어요.',
     body: [
@@ -414,7 +414,7 @@ window.POSTS = [
       '<a class="go-card" href="guide/contest_3.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>선생님 사례 · 고등학교 1학년 미술</b><span>고치기 전후 채점기준, 요소별 점수 비교</span></span><span class="go-more">전체 보기 ›</span></a>'
     ], videos: ['R1'] },
 
-  { id: 's-2611-diff', type: 'story', tag: '평가 팁', date: '2026-09-30', thumb: 'img/tip_2611_diff.jpg',
+  { id: 's-2611-diff', type: 'story', tag: '평가 팁', date: '2026-09-30', thumb: 'img/tip_2611_diff.jpg?v=2',
     title: 'AI 점수가 내 생각과 다를 때, 이 순서로 봐요',
     summary: '원인은 대개 둘 중 하나예요. 답안을 잘못 읽었거나, 채점기준이 판정하기 어렵게 쓰였거나. 채점 근거부터 읽으면 어느 쪽인지 알 수 있어요.',
     body: [
@@ -435,7 +435,7 @@ window.POSTS = [
       '<a class="go-card" href="guide/ch5.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>AI 채점 가이드 5장 · 결과가 다를 땐 이렇게 해요</b><span>원인을 찾는 순서와 화면 위치</span></span><span class="go-more">전체 보기 ›</span></a>'
     ], videos: ['D2', 'D1'] },
 
-  { id: 's-2612-seteuk', type: 'story', tag: '평가 팁', date: '2026-09-30', thumb: 'img/tip_2612_seteuk.jpg',
+  { id: 's-2612-seteuk', type: 'story', tag: '평가 팁', date: '2026-09-30', thumb: 'img/tip_2612_seteuk.jpg?v=2',
     title: '학기 말 세특, 채점 결과에서 초안까지',
     summary: '수행평가를 채점해 두었다면 그 결과로 세특 초안을 만들 수 있어요. 학급이 선택되지 않을 때 확인할 두 가지와, 채점 없이 만드는 방법도 함께 정리했어요.',
     body: [
