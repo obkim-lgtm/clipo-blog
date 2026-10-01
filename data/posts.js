@@ -453,7 +453,7 @@ window.POSTS = [
     ], videos: ['E0', 'E1', 'E2'] },
 
   // 출처: OECD TALIS 2024(2025-10 발표) / Gallup·Walton Family Foundation 'Teaching for Tomorrow'(2025-06-24, 미국 공립 K-12 교사 2,232명, 2025-03-18~04-11)
-  { id: 's-2609-trend-ai', type: 'story', tag: '교육 트렌드', date: '2026-09-22', thumb: 'img/trend_2609_ai_grading.jpg?v=2',
+  { id: 's-2609-trend-ai', type: 'story', tag: '교육 트렌드', date: '2026-09-22', thumb: 'img/trend_2609_ai_grading.jpg?v=3',
     title: 'AI로 채점·피드백한 선생님 57%, "질이 좋아졌어요"',
     summary: '채점은 전 세계 선생님의 공통 부담이에요. 미국 조사에서 AI를 매주 쓰는 선생님은 주당 5.9시간을 아꼈고, 채점·피드백에 AI를 써 본 선생님 57%가 질도 나아졌다고 답했어요.',
     body: [
