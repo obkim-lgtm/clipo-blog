@@ -2,10 +2,9 @@
 // 다가오는 연수: title, date, dur, place, speaker, topic, form
 // 지난 연수:     title, date, tag(교과), speaker, topic, thumb, badge(영상·연수자료 제공 / 연수자료만 제공), materials(자료 링크)
 window.TRAININGS = [
-  { id: 't-2609-kor', title: '[9월] 국어과 실전 연수', date: '2026-09-30T19:00', dur: '90분',
-    place: 'Zoom 온라인 (신청 후 링크 발송)', speaker: '영훈고 국어 선생님',
-    topic: '클리포로 끝내는 국어 수행평가 채점 및 생기부 작성',
-    form: 'https://forms.gle/6fNN6rqfMXdtiE6G6' },
+  { id: 'p-2609-kor', title: '[9월] 국어과 실전 연수', date: '2026-09-30', tag: '국어', speaker: '영훈고 국어 선생님',
+    topic: '클리포로 끝내는 국어 수행평가 채점 및 생기부 작성', thumb: 'img/training/thumb_korean_september.png', badge: '연수자료만 제공',
+    materials: 'https://drive.google.com/drive/folders/1XrphL2tX1CtBTCkrFRh59cFQSG9WE1u_?usp=sharing' },
 
   { id: 'p-2609-soc', title: '[9월] 사회과 실전 연수', date: '2026-09-16', tag: '사회', speaker: '협성고 사회 선생님',
     topic: '클리포를 활용한 평가-기록 업그레이드 하기', thumb: 'img/training/thumb_social_september.png', badge: '영상·연수자료 제공',
