@@ -27,8 +27,8 @@ window.ALIAS = { S1: 'A1', S2: 'A8', S3: 'B2', S4: 'B1', S5: 'D2', D5: 'D3', S6:
 
 window.VIDEOS = [
   // 시작하기
-  { id: 'S0', cat: 'start', art: 'intro', guide: 'index.html', title: '클리포는 어떤 서비스인가요?', dur: '2:39', yt: null,
-    mp4: 'https://training.clipo.ai/video/clipo_promo.mp4', poster: 'video/s0_poster.jpg?v=2', screen: '전체', isNew: false,
+  { id: 'S0', cat: 'start', art: 'intro', guide: 'index.html', title: '클리포는 어떤 서비스인가요?', dur: '2:38', yt: null,
+    mp4: 'video/s0.mp4?v=1', poster: 'video/s0_poster.jpg?v=2', screen: '전체', isNew: false,
     summary: '서·논술형 채점부터 생기부 기록까지, 선생님의 한 학기를 클리포로 어떻게 보내는지 2분 40초로 봐요. AI가 점수와 기록을 정하지 않아요. 제안을 읽고 결정하는 건 언제나 선생님이에요.' },
 
   // 수업·참여 학생 — 수업 단위. 학생 '계정'(등록·비밀번호)은 학교 설정 탭
