@@ -85,8 +85,7 @@ button,input{font-family:inherit;font-size:inherit}
 .home-row .tlist{flex:1}
 .home-row .tlist .tcard{height:auto}
 .home-row .timeline{flex:1}
-@media (max-width:900px){.home-row{grid-template-columns:1fr}}
-.home-row .newsbox{flex:1;background:#fff;border-radius:var(--r-lg);padding:20px 22px 16px;box-shadow:var(--sh);display:flex;flex-direction:column}
+@media (max-width:900px){.home-row{grid-template-columns:1fr}}.home-row .newsbox{flex:1;background:#fff;border-radius:var(--r-lg);padding:20px 22px 16px;box-shadow:var(--sh);display:flex;flex-direction:column}
 .home-row .nb-cap{font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--mute);margin:0 0 10px} /* 소식 탭 왼쪽 목록의 이름 그대로 */
 .home-row .newsbox .nb-cap + .nb-cap{margin-top:0}
 .home-row .timeline{flex:1;padding:0 0 0 24px;margin:0 -12px 6px}
@@ -464,9 +463,13 @@ button,input{font-family:inherit;font-size:inherit}
 .crumb a:hover{color:var(--blue)}
 
 /* 푸터 */
-.ftr{color:var(--mute);font-size:13px;text-align:center;padding:28px 16px 40px}
-.ftr a{margin:0 8px}
-.ftr a:hover{color:var(--blue)}
+/* 푸터 = 서비스 푸터(피그마 1964-25065)와 같게: 링크 4개 15px semibold · 12px 세로 구분선 · 24px 간격 · 저작권 14px · 위 80 아래 60 · 글자 #52525b */
+.ftr{display:flex;flex-direction:column;align-items:center;gap:24px;color:#52525b;padding:80px 16px 60px;text-align:center}
+.ftr-links{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:24px;font-size:15px;font-weight:600;line-height:1.25;margin:0;padding:0}
+.ftr-links a{position:relative;color:inherit}
+.ftr-links a+a:before{content:"";position:absolute;left:-12px;top:50%;width:1px;height:12px;transform:translateY(-50%);background:#d4d4d8}
+.ftr-links a:hover{color:var(--blue)}
+.ftr-copy{margin:0;font-size:14px;font-weight:400;line-height:1.25}
 
 /* 글 본문 끝의 콘텐츠 연결 배너 (예: 이야기 → 가이드 연구 사례) */
 .go-card{display:flex;align-items:center;gap:16px;margin:32px 0 0;padding:20px 22px;border-radius:var(--r);background:var(--blue-bg);color:var(--ink);text-decoration:none;transition:transform .15s,box-shadow .15s}

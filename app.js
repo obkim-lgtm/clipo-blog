@@ -80,24 +80,28 @@
 
   /* ---------- 페이지별 ---------- */
   var page = document.body.getAttribute('data-page');
+  // 이야기 갈래 숨김(build.py HIDE_STORIES → body data-hide-stories): 소식 탭·홈 소식 칸에 업데이트만 보인다. 이야기 글은 주소로만 열린다
+  var HIDE_STORIES = document.body.hasAttribute('data-hide-stories');
+  var NO_TRAINING = '지금 모집 중인 연수가 없어요. 다음 연수는 소식에서 먼저 알려 드릴게요.';
 
   if (page === 'home') {
     var open = TRAININGS.filter(function (t) { return t.form && new Date(t.date) >= new Date(); }).sort(function (a, b) { return a.date > b.date ? 1 : -1; });
-    $('#home-training').innerHTML = open.length ? '<div class="tlist">' + open.slice(0, 1).map(tcard).join('') + '</div>' : '<div class="empty">지금 모집 중인 연수가 없어요. 다음 연수는 소식에서 먼저 알려 드릴게요.</div>';
+    $('#home-training').innerHTML = open.length ? '<div class="tlist">' + open.slice(0, 1).map(tcard).join('') + '</div>' : '<div class="empty">' + NO_TRAINING + '</div>';
     if (open.length > 1) $('#home-training').previousElementSibling.querySelector('a').textContent = '모집 중 ' + open.length + '개 모두 보기 ›';
     // 홈 배우기 칸 = 시작하기 재생목록의 앞 3편. 히어로 버튼이 트는 소개 영상(S0)은 뺀다 — 같은 화면에 같은 영상이 두 번 보이지 않게
     var vids = startList().filter(function (v) { return v.dur && v.id !== 'S0'; });
     $('#home-videos').innerHTML = '<div class="grid">' + vids.slice(0, 3).map(function (v) { return vcard(v, 'from=start'); }).join('') + '</div>';
     var ups = published(POSTS).filter(function (p) { return p.type === 'update'; }).sort(function (a, b) { return a.date < b.date ? 1 : -1; });
     // 소식 열은 소식 탭의 두 갈래(업데이트 / 이야기)를 그대로: 업데이트 2건 + 최신 이야기 1건(작은 썸네일 줄)
-    var stories = published(POSTS).filter(function (p) { return p.type === 'story'; }).sort(function (a, b) { return a.date < b.date ? 1 : -1; }).slice(0, 2);
+    var stories = HIDE_STORIES ? [] : published(POSTS).filter(function (p) { return p.type === 'story'; }).sort(function (a, b) { return a.date < b.date ? 1 : -1; }).slice(0, 2);
     var storyRow = stories.length ? '<div class="nb-cap">이야기</div>' + stories.map(function (story) {
       return '<a class="srow" href="' + (story.link || postUrl(story.id)) + '">'
         + '<span class="srow-th">' + (story.thumb ? '<img src="' + story.thumb + '" alt="" loading="lazy">' : '') + '</span>'
         + '<span class="srow-in"><span class="meta"><span class="kind story" data-tag="' + esc(story.tag || '') + '">' + kindOf(story) + '</span>' + fmtDate(story.date) + '</span>'
         + '<span class="srow-t">' + esc(story.title) + '</span></span></a>'; }).join('') : '';
+    // 이야기를 숨긴 동안은 업데이트 3건으로 칸을 채운다
     $('#home-updates').innerHTML = '<div class="newsbox">'
-      + (ups.length ? '<div class="nb-cap">업데이트</div><ul class="timeline">' + ups.slice(0, 2).map(releaseItem).join('') + '</ul>' : '<div class="empty">업데이트 소식이 아직 없어요.</div>')
+      + (ups.length ? '<div class="nb-cap">업데이트</div><ul class="timeline">' + ups.slice(0, HIDE_STORIES ? 3 : 2).map(releaseItem).join('') + '</ul>' : '<div class="empty">업데이트 소식이 아직 없어요.</div>')
       + storyRow + '</div>';
   }
 
@@ -160,7 +164,7 @@
     var now = new Date();
     var openT = TRAININGS.filter(function (t) { return t.form && new Date(t.date) >= now; }).sort(function (a, b) { return a.date > b.date ? 1 : -1; });
     var pastT = TRAININGS.filter(function (t) { return !t.form || new Date(t.date) < now; }).sort(function (a, b) { return a.date < b.date ? 1 : -1; });
-    $('#t-open').innerHTML = openT.length ? '<div class="tlist">' + openT.map(tcard).join('') + '</div>' : '<div class="empty">지금 모집 중인 연수가 없어요. 다음 연수는 소식에서 먼저 알려 드릴게요.</div>';
+    $('#t-open').innerHTML = openT.length ? '<div class="tlist">' + openT.map(tcard).join('') + '</div>' : '<div class="empty">' + NO_TRAINING + '</div>';
     $('#t-past').innerHTML = pastT.length ? '<div class="grid">' + pastT.map(acard).join('') + '</div>' : '<div class="empty">지난 연수 자료가 아직 없어요.</div>';
     $('#n-open').textContent = openT.length; $('#n-past').textContent = pastT.length;
     // 과목 필터 (지난 연수)
@@ -190,6 +194,10 @@
       if (el.classList.contains('fi')) { el.style.setProperty('--t', 'var(--t-' + t + ')'); el.style.setProperty('--i', 'var(--i-' + t + ')'); el.innerHTML = art; return; }
       el.insertAdjacentHTML('afterbegin', '<div class="fi" style="--t:var(--t-' + t + ');--i:var(--i-' + t + ')">' + art + '</div>');
     });
+    // 실습 준비는 연수 참가자용(PPT QR → #practice)이라 목록에 두지 않는다(10-13 올립: 다른 항목과 결이 다름). 주소로 들어오면 그때만 목록에 보인다
+    var practiceLink = $('[data-sub="practice"]');
+    var togglePractice = function () { practiceLink.style.display = location.hash === '#practice' ? '' : 'none'; };
+    window.addEventListener('hashchange', togglePractice); togglePractice();
     subtabs(['open', 'past', 'practice', 'school', 'instructor', 'adopt']);
   }
 
@@ -197,8 +205,13 @@
     var ups2 = published(POSTS).filter(function (p) { return p.type === 'update'; }).sort(function (a, b) { return a.date < b.date ? 1 : -1; });
     var st = published(POSTS).filter(function (p) { return p.type === 'story'; }).sort(function (a, b) { return a.date < b.date ? 1 : -1; });
     $('#n-update').innerHTML = ups2.length ? '<ul class="timeline">' + ups2.map(releaseItem).join('') + '</ul>' : '<div class="empty">업데이트 소식이 아직 없어요.</div>';
+    $('#c-update').textContent = ups2.length;
+    if (HIDE_STORIES) {   // 이야기 갈래를 왼쪽 목록·화면에서 뺀다(업데이트만)
+      $('[data-sub="story"]').remove(); $('#pane-story').remove();
+      subtabs(['update']);
+    } else {
     $('#n-story').innerHTML = st.length ? '<div class="grid">' + st.map(pcard).join('') + '</div>' : '<div class="empty">이야기가 아직 없어요.</div>';
-    $('#c-update').textContent = ups2.length; $('#c-story').textContent = st.length;
+    $('#c-story').textContent = st.length;
     // 이야기 태그 필터
     var tags = []; st.forEach(function (p) { if (p.tag && tags.indexOf(p.tag) < 0) tags.push(p.tag); });
     var nf = $('#n-filter');
@@ -214,6 +227,7 @@
       });
     }
     subtabs(['update', 'story']);
+    }
   }
 
   if (page === 'video') {
