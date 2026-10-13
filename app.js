@@ -81,7 +81,9 @@
   /* ---------- 페이지별 ---------- */
   var page = document.body.getAttribute('data-page');
   // 이야기 갈래 숨김(build.py HIDE_STORIES → body data-hide-stories): 소식 탭·홈 소식 칸에 업데이트만 보인다. 이야기 글은 주소로만 열린다
-  var HIDE_STORIES = document.body.hasAttribute('data-hide-stories');
+  // 리뷰용 주소(?draft=1)로 들어오면 숨긴 이야기·초안까지 다 보인다(10-13 올립: 블로그 리뷰 회의용). 일반 주소는 그대로 업데이트만
+  var HIDE_STORIES = document.body.hasAttribute('data-hide-stories') && !SHOW_DRAFTS;
+  if (SHOW_DRAFTS) document.body.insertAdjacentHTML('afterbegin', '<div class="review-bar">리뷰용 화면이에요. 일반 방문자에게는 숨긴 이야기 글과 초안도 함께 보여요.</div>');
   var NO_TRAINING = '지금 모집 중인 연수가 없어요. 다음 연수는 소식에서 먼저 알려 드릴게요.';
 
   if (page === 'home') {

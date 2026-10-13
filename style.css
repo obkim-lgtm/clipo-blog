@@ -469,6 +469,7 @@ button,input{font-family:inherit;font-size:inherit}
 .ftr-links a{position:relative;color:inherit}
 .ftr-links a+a:before{content:"";position:absolute;left:-12px;top:50%;width:1px;height:12px;transform:translateY(-50%);background:#d4d4d8}
 .ftr-links a:hover{color:var(--blue)}
+.review-bar{background:#fff7e6;color:#8a5a12;font-size:14px;font-weight:600;text-align:center;padding:10px 16px;border-bottom:1px solid #f3dfb4} /* ?draft=1 리뷰 화면 표시 */
 .ftr-info{display:flex;flex-direction:column;gap:8px;font-size:14px;line-height:1.5;width:100%;max-width:1200px} /* 한 줄에 다 들어가면 한 줄, 좁으면 항목 단위로 줄바꿈 */
 .ftr-info p{margin:0;display:flex;flex-wrap:wrap;justify-content:center;gap:4px 28px}
 .ftr-info a{color:inherit}
