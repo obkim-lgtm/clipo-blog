@@ -159,3 +159,27 @@ document.querySelectorAll('.subj-filter').forEach(f=>{
   // 앵커가 hidden 패널 안이라 브라우저가 못 찾으므로 직접 연다
   if(!fromHash()) show('tips',false);
 })();
+
+// 과목별 채점 예시: 학교급 탭, 과제 모양 바로가기(#m-04-1 같은 주소면 그 학교급을 열고 카드를 펼침), 과제물 쪽 넘기기
+(function(){
+  const lv=document.getElementById('lv'); if(!lv) return;
+  const hd=()=>parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header'))||60;
+  const show=t=>{
+    lv.querySelectorAll('.lv-tabs button').forEach(b=>{const on=b.dataset.t===t;b.classList.toggle('on',on);b.setAttribute('aria-selected',on)});
+    lv.querySelectorAll('.ct-p').forEach(p=>p.hidden=p.dataset.p!==t);
+  };
+  const go=()=>{
+    const id=decodeURIComponent(location.hash.slice(1)), el=id&&document.getElementById(id);
+    if(!el||!lv.contains(el)) return false;
+    show(id[0]); if(el.tagName==='DETAILS') el.open=true;
+    requestAnimationFrame(()=>scrollTo({top:el.getBoundingClientRect().top+scrollY-hd()-100}));
+    return true;
+  };
+  lv.querySelectorAll('.lv-tabs button').forEach(b=>b.addEventListener('click',()=>{history.replaceState(null,'','#'+b.dataset.t+'-');show(b.dataset.t)}));
+  addEventListener('hashchange',go);
+  if(!go()) show((location.hash.match(/^#([emh])-$/)||[,'e'])[1]);
+  lv.querySelectorAll('.ex-sheet').forEach(sh=>sh.querySelectorAll('.rv-pg button').forEach(b=>b.addEventListener('click',()=>{
+    sh.querySelectorAll('.rv-pg button').forEach(x=>x.classList.toggle('on',x===b));
+    sh.querySelectorAll('.ex-pgimg').forEach(a=>a.hidden=a.dataset.pg!==b.dataset.pg);
+  })));
+})();

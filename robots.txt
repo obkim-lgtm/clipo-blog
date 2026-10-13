@@ -1,3 +1,5 @@
+# 검색엔진·AI 검색(ChatGPT·Perplexity·Claude·Gemini 등) 모두 허용
+# AI용 안내: https://blog.clipo.ai/llms.txt
 User-agent: *
 Allow: /
 Sitemap: https://blog.clipo.ai/sitemap.xml
