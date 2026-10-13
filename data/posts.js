@@ -8,7 +8,7 @@
 // 얼굴 나온 사진은 동의 없이 쓰지 않는다.
 window.POSTS = [
   // ---------- 2026 업데이트 (최신순) ----------
-  { id: 'u-261001', type: 'update', date: '2026-10-01', version: null,
+  { id: 'u-261001', type: 'update', date: '2026-10-01', version: null, notice: 'https://clipo.ai/teachers/helps/notices/I88jEdNvj0ias6Zewtup9w',
     title: '같은 학교 선생님과 채점 결과를 함께 검토할 수 있어요',
     summary: '내 수업을 같은 학교 선생님에게 공유하면, 그 선생님이 설계·채점·세특 화면을 보며 댓글로 의견을 남겨요. 점수와 기록은 수업을 맡은 선생님만 고쳐요.',
     body: [
@@ -22,7 +22,7 @@ window.POSTS = [
       '<p>수업의 편집·삭제, 점수·기록의 수정과 확정은 수업을 맡은 선생님만 할 수 있어요. 동료 선생님은 읽기 전용으로 보고 댓글로 의견만 남겨요. 공유 범위는 선생님마다 다르게 정할 수 있고 언제든 바꾸거나 해제할 수 있어요. 해제해도 그동안 나눈 댓글은 그대로 남아요.</p>',
       '<p>공동 평가는 지금 Beta로 제공돼요. 써 보고 더 편해졌으면 하는 점이 있으면 1:1 문의로 들려주세요.</p>'
     ], videos: ['D7'] },
-  { id: 'u-260922', type: 'update', date: '2026-09-22', version: null,
+  { id: 'u-260922', type: 'update', date: '2026-09-22', version: null, notice: 'https://clipo.ai/teachers/helps/notices/E2D9Me1I80qyq2KFS8M6-A',
     title: '학생이 문항마다 답을 나눠 써서 제출할 수 있어요',
     summary: '클리포에 직접 쓰는 과제에 문항을 여러 개 담을 수 있어요. 학생은 문항별로 답을 쓰고, 선생님은 문항별로 봐요.',
     body: [
