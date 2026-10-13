@@ -172,7 +172,7 @@ document.querySelectorAll('.subj-filter').forEach(f=>{
     const id=decodeURIComponent(location.hash.slice(1)), el=id&&document.getElementById(id);
     if(!el||!lv.contains(el)) return false;
     show(id[0]); if(el.tagName==='DETAILS') el.open=true;
-    requestAnimationFrame(()=>scrollTo({top:el.getBoundingClientRect().top+scrollY-hd()-100}));
+    requestAnimationFrame(()=>scrollTo({top:el.getBoundingClientRect().top+scrollY-hd()-16}));
     return true;
   };
   lv.querySelectorAll('.lv-tabs button').forEach(b=>b.addEventListener('click',()=>{history.replaceState(null,'','#'+b.dataset.t+'-');show(b.dataset.t)}));

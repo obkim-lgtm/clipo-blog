@@ -18,7 +18,7 @@
 - [이런 답안까지 채점돼요](https://blog.clipo.ai/guide/ch4.html): 답안 형태별로 AI 채점이 잘 되는 것, 한 번 확인하면 좋은 것, 아직 어려운 것을 정리했어요.
 - [결과가 다를 땐 이렇게 해요](https://blog.clipo.ai/guide/ch5.html): AI가 매긴 점수가 선생님 생각과 다를 때 확인하는 순서예요.
 - [자주 묻는 질문](https://blog.clipo.ai/guide/ch6.html): 크레딧, 다시 채점, 파일 교체, 손글씨·외국어, 직접 채점에 대해 자주 나오는 질문을 모았어요.
-- [과목별 채점 예시](https://blog.clipo.ai/guide/examples.html): 초등·중등·고등 과제 37개의 채점기준과 채점 결과 화면, 과제물을 볼 수 있어요.
+- [과목별 채점 예시](https://blog.clipo.ai/guide/examples.html): 초등·중등·고등 과제의 채점기준과 채점 결과 화면, 과제물을 볼 수 있어요.
 - [선생님들이 찾은 채점기준 꿀팁](https://blog.clipo.ai/guide/contest.html): 에듀테크 교사 연구회(에크연)와 클리포가 함께 연 공모전에서 현직 선생님들이 찾은 채점기준 꿀팁이에요. 고친 문장의 전과 후, 실제 평가 설계, 학생 답안 예시를 담았어요.
 
 ## 사용법 영상
