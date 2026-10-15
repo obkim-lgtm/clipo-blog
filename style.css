@@ -240,7 +240,7 @@ button,input{font-family:inherit;font-size:inherit}
 .pcard .in{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px}
 .pcard .meta{font-size:13px;color:var(--mute);display:flex;gap:8px;align-items:center}
 .pcard .t{font-size:18px;font-weight:800;line-height:1.35}
-.pcard .d{color:var(--ink-2);font-size:15px}
+.pcard .d{color:#52525b;font-size:14px}
 .kind{display:inline-flex;align-items:center;line-height:1;padding:5px 8px;border-radius:999px;font-size:13px;font-weight:700;background:var(--blue-bg);color:var(--blue)}
 .kind.story{background:var(--orange-bg);color:var(--orange)}
 [data-tag="현장"]{--tb:var(--orange-bg);--tc:var(--orange)}
@@ -261,7 +261,7 @@ button,input{font-family:inherit;font-size:inherit}
 .tcard .tc-badge{display:inline-flex;align-items:center;line-height:1;padding:6px 9px;border-radius:999px;font-size:13px;font-weight:700;background:var(--green-bg);color:var(--green)}
 .tcard .tc-badge.closed{background:#f1f3f5;color:var(--mute)}
 .tcard .tc-title{font-size:21px;font-weight:800;margin:10px 0 8px}
-.tcard .tc-meta{color:var(--ink-2);font-size:15px;display:flex;flex-direction:column;gap:3px}
+.tcard .tc-meta{color:#52525b;font-size:14px;display:flex;flex-direction:column;gap:3px}
 .tcard .tc-meta > div{display:flex;align-items:center;gap:8px}
 .tcard .tc-meta .ico{width:16px;height:16px;flex-shrink:0;color:var(--mute);display:inline-flex}
 .tcard .tc-meta .ico svg{width:100%;height:100%}
@@ -275,7 +275,7 @@ button,input{font-family:inherit;font-size:inherit}
 /* 연수: 혜택 배너·소개·특징·절차·FAQ·후기 */
 .bene{background:linear-gradient(120deg,var(--t-files),#eefbf3);border-radius:var(--r-lg);padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .bene-t{font-size:19px;font-weight:800}
-.bene-d{color:var(--ink-2);font-size:15px;margin-top:4px}
+.bene-d{color:#52525b;font-size:14px;margin-top:4px}
 .bene-tags{display:flex;gap:8px;flex-wrap:wrap}
 .intro{background:linear-gradient(120deg,#e9efff,#efe9ff);border-radius:var(--r-lg);padding:28px 28px 24px}
 .intro h2{font-size:24px;font-weight:800}
@@ -286,7 +286,7 @@ button,input{font-family:inherit;font-size:inherit}
 .feat-i:hover{transform:translateY(-2px);box-shadow:var(--sh-h)}
 .feat-i .fi{grid-row:1/3}
 .feat-i b{grid-column:2;font-size:17px;font-weight:800;margin-top:4px}
-.feat-i span{grid-column:2;color:var(--ink-2);font-size:15px}
+.feat-i span{grid-column:2;color:#52525b;font-size:14px}
 .inl{color:var(--blue);font-weight:600;white-space:nowrap}
 .inl:hover{text-decoration:underline}
 .note a{color:var(--blue);font-weight:600}
@@ -300,14 +300,14 @@ button,input{font-family:inherit;font-size:inherit}
 .steps li:before{content:counter(st);width:36px;height:36px;border-radius:50%;background:var(--blue-bg);color:var(--blue);font-weight:800;display:flex;align-items:center;justify-content:center;line-height:1}
 .steps li:before{grid-row:1/3}
 .steps li b{grid-column:2;display:block;font-size:16px;font-weight:800;margin-bottom:2px}
-.steps li span{grid-column:2;color:var(--ink-2);font-size:15px}
+.steps li span{grid-column:2;color:#52525b;font-size:14px}
 .acts{display:flex;gap:10px;flex-wrap:wrap}
 .faq details{background:#fff;border-radius:var(--r);box-shadow:var(--sh);margin-bottom:10px;padding:0 20px}
 .faq summary{cursor:pointer;padding:16px 0;font-size:16px;font-weight:700;list-style:none;display:flex;align-items:center;justify-content:space-between}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary:after{content:"+";color:var(--mute);font-weight:400;font-size:20px;line-height:1}
 .faq details[open] summary:after{content:"\2013"}
-.faq details>div{padding:0 0 16px;color:var(--ink-2);font-size:15px}
+.faq details>div{padding:0 0 16px;color:#52525b;font-size:14px}
 .cta-box{background:var(--blue-bg);border-radius:var(--r);padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .cta-box b{display:block;font-size:16px;font-weight:800}
 .cta-box span{font-size:14px;color:var(--ink-2)}
@@ -362,7 +362,7 @@ button,input{font-family:inherit;font-size:inherit}
 .deck .ds-d{grid-column:2;font-size:14px;color:var(--ink-2)}
 .proof{background:linear-gradient(120deg,var(--t-class),#fff0f6);border-radius:var(--r-lg);padding:22px 24px;display:flex;flex-direction:column;gap:6px}
 .proof b{font-size:19px;font-weight:800}
-.proof span{color:var(--ink-2);font-size:15px}
+.proof span{color:#52525b;font-size:14px}
 .proof a{font-size:14px;font-weight:700;color:var(--i-class);margin-top:4px}
 
 /* 지난 연수: 과목 필터·과목별 태그 색 */
@@ -478,16 +478,10 @@ button,input{font-family:inherit;font-size:inherit}
 
 /* 푸터 */
 /* 푸터 = 서비스 푸터(피그마 1964-25065)와 같게: 링크 4개 15px semibold · 12px 세로 구분선 · 24px 간격 · 저작권 14px · 위 80 아래 60 · 글자 #52525b */
-.ftr{display:flex;flex-direction:column;align-items:center;gap:24px;color:#52525b;padding:80px 16px 60px;text-align:center}
-.ftr-links{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:24px;font-size:15px;font-weight:600;line-height:1.25;margin:0;padding:0}
-.ftr-links a{position:relative;color:inherit}
-.ftr-links a+a:before{content:"";position:absolute;left:-12px;top:50%;width:1px;height:12px;transform:translateY(-50%);background:#d4d4d8}
-.ftr-links a:hover{color:var(--blue)}
-.ftr-info{display:flex;flex-direction:column;gap:8px;font-size:14px;line-height:1.5;width:100%;max-width:1200px} /* 한 줄에 다 들어가면 한 줄, 좁으면 항목 단위로 줄바꿈 */
-.ftr-info p{margin:0;display:flex;flex-wrap:wrap;justify-content:center;gap:4px 28px}
-.ftr-info a{color:inherit}
-.ftr-info a:hover{color:var(--blue)}
+.ftr{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 20px;color:#52525b;padding:80px 16px 60px;text-align:center} /* 한 줄: 카피라이트 · CLIPO 바로가기 (10-15 올립) */
 .ftr-copy{margin:0;font-size:14px;font-weight:400;line-height:1.25}
+.ftr-go{display:inline-flex;align-items:center;justify-content:center;line-height:1;vertical-align:middle;gap:6px;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;color:#52525b;font-size:14px;font-weight:600;transition:border-color .12s,color .12s}
+.ftr-go:hover{border-color:var(--blue);color:var(--blue)}
 
 /* 글 본문 끝의 콘텐츠 연결 배너 (예: 이야기 → 가이드 연구 사례) */
 .go-card{display:flex;align-items:center;gap:16px;margin:32px 0 0;padding:20px 22px;border-radius:var(--r);background:var(--blue-bg);color:var(--ink);text-decoration:none;transition:transform .15s,box-shadow .15s}
