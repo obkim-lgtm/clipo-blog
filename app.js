@@ -1,4 +1,4 @@
-/* 클리포 블로그 뼈대 — 데이터(data/*.js)를 읽어 각 페이지를 그린다. */
+/* 클리포 가이드 뼈대 — 데이터(data/*.js)를 읽어 각 페이지를 그린다. */
 (function () {
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
@@ -235,7 +235,7 @@
     var vq = pageId('v'); if (window.ALIAS && ALIAS[vq]) vq = ALIAS[vq]; // 예전 시작하기 전용 주소 → 짝 영상
     var v = byId(vq) || { id: '', cat: 'start', title: '준비 중인 영상', dur: null, screen: '—' };
     var fromStart = qs('from') === 'start' || v.cat === 'start';
-    document.title = v.title + ' · 클리포 블로그';
+    document.title = v.title + ' · 클리포 가이드';
     if (v.id) document.body.setAttribute('data-share', videoUrl(v.id));
     $('#crumb').innerHTML = '<a href="learn.html">배우기</a> › <a href="learn.html#' + v.cat + '">' + esc(CATS[v.cat].name) + '</a>';
     $('#player').innerHTML = playerInner(v);
@@ -268,7 +268,7 @@
   if (page === 'post') {
     var p = null; for (var i = 0; i < POSTS.length; i++) if (POSTS[i].id === pageId('p')) p = POSTS[i];
     p = p || POSTS[0];
-    document.title = p.title + ' · 클리포 블로그';
+    document.title = p.title + ' · 클리포 가이드';
     document.body.setAttribute('data-share', postUrl(p.id));
     var kindName = p.type === 'update' ? '업데이트' : '이야기';
     $('#crumb').innerHTML = '<a href="news.html">소식</a> › <a href="news.html#' + p.type + '">' + kindName + '</a>';
