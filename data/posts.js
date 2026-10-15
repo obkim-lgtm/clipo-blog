@@ -282,7 +282,7 @@ window.POSTS = [
       + '<li><b>답안만으로 알 수 없는 것</b> 수업 태도나 참여도는 AI 채점 요소에서 빼고 선생님이 직접 점수를 넣어요.</li>'
       + '<li><b>한 요소에 여러 판단</b> "견해를 제시했는가", "근거를 활용했는가"처럼 요소를 나누면 더 잘 맞았어요.</li></ul>',
       '<p>채점기준을 처음 쓴다면 평가 설계의 AI 채점기준 생성으로 초안을 받아, 위 방식으로 다듬어 보세요. 점수와 피드백을 확정하는 건 언제나 선생님이에요.</p>',
-      '<a class="go-card" href="guide/ch2.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>AI 채점 가이드 2장 · 채점기준은 이렇게 써요</b><span>실제 채점기준과 채점 근거, 고치기 전후 예시</span></span><span class="go-more">전체 보기 ›</span></a>'
+      '<a class="go-card" href="guide/ch2.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>AI 채점 안내 2장 · 채점기준은 이렇게 써요</b><span>실제 채점기준과 채점 근거, 고치기 전후 예시</span></span><span class="go-more">전체 보기 ›</span></a>'
     ], videos: ['R1', 'B2'] },
 
   { id: 's-2610-worksheet', type: 'story', tag: '평가 팁', date: '2026-09-30', thumb: 'img/tip_2610_worksheet.jpg?v=2',
@@ -303,7 +303,7 @@ window.POSTS = [
       + '<li><b>선생님이 걷어서 스캔</b> 화질과 방향이 고르게 나와요. 학급 전체를 한 번에 스캔한 PDF도 올릴 수 있어요.</li>'
       + '<li><b>학생이 사진을 찍어 제출</b> 종이를 바로 세우고, 밝은 곳에서, 흔들리지 않게 찍도록 안내해 주세요.</li></ul>',
       '<p>파일은 JPG·PNG·PDF로, 학생 한 명당 하나예요. 여러 장이면 한 PDF로 합쳐 주세요.</p>',
-      '<a class="go-card" href="guide/ch3.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>AI 채점 가이드 3장 · 과제물은 이렇게 준비해요</b><span>잘못 읽히는 표기와 권장 표기를 그림으로 비교</span></span><span class="go-more">전체 보기 ›</span></a>'
+      '<a class="go-card" href="guide/ch3.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>AI 채점 안내 3장 · 과제물은 이렇게 준비해요</b><span>잘못 읽히는 표기와 권장 표기를 그림으로 비교</span></span><span class="go-more">전체 보기 ›</span></a>'
     ], videos: ['R2', 'C3', 'B5'] },
 
   { id: 's-2610-case-ele-social', type: 'story', tag: '활용 사례', date: '2026-10-20', draft: true, thumb: 'img/case_2610_ele_social.jpg?v=2',
@@ -364,7 +364,7 @@ window.POSTS = [
       '<ul><li>지도 위에 적은 국가명·기호·순위</li>'
       + '<li>수업 태도와 참여도, 학생이 스스로 썼는지처럼 답안만으로는 알 수 없는 것</li></ul>',
       '<p>이런 요소는 AI 채점 요소에서 빼고 선생님이 직접 점수를 넣으면 돼요.</p>',
-      '<a class="go-card" href="guide/ch4.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>AI 채점 가이드 4장 · 이런 답안까지 채점돼요</b><span>답안 형태별 실제 채점 화면</span></span><span class="go-more">전체 보기 ›</span></a>'
+      '<a class="go-card" href="guide/ch4.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>AI 채점 안내 4장 · 이런 답안까지 채점돼요</b><span>답안 형태별 실제 채점 화면</span></span><span class="go-more">전체 보기 ›</span></a>'
     ], videos: ['D1', 'R2'] },
 
   { id: 's-2611-case-high-eng', type: 'story', tag: '활용 사례', date: '2026-11-03', draft: true, thumb: 'img/case_2611_high_eng.jpg?v=2',
@@ -450,7 +450,7 @@ window.POSTS = [
       + '<li>다시 채점하면 AI 피드백은 새 결과로 바뀌고, 선생님이 저장한 점수는 그대로 남아요.</li>'
       + '<li>점수가 매번 조금씩 다를 수 있어요. 답안을 종합해 읽는 방식이라 그래요.</li></ul>',
       '<p>마지막에는 선생님이 점수를 직접 골라 저장해요. 저장한 점수가 최종이에요.</p>',
-      '<a class="go-card" href="guide/ch5.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>AI 채점 가이드 5장 · 결과가 다를 땐 이렇게 해요</b><span>원인을 찾는 순서와 화면 위치</span></span><span class="go-more">전체 보기 ›</span></a>'
+      '<a class="go-card" href="guide/ch5.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>AI 채점 안내 5장 · 결과가 다를 땐 이렇게 해요</b><span>원인을 찾는 순서와 화면 위치</span></span><span class="go-more">전체 보기 ›</span></a>'
     ], videos: ['D2', 'D1'] },
 
   { id: 's-2612-seteuk', type: 'story', tag: '평가 팁', date: '2026-09-30', thumb: 'img/tip_2612_seteuk.jpg?v=2',
@@ -486,7 +486,7 @@ window.POSTS = [
 
       '<h3>그래도 판단은 선생님이</h3>',
       '<p>AI가 채점을 대신한다는 뜻은 아니에요. 아낀 시간은 AI가 제안한 점수와 근거를 읽고, 선생님의 기준으로 확정하고, 학생 한 명 한 명에게 말을 거는 데 쓰일 때 의미가 있어요. 클리포도 같은 생각으로 만들었어요. AI가 점수와 기록을 정하지 않아요. 제안을 읽고 결정하는 건 언제나 선생님이에요.</p>',
-      '<p>AI 채점이 어떻게 동작하고, 채점기준을 어떻게 쓰면 선생님 점수와 잘 맞는지는 <a href="guide/">AI 채점 가이드</a>에 정리해 두었어요.</p>',
+      '<p>AI 채점이 어떻게 동작하고, 채점기준을 어떻게 쓰면 선생님 점수와 잘 맞는지는 <a href="guide/">AI 채점 안내</a>에 정리해 두었어요.</p>',
 
       '<p class="muted">출처: OECD, Results from TALIS 2024 (2025) · Gallup·Walton Family Foundation, Teaching for Tomorrow (2025.6.24, 미국 공립 K-12 교사 2,232명, 2025.3.18~4.11 조사). 수치는 각 조사 원문 기준이에요.</p>'
     ],
@@ -524,7 +524,7 @@ window.POSTS = [
 
       '<h3>1. 손글씨, 그림, 수식도 읽나요?</h3>',
       '<p>가장 많이 받은 질문이에요. 부스 바인더에 담아 간 실제 답안으로 보여 드렸어요. 수학 풀이의 수식과 그래프, 과학 실험 그림, 한문·일본어 답안, 음악 악보까지 읽어요. 글씨가 많이 흐트러진 답안도 가져오셨는데, 클리포는 글자 하나하나보다 답안의 맥락으로 읽기 때문에 대부분 채점이 됐어요.</p>',
-      '<p>어떤 답안까지 채점되는지는 <a href="guide/ch4.html">AI 채점 가이드 4장, 이런 답안까지 채점돼요</a>에 형태별로 정리돼 있어요.</p>',
+      '<p>어떤 답안까지 채점되는지는 <a href="guide/ch4.html">AI 채점 안내 4장, 이런 답안까지 채점돼요</a>에 형태별로 정리돼 있어요.</p>',
 
       '<h3>2. 그게 돼요?</h3>',
       '<p>"이런 기능이 있으면 좋겠다"보다 "그게 돼요?"를 더 많이 들었어요. 이미 있는 기능인데 모르고 계신 경우예요. 부스에서 가장 반응이 컸던 것들이에요.</p>',
@@ -536,14 +536,14 @@ window.POSTS = [
       + '<li><b>평가계획서를 설계로 이어 쓰기</b> 평가계획 자료실에 올린 계획서를 수행평가 설계에 그대로 가져와요.</li>'
       + '<li><b>세특 간편 생성기에 자료 올리기</b> 채점을 하지 않았어도 자기평가서 같은 학생 자료를 올리면 학생마다 다른 초안이 나와요.</li>'
       + '</ul>',
-      '<p>이 가이드를 만든 이유가 여기 있어요. 새 기능이 나올 때마다 <a href="news.html#update">소식</a>에 적고, <a href="learn.html">배우기</a>에 1~2분 영상으로 올릴게요.</p>',
+      '<p>이 가이드를 만든 이유가 여기 있어요. 새 기능이 나올 때마다 <a href="news.html#update">소식</a>에 적고, <a href="learn.html">사용법 영상</a>에 1~2분 영상으로 올릴게요.</p>',
 
       '<h3>3. 반 전체를 스캔한 PDF는 어떻게 올려요?</h3>',
       '<p>반 전체 답안을 한 파일로 스캔했을 때 학생마다 장수가 다르면 어떻게 하느냐는 질문이 여러 번 나왔어요. 한 파일로 올리면 학생별로 나뉘어 등록되고, 장수가 다른 학생은 따로 올리는 방법도 있어요.</p>',
 
       '<h3>4. AI 채점, 믿어도 되나요?</h3>',
       '<p>이 질문에는 부스에서 늘 같은 답을 드렸어요. AI가 점수와 기록을 정하지 않아요. 클리포는 선생님이 쓴 채점기준대로 예상 점수와 채점 근거를 보여 주고, 점수와 피드백을 확정하는 건 언제나 선생님이에요. 그래서 채점기준을 어떻게 쓰느냐가 결과를 가르고, 근거를 읽어 보면 어디서 다르게 봤는지 바로 알 수 있어요.</p>',
-      '<p>지금까지 5,600개가 넘는 학교에서 34,000명이 넘는 선생님이 400만 건 넘게 채점했고, 동료 교사에게 추천하겠다고 답한 비율은 91.2%예요. 채점기준을 쓰는 법과 결과가 다를 때 보는 순서는 <a href="guide/">AI 채점 가이드</a>에 있어요.</p>',
+      '<p>지금까지 5,600개가 넘는 학교에서 34,000명이 넘는 선생님이 400만 건 넘게 채점했고, 동료 교사에게 추천하겠다고 답한 비율은 91.2%예요. 채점기준을 쓰는 법과 결과가 다를 때 보는 순서는 <a href="guide/">AI 채점 안내</a>에 있어요.</p>',
 
       '<h3>5. 처음인데 어디서 시작하죠?</h3>',
       '<p>이용권 없이도 매일 쓸 수 있어요. 가입하면 6개월 동안 매일 AI 크레딧 50개, 그 뒤에도 매일 10개가 들어와요. AI 크레딧 1개는 학생 1명에게 AI 기능을 한 번 쓰는 양이에요. 흐름을 한 번에 보고 싶다면 <a href="video-S0.html">2분 40초 소개 영상</a>부터, 직접 해 보며 익히고 싶다면 매달 열리는 <a href="training.html">현직 선생님 연수</a>가 좋아요. 참가비는 없고 끝까지 들으면 크레딧 200개 쿠폰을 드려요.</p>',

@@ -259,7 +259,7 @@
     var fromStart = qs('from') === 'start' || v.cat === 'start';
     document.title = v.title + ' · 클리포 가이드';
     if (v.id) document.body.setAttribute('data-share', videoUrl(v.id));
-    $('#crumb').innerHTML = '<a href="learn.html">배우기</a> › <a href="learn.html#' + v.cat + '">' + esc(CATS[v.cat].name) + '</a>';
+    $('#crumb').innerHTML = '<a href="learn.html">사용법 영상</a> › <a href="learn.html#' + v.cat + '">' + esc(CATS[v.cat].name) + '</a>';
     $('#player').innerHTML = playerInner(v);
     $('#v-title').textContent = v.title;
     $('#v-meta').innerHTML = '<span class="kind">' + esc(CATS[v.cat].name) + '</span><span>' + (v.dur ? esc(v.dur) : '준비 중') + '</span><span>관련 화면: ' + esc(v.screen) + '</span>';
@@ -283,7 +283,7 @@
     var gch = v.guide || (window.GUIDE_BY_CAT || {})[v.cat];
     if (gch && window.GUIDE_CH && GUIDE_CH[gch]) {
       var g = $('#v-guide'); g.style.display = '';
-      g.innerHTML = '<span class="ic">ⓘ</span><span>원리와 요령은 AI 채점 가이드 <a href="guide/' + gch + '">' + esc(GUIDE_CH[gch]) + ' ›</a>에서 더 자세히 볼 수 있어요.</span>';
+      g.innerHTML = '<span class="ic">ⓘ</span><span>원리와 요령은 AI 채점 안내 <a href="guide/' + gch + '">' + esc(GUIDE_CH[gch]) + ' ›</a>에서 더 자세히 볼 수 있어요.</span>';
     }
   }
 
@@ -397,7 +397,7 @@
           + '<b class="ec-t">' + esc(nx.title) + '</b><span class="ec-d">' + esc(CATS[nx.cat].name) + ' · ' + esc(nx.dur) + '</span>'
           + '<div class="ec-b"><button type="button" class="btn-o sm" data-replay>다시 보기</button><a class="btn sm" href="' + videoUrl(nx.id, (nxStart ? 'from=start&' : '') + 'play=1') + '">다음 영상 보기</a></div></div>'
         : '<div class="ec-in"><b class="ec-t">' + esc(fromStart ? CATS.start.name : CATS[v.cat].name) + ' 영상을 다 봤어요</b>'
-          + '<div class="ec-b"><button type="button" class="btn-o sm" data-replay>다시 보기</button><a class="btn sm" href="learn.html">배우기 목록으로</a></div></div>';
+          + '<div class="ec-b"><button type="button" class="btn-o sm" data-replay>다시 보기</button><a class="btn sm" href="learn.html">사용법 영상 목록으로</a></div></div>';
       c.querySelector('[data-replay]').addEventListener('click', function () { c.remove(); vid.currentTime = 0; vid.play(); });
       $('#player').appendChild(c);
     });
