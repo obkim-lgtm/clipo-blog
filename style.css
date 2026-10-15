@@ -478,10 +478,11 @@ button,input{font-family:inherit;font-size:inherit}
 
 /* 푸터 */
 /* 푸터 = 서비스 푸터(피그마 1964-25065)와 같게: 링크 4개 15px semibold · 12px 세로 구분선 · 24px 간격 · 저작권 14px · 위 80 아래 60 · 글자 #52525b */
-.ftr{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 20px;color:#52525b;padding:80px 16px 60px;text-align:center} /* 한 줄: 카피라이트 · CLIPO 바로가기 (10-15 올립) */
+.ftr{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 20px;color:#52525b;padding:36px 16px 32px;border-top:1px solid var(--line);margin-top:40px;text-align:center} /* 한 줄: 카피라이트 · CLIPO 바로가기 글자 링크 (10-15 올립: 버튼 말고 텍스트, 높이도 줄임) */
 .ftr-copy{margin:0;font-size:14px;font-weight:400;line-height:1.25}
-.ftr-go{display:inline-flex;align-items:center;justify-content:center;line-height:1;vertical-align:middle;gap:6px;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;color:#52525b;font-size:14px;font-weight:600;transition:border-color .12s,color .12s}
-.ftr-go:hover{border-color:var(--blue);color:var(--blue)}
+.ftr-go{color:#52525b;font-size:14px;font-weight:600;position:relative;transition:color .12s}
+.ftr-go:hover{color:var(--blue)}
+.ftr-go:before{content:"";position:absolute;left:-10px;top:50%;width:1px;height:12px;transform:translateY(-50%);background:#d4d4d8} /* 앞에 얇은 세로선 */
 
 /* 글 본문 끝의 콘텐츠 연결 배너 (예: 이야기 → 가이드 연구 사례) */
 .go-card{display:flex;align-items:center;gap:16px;margin:32px 0 0;padding:20px 22px;border-radius:var(--r);background:var(--blue-bg);color:var(--ink);text-decoration:none;transition:transform .15s,box-shadow .15s}
