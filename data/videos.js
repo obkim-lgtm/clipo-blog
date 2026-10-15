@@ -90,7 +90,7 @@ window.VIDEOS = [
     summary: '학생은 과제 목록에서 제출하기를 눌러 과제 안내와 문항을 읽고 답을 써요. 다 쓰면 과제 제출을 누르고, 마감 전까지는 수정해서 다시 낼 수 있어요.' },
   { id: 'R2', cat: 'files', art: 'compass', guide: 'ch3.html', next: 'C3', title: 'AI가 잘 읽는 과제물 준비하기', dur: '1:32', yt: null,
     mp4: 'video/prepare.mp4?v=5', poster: 'video/prepare_poster.jpg?v=4', screen: '과제물 관리', isNew: false,
-    summary: '종이 과제물은 AI가 글씨를 먼저 읽어요. 활동지를 만들 때, 학생이 쓸 때, 걷어서 올릴 때 — 잘못 읽히기 쉬운 것과 대신 할 것을 봐요.' },
+    summary: '종이 과제물은 AI가 글씨를 먼저 읽어요. 활동지를 만들 때, 학생이 쓸 때, 걷어서 올릴 때, 잘못 읽히기 쉬운 것과 대신 할 것을 봐요.' },
 
   // 수행평가 채점
   // 순서 = 채점 전 확인 → 점수 매기기(근거·고치기·재실행·확정) → 피드백·공개

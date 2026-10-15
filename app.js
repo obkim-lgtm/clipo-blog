@@ -49,7 +49,7 @@
       + '<span class="tc-badge' + (past ? ' closed' : '') + '">' + (past ? '지난 연수' : '모집 중') + '</span>'
       + '<div class="tc-title">' + esc(t.title) + '</div>'
       + '<div class="tc-meta">' + metaRow('calendar', when) + metaRow(/온라인|zoom|줌/i.test(t.place || '') ? 'online' : 'school', esc(t.place)) + metaRow('person', esc(t.speaker)) + '</div>'
-      + (t.topic ? '<div class="tc-topic">' + esc(t.topic) + '</div>' : '')
+      + (t.topic && !/곧 공개/.test(t.topic) ? '<div class="tc-topic">' + esc(t.topic) + '</div>' : '')  // '곧 공개' 같은 자리표시 문구는 빼고(홈 hrow와 같게)
       + '<div class="tc-actions">' + acts + '</div></div></div>';
   }
   // 홈 연수 한 줄(10-15 올립: 큰 카드 1장 → 모집 중인 연수를 한 상자 안에 줄로 모두). 날짜 · 제목 · 시간과 강사 · 신청
@@ -103,7 +103,7 @@
     var open = TRAININGS.filter(function (t) { return t.form && new Date(t.date) >= new Date(); }).sort(function (a, b) { return a.date > b.date ? 1 : -1; });
     // 모집 중 줄(최대 3) + 2개 미만이면 지난 연수로 채움(1개→2줄, 0개→안내 한 줄+3줄) + 맨 아래 '지난 연수 보기' 링크
     var pastT = TRAININGS.filter(function (t) { return new Date(t.date) < new Date(); }).sort(function (a, b) { return a.date < b.date ? 1 : -1; });
-    var fill = open.length < 2 ? pastT.slice(0, 3 - open.length) : [];
+    var fill = open.length < 3 ? pastT.slice(0, 3 - open.length) : [];  // 10-15: 2개일 때도 1줄 채움(소식 상자와 높이 맞춘 뒤 생기던 흰 여백)
     var noteTxt = open.length ? (open.every(function (t) { return /zoom|온라인/i.test(t.place || ''); }) ? 'Zoom 온라인으로 열려요. ' : '') + '신청은 구글 설문으로 30초면 돼요.' : '';
     $('#home-training').innerHTML = '<div class="tbox">'
       + (open.length ? open.slice(0, 3).map(hrow).join('') : '<p class="tbox-empty">' + NO_TRAINING + '</p>')

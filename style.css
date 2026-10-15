@@ -492,6 +492,7 @@ button,input{font-family:inherit;font-size:inherit}
 .ftr-go{color:#52525b;font-size:14px;font-weight:600;position:relative;transition:color .12s}
 .ftr-go:hover{color:var(--blue)}
 .ftr-go:before{content:"";position:absolute;left:-10px;top:50%;width:1px;height:12px;transform:translateY(-50%);background:#d4d4d8} /* 앞에 얇은 세로선 */
+@media (max-width:600px){.ftr-go:before{display:none}} /* 좁은 화면에선 두 줄로 내려가 세로선이 줄 앞에 홀로 남음 */
 
 /* 글 본문 끝의 콘텐츠 연결 배너 (예: 이야기 → 가이드 연구 사례) */
 .go-card{display:flex;align-items:center;gap:16px;margin:32px 0 0;padding:20px 22px;border-radius:var(--r);background:var(--blue-bg);color:var(--ink);text-decoration:none;transition:transform .15s,box-shadow .15s}
