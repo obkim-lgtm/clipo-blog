@@ -388,6 +388,7 @@
     return '<div class="ico">' + PLAY + '</div><div>' + (v ? esc(v.title) : '') + '</div><div style="font-size:14px;opacity:.75;line-height:1.5;text-align:center">준비 중이에요.</div>';
   }
   function subtabs(keys) {
+    keys = keys.filter(function (k) { return $('#pane-' + k); });  // 빌드에서 숨긴 칸(학교 도입)은 건너뜀
     var show = function () {
       var h = location.hash.replace('#', '');
       if (keys.indexOf(h) < 0) h = keys[0];

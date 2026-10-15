@@ -94,13 +94,12 @@
 - [AI 채점 모델 v3.0, 수식·그래프·이미지까지 읽고 채점해요](https://blog.clipo.ai/post-u-260211.html): 2026-02-11 · 구글 계정 로그인, 학기별로 정리된 교사 홈, 내 정보에서 바로 바꾸는 권한까지 같이 왔어요.
 - [2026학년도 수업을 만들 수 있고, 2022 개정 고등학교 성취기준이 업데이트됐어요](https://blog.clipo.ai/post-u-260129.html): 2026-01-29 · 학기 노출 순서가 2026학년도 기준으로 바뀌었고, 새 학년도는 2월 1일부터 기본으로 잡혀요.
 
-## 연수·도입
+## 연수
 
 - [온라인 연수](https://blog.clipo.ai/training.html#open): 매달 현직 선생님이 여는 온라인 연수 일정과 신청 방법
 - [지난 연수](https://blog.clipo.ai/training.html#past): 지난 연수의 발표 자료와 다시 보기
 - [학교 연수](https://blog.clipo.ai/training.html#school): 학교로 찾아가거나 온라인으로 여는 맞춤 연수 신청
 - [연수 운영 지원](https://blog.clipo.ai/training.html#instructor): 선생님이 직접 연수를 열 때 드리는 강사용 PPT, 인증 코드, AI 크레딧 쿠폰
-- [학교 도입](https://blog.clipo.ai/training.html#adopt): 같은 학교 선생님 5명 이상이 함께 도입할 때의 할인과 학교 공유 크레딧
 
 ## Optional
 
