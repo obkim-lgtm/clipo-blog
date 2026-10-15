@@ -52,6 +52,14 @@
       + (t.topic ? '<div class="tc-topic">' + esc(t.topic) + '</div>' : '')
       + '<div class="tc-actions">' + acts + '</div></div></div>';
   }
+  // 홈 연수 한 줄(10-15 올립: 큰 카드 1장 → 모집 중인 연수를 한 상자 안에 줄로 모두). 날짜 · 제목 · 시간과 강사 · 신청
+  function hrow(t) {
+    var d = new Date(t.date), days = ['일', '월', '화', '수', '목', '금', '토'];
+    var time = (d.getHours() >= 12 ? '오후 ' + (d.getHours() - 12 || 12) : '오전 ' + d.getHours()) + ':' + String(d.getMinutes()).padStart(2, '0');
+    return '<div class="trow"><div class="day"><b>' + d.getDate() + '</b><span>' + (d.getMonth() + 1) + '월 ' + days[d.getDay()] + '</span></div>'
+      + '<div class="trow-in"><div class="trow-t">' + esc(t.title) + '</div>' + (t.topic && !/곧 공개/.test(t.topic) ? '<div class="trow-p">' + esc(t.topic) + '</div>' : '') + '<div class="trow-m">' + time + (t.dur ? ' · ' + esc(t.dur) : '') + ' · ' + esc(t.speaker) + '</div></div>'
+      + '<a class="btn sm" href="' + t.form + '" target="_blank" rel="noopener">신청 ↗</a></div>';
+  }
   function acard(t) {
     var vid = /영상/.test(t.badge || '');
     return '<div class="acard" data-subj="' + esc(t.tag || '') + '"><div class="thumb">' + (t.thumb ? '<img src="' + t.thumb + '" alt="" loading="lazy">' : '')
@@ -86,8 +94,8 @@
 
   if (page === 'home') {
     var open = TRAININGS.filter(function (t) { return t.form && new Date(t.date) >= new Date(); }).sort(function (a, b) { return a.date > b.date ? 1 : -1; });
-    $('#home-training').innerHTML = open.length ? '<div class="tlist">' + open.slice(0, 1).map(tcard).join('') + '</div>' : '<div class="empty">' + NO_TRAINING + '</div>';
-    if (open.length > 1) $('#home-training').previousElementSibling.querySelector('a').textContent = '모집 중 ' + open.length + '개 모두 보기 ›';
+    $('#home-training').innerHTML = open.length ? '<div class="tbox">' + open.slice(0, 3).map(hrow).join('') + '<p class="tbox-note">' + (open.every(function (t) { return /zoom|온라인/i.test(t.place || ''); }) ? 'Zoom 온라인으로 열려요. ' : '') + '신청은 구글 설문으로 30초면 돼요.</p></div>' : '<div class="empty">' + NO_TRAINING + '</div>';
+    if (open.length > 3) $('#home-training').previousElementSibling.querySelector('a').textContent = '모집 중 ' + open.length + '개 모두 보기 ›';
     // 홈 배우기 칸 = 시작하기 재생목록의 앞 3편. 히어로 버튼이 트는 소개 영상(S0)은 뺀다 — 같은 화면에 같은 영상이 두 번 보이지 않게
     var vids = startList().filter(function (v) { return v.dur && v.id !== 'S0'; });
     $('#home-videos').innerHTML = '<div class="grid">' + vids.slice(0, 3).map(function (v) { return vcard(v, 'from=start'); }).join('') + '</div>';
