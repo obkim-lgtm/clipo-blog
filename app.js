@@ -60,6 +60,13 @@
       + '<div class="trow-in"><div class="trow-t">' + esc(t.title) + '</div>' + (t.topic && !/곧 공개/.test(t.topic) ? '<div class="trow-p">' + esc(t.topic) + '</div>' : '') + '<div class="trow-m">' + time + (t.dur ? ' · ' + esc(t.dur) : '') + ' · ' + esc(t.speaker) + '</div></div>'
       + '<a class="btn sm" href="' + t.form + '" target="_blank" rel="noopener">신청 ↗</a></div>';
   }
+  // 홈 연수 상자의 지난 연수 한 줄(10-15 올립: 모집 중이 2개 미만이면 빈 자리를 지난 연수로 채워 소식 상자와 높이를 맞춘다). 날짜(회색) · 제목 · 과목과 강사 · 자료
+  function prow(t) {
+    var d = new Date(t.date), days = ['일', '월', '화', '수', '목', '금', '토'];
+    return '<div class="trow past"><div class="day"><b>' + d.getDate() + '</b><span>' + (d.getMonth() + 1) + '월 ' + days[d.getDay()] + '</span></div>'
+      + '<div class="trow-in"><div class="trow-t">' + esc(t.title) + '</div><div class="trow-m">' + (t.tag ? esc(t.tag) + ' · ' : '') + esc(t.speaker) + '</div></div>'
+      + (t.materials ? '<a class="trow-link" href="' + t.materials + '" target="_blank" rel="noopener">자료 ↗</a>' : '<span></span>') + '</div>';
+  }
   function acard(t) {
     var vid = /영상/.test(t.badge || '');
     return '<div class="acard" data-subj="' + esc(t.tag || '') + '"><div class="thumb">' + (t.thumb ? '<img src="' + t.thumb + '" alt="" loading="lazy">' : '')
@@ -94,7 +101,14 @@
 
   if (page === 'home') {
     var open = TRAININGS.filter(function (t) { return t.form && new Date(t.date) >= new Date(); }).sort(function (a, b) { return a.date > b.date ? 1 : -1; });
-    $('#home-training').innerHTML = open.length ? '<div class="tbox">' + open.slice(0, 3).map(hrow).join('') + '<p class="tbox-note">' + (open.every(function (t) { return /zoom|온라인/i.test(t.place || ''); }) ? 'Zoom 온라인으로 열려요. ' : '') + '신청은 구글 설문으로 30초면 돼요.</p></div>' : '<div class="empty">' + NO_TRAINING + '</div>';
+    // 모집 중 줄(최대 3) + 2개 미만이면 지난 연수로 채움(1개→2줄, 0개→안내 한 줄+3줄) + 맨 아래 '지난 연수 보기' 링크
+    var pastT = TRAININGS.filter(function (t) { return new Date(t.date) < new Date(); }).sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+    var fill = open.length < 2 ? pastT.slice(0, 3 - open.length) : [];
+    var noteTxt = open.length ? (open.every(function (t) { return /zoom|온라인/i.test(t.place || ''); }) ? 'Zoom 온라인으로 열려요. ' : '') + '신청은 구글 설문으로 30초면 돼요.' : '';
+    $('#home-training').innerHTML = '<div class="tbox">'
+      + (open.length ? open.slice(0, 3).map(hrow).join('') : '<p class="tbox-empty">' + NO_TRAINING + '</p>')
+      + (fill.length ? '<p class="tbox-cap">지난 연수</p>' + fill.map(prow).join('') : '')
+      + '<p class="tbox-note"><span>' + noteTxt + '</span><a href="training.html#past">지난 연수 보기 ›</a></p></div>';
     if (open.length > 3) $('#home-training').previousElementSibling.querySelector('a').textContent = '모집 중 ' + open.length + '개 모두 보기 ›';
     // 홈 배우기 칸 = 시작하기 재생목록의 앞 3편. 히어로 버튼이 트는 소개 영상(S0)은 뺀다 — 같은 화면에 같은 영상이 두 번 보이지 않게
     var vids = startList().filter(function (v) { return v.dur && v.id !== 'S0'; });
