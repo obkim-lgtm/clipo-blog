@@ -276,6 +276,23 @@
     window.addEventListener('hashchange', fmark); fmark();
     // 질문을 펼치면 주소에 남긴다(복사해서 보낼 수 있게)
     document.querySelectorAll('#faq-main details').forEach(function (d) { d.addEventListener('toggle', function () { if (d.open) history.replaceState(null, '', '#' + d.id); }); });
+    // 검색: 질문·답에 들어 있는 말로 거른다(사용법 영상 탭 검색과 같은 방식). 걸린 질문은 펼쳐서 답까지 바로 보이게, 비는 분류는 숨김
+    var fq = $('#fq'), fnone = $('#faq-none');
+    var fsecs = [].slice.call(document.querySelectorAll('#faq-main section'));
+    fq.addEventListener('input', function () {
+      var s = fq.value.trim().toLowerCase(), total = 0;
+      fsecs.forEach(function (sec) {
+        var vis = 0;
+        sec.querySelectorAll('details').forEach(function (d) {
+          var hit = !s || d.textContent.toLowerCase().indexOf(s) >= 0;
+          d.hidden = !hit; if (hit) vis++;
+          if (s && hit) d.open = true; else if (!s) d.open = false;
+        });
+        sec.style.display = vis ? '' : 'none'; total += vis;
+        var a = fside.querySelector('a[data-cat="' + sec.id + '"]'); if (a) { a.style.display = vis ? '' : 'none'; var n = a.querySelector('.n'); if (n) n.textContent = vis; }
+      });
+      fnone.hidden = !(s && total === 0);
+    });
   }
 
   if (page === 'news') {

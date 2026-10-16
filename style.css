@@ -524,11 +524,11 @@ button,input{font-family:inherit;font-size:inherit}
 .hs-res .m{margin-left:auto;font-size:13px;color:var(--mute);flex-shrink:0}
 .hs-res .none{margin:0;padding:12px;color:var(--mute);font-size:14px}
 .qchips{margin-top:18px}
-.qchips-cap{display:block;font-size:13px;font-weight:700;color:var(--mute);margin-bottom:8px}
+.qchips-cap{display:flex;justify-content:space-between;align-items:baseline;gap:12px;max-width:640px;font-size:13px;font-weight:700;color:var(--mute);margin-bottom:8px}
+.qchips-cap a{font-size:13px;font-weight:600;color:var(--blue);white-space:nowrap}
 .qchips-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .qchip{display:inline-flex;align-items:center;justify-content:center;line-height:1;vertical-align:middle;padding:9px 13px;border-radius:999px;background:rgba(255,255,255,.72);border:1px solid var(--blue-bd);color:var(--ink-2);font-size:14px;transition:background .12s,border-color .12s,color .12s}
 .qchip:hover{background:#fff;border-color:var(--blue);color:var(--blue)}
-.qchip.more{background:transparent;border-color:transparent;color:var(--blue);font-weight:600} /* 칩 줄 끝 "전체 ›" 는 글자 링크처럼 */
 .tiles{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:18px} /* 모든 타일 같은 높이(가장 높은 것 기준) */
 .tile{--t:var(--blue-bg);--i:var(--blue);background:#fff;border-radius:var(--r-lg);padding:20px 22px 16px;box-shadow:var(--sh);display:flex;flex-direction:column;gap:12px}
 .tile[data-tint=class]{--t:var(--t-class);--i:var(--i-class)} .tile[data-tint=design]{--t:var(--t-design);--i:var(--i-design)} .tile[data-tint=files]{--t:var(--t-files);--i:var(--i-files)} .tile[data-tint=grading]{--t:var(--t-grading);--i:var(--i-grading)} .tile[data-tint=record]{--t:var(--t-record);--i:var(--i-record)} .tile[data-tint=account]{--t:var(--t-account);--i:var(--i-account)}
