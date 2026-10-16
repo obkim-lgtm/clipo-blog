@@ -120,6 +120,7 @@
     var INDEX = VIDEOS.filter(function (v) { return v.dur; }).map(function (v) { return { k: '영상', t: v.title, s: v.summary || '', m: v.dur, u: 'video-' + v.id + '.html' }; })
       .concat(published(POSTS).filter(function (p) { return p.type === 'update'; }).map(function (p) { return { k: '업데이트', t: p.title, s: p.summary || '', m: fmtDate(p.date), u: postUrl(p.id) }; }));
     INDEX = (window.SEARCH_EXTRA || []).concat(INDEX)  // 과목별 채점 예시·선생님 사례(build_guide.py가 만듦)를 앞에: '영어'처럼 과목을 치면 예시가 먼저
+      .concat((window.FAQ_CS || []).map(function (f) { return { k: '자주 묻는 질문', t: f.q, s: f.c + ' ' + f.s, m: f.c, u: 'faq.html#' + f.id }; }))  // 고객센터 FAQ 공개판(faq.html)
       .concat(TRAININGS.map(function (tr) { var past = new Date(tr.date) < new Date(); return { k: past ? '지난 연수' : '모집 중 연수', t: tr.title + (tr.tag ? ' · ' + tr.tag : ''), s: tr.topic || '', m: fmtDate(tr.date), u: past ? 'training.html#past' : 'training.html#open' }; }));
     var hsel = -1;
     var hsearch = function () {
@@ -260,6 +261,21 @@
     var togglePractice = function () { practiceLink.style.display = location.hash === '#practice' ? '' : 'none'; };
     window.addEventListener('hashchange', togglePractice); togglePractice();
     subtabs(['open', 'past', 'practice', 'school', 'instructor', 'adopt']);
+  }
+
+  if (page === 'faq') {
+    // 왼쪽 분류 목록 활성 표시 + 주소(#q-…)로 들어오면 그 질문을 펼쳐서 보여 준다
+    var fside = $('#faq-cats');
+    var fmark = function () {
+      var h = location.hash.replace('#', '');
+      var d = h && document.getElementById(h);
+      if (d && d.tagName === 'DETAILS') { d.open = true; h = d.closest('section').id; }
+      if (!h) h = fside.querySelector('a') ? fside.querySelector('a').getAttribute('data-cat') : '';
+      fside.querySelectorAll('a').forEach(function (a) { a.classList.toggle('on', a.getAttribute('data-cat') === h); });
+    };
+    window.addEventListener('hashchange', fmark); fmark();
+    // 질문을 펼치면 주소에 남긴다(복사해서 보낼 수 있게)
+    document.querySelectorAll('#faq-main details').forEach(function (d) { d.addEventListener('toggle', function () { if (d.open) history.replaceState(null, '', '#' + d.id); }); });
   }
 
   if (page === 'news') {

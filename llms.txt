@@ -101,6 +101,10 @@
 - [학교 연수](https://blog.clipo.ai/training.html#school): 학교로 찾아가거나 온라인으로 여는 맞춤 연수 신청
 - [연수 운영 지원](https://blog.clipo.ai/training.html#instructor): 선생님이 직접 연수를 열 때 드리는 강사용 PPT, 인증 코드, AI 크레딧 쿠폰
 
+## 자주 묻는 질문
+
+- [자주 묻는 질문 155개](https://blog.clipo.ai/faq.html): 가입·채점·생활기록부·이용권 등 고객센터 FAQ 공개판
+
 ## Optional
 
 - [개수로 세고, 조건으로 가르고, 경계를 긋다](https://blog.clipo.ai/guide/contest_1.html): 중학교 3학년 영어 「3덕 쓰기」. 

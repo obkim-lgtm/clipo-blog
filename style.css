@@ -318,6 +318,9 @@ button,input{font-family:inherit;font-size:inherit}
 .faq summary:after{content:"+";color:var(--mute);font-weight:400;font-size:20px;line-height:1}
 .faq details[open] summary:after{content:"\2013"}
 .faq details>div{padding:0 0 16px;color:#52525b;font-size:14px}
+.faq details>div p{margin:0 0 8px;line-height:1.7} .faq details>div p:last-child{margin-bottom:0}
+.faq details:target{box-shadow:0 0 0 2px var(--blue-bd),var(--sh)} /* 주소로 열린 질문 표시 */
+#faq-main .sec:first-child{margin-top:0}
 .cta-box{background:var(--blue-bg);border-radius:var(--r);padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .cta-box b{display:block;font-size:16px;font-weight:800}
 .cta-box span{font-size:14px;color:var(--ink-2)}
