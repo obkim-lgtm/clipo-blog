@@ -118,16 +118,18 @@
     // 홈 검색(10-16): 영상 제목·요약, AI 채점 안내 장 제목, 업데이트 글 제목을 한 번에. 서버 없이 페이지 안 데이터로
     var hq = $('#hq'), hres = $('#hs-res');
     var INDEX = VIDEOS.filter(function (v) { return v.dur; }).map(function (v) { return { k: '영상', t: v.title, s: v.summary || '', m: v.dur, u: 'video-' + v.id + '.html' }; })
-      .concat(Object.keys(GUIDE_CH).map(function (f) { return { k: 'AI 채점 안내', t: GUIDE_CH[f], s: '', m: '', u: 'guide/' + f }; }))
       .concat(published(POSTS).filter(function (p) { return p.type === 'update'; }).map(function (p) { return { k: '업데이트', t: p.title, s: p.summary || '', m: fmtDate(p.date), u: postUrl(p.id) }; }));
+    INDEX = (window.SEARCH_EXTRA || []).concat(INDEX)  // 과목별 채점 예시·선생님 사례(build_guide.py가 만듦)를 앞에: '영어'처럼 과목을 치면 예시가 먼저
+      .concat(TRAININGS.map(function (tr) { var past = new Date(tr.date) < new Date(); return { k: past ? '지난 연수' : '모집 중 연수', t: tr.title + (tr.tag ? ' · ' + tr.tag : ''), s: tr.topic || '', m: fmtDate(tr.date), u: past ? 'training.html#past' : 'training.html#open' }; }));
     var hsel = -1;
     var hsearch = function () {
       var q = hq.value.trim().toLowerCase(); hsel = -1;
       if (!q) { hres.hidden = true; hres.innerHTML = ''; return; }
       var hit = INDEX.map(function (it) {
-        var ti = it.t.toLowerCase().indexOf(q), si = it.s.toLowerCase().indexOf(q);
-        return { it: it, r: ti >= 0 ? 0 : si >= 0 ? 1 : 9 };
-      }).filter(function (x) { return x.r < 9; }).sort(function (a, b) { return a.r - b.r; }).slice(0, 8);
+        var tl = it.t.toLowerCase(), ti = tl.indexOf(q), si = it.s.toLowerCase().indexOf(q);
+        var top = { '채점 예시': 0, '선생님 사례': 0, '모집 중 연수': 0, '자주 묻는 질문': 0, '영상': 1, 'AI 채점 안내': 1, '업데이트': 2, '지난 연수': 2 };
+        return { it: it, r: ti >= 0 ? top[it.k] : si >= 0 ? 3 + (top[it.k] || 0) / 2 : 9 };
+      }).filter(function (x) { return x.r < 9; }).sort(function (a, b) { return a.r - b.r; }).slice(0, 10);
       hres.innerHTML = hit.length
         ? hit.map(function (x) { return '<a href="' + x.it.u + '"><span class="k">' + x.it.k + '</span><span class="t">' + esc(x.it.t) + '</span>' + (x.it.m ? '<span class="m">' + esc(x.it.m) + '</span>' : '') + '</a>'; }).join('')
         : '<p class="none">찾는 말이 없어요. 다른 말로 적어 보거나, 아래 주제에서 골라 보세요.</p>';
@@ -142,6 +144,14 @@
       if (e.key === 'Escape') hres.hidden = true;
     });
     $('#hsearch').addEventListener('submit', function (e) { e.preventDefault(); var items = hres.querySelectorAll('a'); if (items.length) location.href = items[hsel < 0 ? 0 : hsel].getAttribute('href'); });
+    // 내려가면서 칸이 하나씩 나타남(10-16). JS가 없으면 그냥 보이게, 있을 때만 숨겼다가 드러낸다. 움직임 줄이기 설정이면 바로 보임
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce && 'IntersectionObserver' in window) {
+      var targets = [].concat([].slice.call(document.querySelectorAll('.tile')), [].slice.call(document.querySelectorAll('.first-in, .home-row > section')));
+      targets.forEach(function (el, i) { el.classList.add('reveal'); el.style.setProperty('--d', ((i % 3) * 0.08) + 's'); });
+      var io = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }); }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+      targets.forEach(function (el) { io.observe(el); });
+    }
     var ups = published(POSTS).filter(function (p) { return p.type === 'update'; }).sort(function (a, b) { return a.date < b.date ? 1 : -1; });
     // 소식 열은 소식 탭의 두 갈래(업데이트 / 이야기)를 그대로: 업데이트 2건 + 최신 이야기 1건(작은 썸네일 줄)
     var stories = HIDE_STORIES ? [] : published(POSTS).filter(function (p) { return p.type === 'story'; }).sort(function (a, b) { return a.date < b.date ? 1 : -1; }).slice(0, 2);

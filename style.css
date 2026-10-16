@@ -515,7 +515,7 @@ button,input{font-family:inherit;font-size:inherit}
 .hs-res{position:absolute;left:0;right:0;top:58px;background:#fff;border-radius:16px;box-shadow:var(--sh-h);padding:8px;z-index:20;max-height:360px;overflow:auto;text-align:left}
 .hs-res a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;color:var(--ink);font-size:15px}
 .hs-res a:hover,.hs-res a.on{background:var(--blue-bg)}
-.hs-res .k{font-size:12px;font-weight:700;color:var(--mute);flex-shrink:0;width:86px}
+.hs-res .k{font-size:12px;font-weight:700;color:var(--mute);flex-shrink:0;width:92px}
 .hs-res .t{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .hs-res .m{margin-left:auto;font-size:13px;color:var(--mute);flex-shrink:0}
 .hs-res .none{margin:0;padding:12px;color:var(--mute);font-size:14px}
@@ -538,13 +538,35 @@ button,input{font-family:inherit;font-size:inherit}
 .tile li a:hover{color:var(--blue)}
 .tile li a .n{color:var(--mute);font-size:13px;white-space:nowrap}
 .first{margin-top:24px}
-.first-in{background:#fff;border-radius:var(--r-lg);box-shadow:var(--sh);padding:16px 22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.first-in>.ico{width:40px;height:40px;border-radius:12px;background:var(--t-start);color:var(--i-start);display:inline-flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0}
+.first-in{background:var(--t-start);border-radius:var(--r-lg);box-shadow:var(--sh);padding:16px 22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap} /* 처음 온 선생님 눈에 띄게 연보라(시작하기 묶음 색) */
+.first-in>.ico{width:40px;height:40px;border-radius:12px;background:#fff;color:var(--i-start);display:inline-flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0}
 .first-in>.ico svg{width:100%;height:100%}
 .first-in .tx{display:flex;flex-direction:column;gap:3px;flex:1;min-width:240px}
 .first-in b{font-size:16px}
 .first-in .tx span{font-size:14px;color:var(--ink-2)}
 .first-in .acts{display:flex;gap:10px;flex-wrap:wrap;margin:0}
+/* ---- 홈 움직임(10-16 올립: "멈춤 느낌"). 홈에만. 들어올 때 히어로가 차례로 떠오르고, 그림이 떠다니고, 내려가면 칸이 하나씩 나타난다. 움직임 줄이기 설정이면 전부 끔 ---- */
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(-24px,18px)}}
+@keyframes pop{from{opacity:0;transform:translateY(-6px) scale(.98)}to{opacity:1;transform:none}}
+body[data-page=home] .hero-in>*{animation:fadeUp .55s cubic-bezier(.2,.7,.2,1) both}
+body[data-page=home] .hero-in>h1{animation-delay:.05s} body[data-page=home] .hero-in>p{animation-delay:.15s} body[data-page=home] .hero-in>.hsearch{animation-delay:.25s} body[data-page=home] .hero-in>.qchips{animation-delay:.35s}
+body[data-page=home] .hero .art{animation:fadeUp .6s .2s both,floatY 6s 1s ease-in-out infinite}
+body[data-page=home] .band:before{animation:drift 18s ease-in-out infinite} body[data-page=home] .band:after{animation:drift 22s ease-in-out infinite reverse}
+.hs-res:not([hidden]){animation:pop .16s ease-out}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.reveal.in{opacity:1;transform:none}
+.tile{transition:transform .15s,box-shadow .15s,opacity .5s ease}
+.tile:hover{transform:translateY(-3px);box-shadow:var(--sh-h)}
+.tile.reveal{transition:opacity .5s ease,transform .5s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.tile.reveal.in{transition:transform .15s,box-shadow .15s} /* 나타난 뒤엔 hover만 빠르게 */
+.qchip{transition:background .12s,border-color .12s,color .12s,transform .12s}
+.qchip:hover{transform:translateY(-1px)}
+.first-in{transition:transform .15s,box-shadow .15s}
+.hsearch .search{transition:box-shadow .2s,border-color .2s}
+.hsearch .search:focus-within{box-shadow:0 0 0 4px var(--blue-bg),var(--sh-h)}
+@media (prefers-reduced-motion:reduce){body[data-page=home] .hero-in>*,body[data-page=home] .hero .art,body[data-page=home] .band:before,body[data-page=home] .band:after,.hs-res:not([hidden]){animation:none} .reveal{opacity:1;transform:none;transition:none} .tile:hover,.qchip:hover{transform:none}}
 @media (max-width:900px){.tiles{grid-template-columns:1fr 1fr}}
 @media (max-width:600px){.tiles{grid-template-columns:1fr}
   .qchips-row{flex-wrap:nowrap;overflow-x:auto;margin:0 -16px;padding:0 16px 6px;scrollbar-width:none} .qchips-row::-webkit-scrollbar{display:none} .qchip{flex:0 0 auto} /* 좁은 화면: 칩 6개를 한 줄로 옆으로 밀어 봄(세로로 6줄 쌓이지 않게) */
