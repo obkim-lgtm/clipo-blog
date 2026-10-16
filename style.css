@@ -509,7 +509,7 @@ button,input{font-family:inherit;font-size:inherit}
 .sec-top{margin-top:0}
 /* ---- 홈 개편(10-16): 검색·질문 칩·주제 타일·처음이세요 ---- */
 .hero-q .hero-in{flex:1;min-width:0;max-width:760px}
-.hsearch{position:relative;margin-top:22px;max-width:640px}
+.hsearch{position:relative;z-index:30;margin-top:22px;max-width:640px} /* 등장 움직임이 형제 요소(칩)를 별도 층으로 만들어 결과 상자가 그 밑에 깔렸음 → 검색창 층을 위로 */
 .hsearch .search{height:52px;margin-bottom:0;background:#fff;box-shadow:var(--sh);border-color:var(--line-2)}
 .hsearch .search input{font-size:16px}
 .hs-res{position:absolute;left:0;right:0;top:58px;background:#fff;border-radius:16px;box-shadow:var(--sh-h);padding:8px;z-index:20;max-height:360px;overflow:auto;text-align:left}
