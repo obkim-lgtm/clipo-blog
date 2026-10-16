@@ -507,6 +507,48 @@ button,input{font-family:inherit;font-size:inherit}
 
 /* 홈 첫 줄: 자주 묻는 세 가지 → AI 채점 가이드 */
 .sec-top{margin-top:0}
+/* ---- 홈 개편(10-16): 검색·질문 칩·주제 타일·처음이세요 ---- */
+.hero-q .hero-in{flex:1;min-width:0;max-width:760px}
+.hsearch{position:relative;margin-top:22px;max-width:640px}
+.hsearch .search{height:52px;margin-bottom:0;background:#fff;box-shadow:var(--sh);border-color:var(--line-2)}
+.hsearch .search input{font-size:16px}
+.hs-res{position:absolute;left:0;right:0;top:58px;background:#fff;border-radius:16px;box-shadow:var(--sh-h);padding:8px;z-index:20;max-height:360px;overflow:auto;text-align:left}
+.hs-res a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;color:var(--ink);font-size:15px}
+.hs-res a:hover,.hs-res a.on{background:var(--blue-bg)}
+.hs-res .k{font-size:12px;font-weight:700;color:var(--mute);flex-shrink:0;width:86px}
+.hs-res .t{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hs-res .m{margin-left:auto;font-size:13px;color:var(--mute);flex-shrink:0}
+.hs-res .none{margin:0;padding:12px;color:var(--mute);font-size:14px}
+.qchips{margin-top:18px}
+.qchips-cap{display:block;font-size:13px;font-weight:700;color:var(--mute);margin-bottom:8px}
+.qchips-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.qchip{display:inline-flex;align-items:center;justify-content:center;line-height:1;vertical-align:middle;padding:9px 13px;border-radius:999px;background:rgba(255,255,255,.72);border:1px solid var(--blue-bd);color:var(--ink-2);font-size:14px;transition:background .12s,border-color .12s,color .12s}
+.qchip:hover{background:#fff;border-color:var(--blue);color:var(--blue)}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tile{--t:var(--blue-bg);--i:var(--blue);background:#fff;border-radius:var(--r-lg);padding:22px 22px 18px;box-shadow:var(--sh);display:flex;flex-direction:column;gap:10px}
+.tile[data-tint=class]{--t:var(--t-class);--i:var(--i-class)} .tile[data-tint=design]{--t:var(--t-design);--i:var(--i-design)} .tile[data-tint=files]{--t:var(--t-files);--i:var(--i-files)} .tile[data-tint=grading]{--t:var(--t-grading);--i:var(--i-grading)} .tile[data-tint=record]{--t:var(--t-record);--i:var(--i-record)} .tile[data-tint=account]{--t:var(--t-account);--i:var(--i-account)}
+.tile-h{display:flex;align-items:center;gap:12px;color:var(--ink)}
+.tile-h .ico{width:40px;height:40px;border-radius:12px;background:var(--t);color:var(--i);display:inline-flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0}
+.tile-h .ico svg{width:100%;height:100%}
+.tile-h b{font-size:17px;font-weight:700;word-break:keep-all}
+.tile-h:hover b{color:var(--i)}
+.tile .d{font-size:15px;color:var(--ink-2);line-height:1.6}
+.tile ul{list-style:none;margin:auto 0 0;padding:10px 0 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:7px}
+.tile li a{font-size:14px;color:var(--ink-2);display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.tile li a:hover{color:var(--blue)}
+.tile li a .n{color:var(--mute);font-size:13px;white-space:nowrap}
+.first{margin-top:24px}
+.first-in{background:#fff;border-radius:var(--r-lg);box-shadow:var(--sh);padding:16px 22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.first-in>.ico{width:40px;height:40px;border-radius:12px;background:var(--t-start);color:var(--i-start);display:inline-flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0}
+.first-in>.ico svg{width:100%;height:100%}
+.first-in .tx{display:flex;flex-direction:column;gap:3px;flex:1;min-width:240px}
+.first-in b{font-size:16px}
+.first-in .tx span{font-size:14px;color:var(--ink-2)}
+.first-in .acts{display:flex;gap:10px;flex-wrap:wrap;margin:0}
+@media (max-width:900px){.tiles{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.tiles{grid-template-columns:1fr}
+  .qchips-row{flex-wrap:nowrap;overflow-x:auto;margin:0 -16px;padding:0 16px 6px;scrollbar-width:none} .qchips-row::-webkit-scrollbar{display:none} .qchip{flex:0 0 auto} /* 좁은 화면: 칩 6개를 한 줄로 옆으로 밀어 봄(세로로 6줄 쌓이지 않게) */
+  .first-in .acts{width:100%} .first-in .acts a{flex:1 1 auto}}
 .qcard{--t:var(--blue-bg);--i:var(--blue);position:relative;background:#fff;border-radius:var(--r-lg);padding:22px 22px 20px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--sh);color:var(--ink);transition:transform .15s,box-shadow .15s}
 .qcard[data-tint=grading]{--t:var(--t-grading);--i:var(--i-grading)} .qcard[data-tint=design]{--t:var(--t-design);--i:var(--i-design)} .qcard[data-tint=files]{--t:var(--t-files);--i:var(--i-files)}
 /* 말풍선 꼬리: 클리포 심볼과 같은 모양이라 '물어보는 자리'로 읽힌다 */

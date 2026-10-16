@@ -110,9 +110,38 @@
       + (fill.length ? '<p class="tbox-cap">지난 연수</p>' + fill.map(prow).join('') : '')
       + '<p class="tbox-note"><span>' + noteTxt + '</span><a href="training.html#past">지난 연수 보기 ›</a></p></div>';
     if (open.length > 3) $('#home-training').previousElementSibling.querySelector('a').textContent = '모집 중 ' + open.length + '개 모두 보기 ›';
-    // 홈 배우기 칸 = 시작하기 재생목록의 앞 3편. 히어로 버튼이 트는 소개 영상(S0)은 뺀다 — 같은 화면에 같은 영상이 두 번 보이지 않게
-    var vids = startList().filter(function (v) { return v.dur && v.id !== 'S0'; });
-    $('#home-videos').innerHTML = '<div class="grid">' + vids.slice(0, 3).map(function (v) { return vcard(v, 'from=start'); }).join('') + '</div>';
+    // 주제 타일(10-16): 묶음별 영상 수를 데이터에서 센다(숫자가 글에 박혀 낡지 않게)
+    document.querySelectorAll('[data-count]').forEach(function (el) {
+      var n = VIDEOS.filter(function (v) { return v.dur && v.cat === el.getAttribute('data-count'); }).length;
+      el.textContent = n + '편';
+    });
+    // 홈 검색(10-16): 영상 제목·요약, AI 채점 안내 장 제목, 업데이트 글 제목을 한 번에. 서버 없이 페이지 안 데이터로
+    var hq = $('#hq'), hres = $('#hs-res');
+    var INDEX = VIDEOS.filter(function (v) { return v.dur; }).map(function (v) { return { k: '영상', t: v.title, s: v.summary || '', m: v.dur, u: 'video-' + v.id + '.html' }; })
+      .concat(Object.keys(GUIDE_CH).map(function (f) { return { k: 'AI 채점 안내', t: GUIDE_CH[f], s: '', m: '', u: 'guide/' + f }; }))
+      .concat(published(POSTS).filter(function (p) { return p.type === 'update'; }).map(function (p) { return { k: '업데이트', t: p.title, s: p.summary || '', m: fmtDate(p.date), u: postUrl(p.id) }; }));
+    var hsel = -1;
+    var hsearch = function () {
+      var q = hq.value.trim().toLowerCase(); hsel = -1;
+      if (!q) { hres.hidden = true; hres.innerHTML = ''; return; }
+      var hit = INDEX.map(function (it) {
+        var ti = it.t.toLowerCase().indexOf(q), si = it.s.toLowerCase().indexOf(q);
+        return { it: it, r: ti >= 0 ? 0 : si >= 0 ? 1 : 9 };
+      }).filter(function (x) { return x.r < 9; }).sort(function (a, b) { return a.r - b.r; }).slice(0, 8);
+      hres.innerHTML = hit.length
+        ? hit.map(function (x) { return '<a href="' + x.it.u + '"><span class="k">' + x.it.k + '</span><span class="t">' + esc(x.it.t) + '</span>' + (x.it.m ? '<span class="m">' + esc(x.it.m) + '</span>' : '') + '</a>'; }).join('')
+        : '<p class="none">찾는 말이 없어요. 다른 말로 적어 보거나, 아래 주제에서 골라 보세요.</p>';
+      hres.hidden = false;
+    };
+    hq.addEventListener('input', hsearch);
+    hq.addEventListener('focus', function () { if (hq.value.trim()) hres.hidden = false; });
+    document.addEventListener('click', function (e) { if (!e.target.closest('#hsearch')) hres.hidden = true; });
+    hq.addEventListener('keydown', function (e) {
+      var items = hres.querySelectorAll('a'); if (!items.length) return;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); hsel = (hsel + (e.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length; items.forEach(function (el, i) { el.classList.toggle('on', i === hsel); }); }
+      if (e.key === 'Escape') hres.hidden = true;
+    });
+    $('#hsearch').addEventListener('submit', function (e) { e.preventDefault(); var items = hres.querySelectorAll('a'); if (items.length) location.href = items[hsel < 0 ? 0 : hsel].getAttribute('href'); });
     var ups = published(POSTS).filter(function (p) { return p.type === 'update'; }).sort(function (a, b) { return a.date < b.date ? 1 : -1; });
     // 소식 열은 소식 탭의 두 갈래(업데이트 / 이야기)를 그대로: 업데이트 2건 + 최신 이야기 1건(작은 썸네일 줄)
     var stories = HIDE_STORIES ? [] : published(POSTS).filter(function (p) { return p.type === 'story'; }).sort(function (a, b) { return a.date < b.date ? 1 : -1; }).slice(0, 2);
