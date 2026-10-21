@@ -19,7 +19,7 @@
 
 ## AI 채점은 어떻게 동작하나요?
 
-원문: https://guide.clipo.ai/guide/
+원문: https://guide.clipo.ai/scoring/
 
 ## 이런 과제물을 채점해요
 
@@ -129,7 +129,7 @@ AI 점수가 선생님 점수와 맞아질 때까지 고친 채점기준과, 그
 
 ## AI는 이렇게 채점해요
 
-원문: https://guide.clipo.ai/guide/ch1.html
+원문: https://guide.clipo.ai/scoring/ch1.html
 
 ### AI 채점은 세 단계로 진행돼요
 
@@ -184,7 +184,7 @@ AI도 틀릴 수 있어요. 답안을 잘못 읽거나 선생님과 다르게 �
 
 ## 채점기준은 이렇게 써요
 
-원문: https://guide.clipo.ai/guide/ch2.html
+원문: https://guide.clipo.ai/scoring/ch2.html
 
 ### 선생님 점수와 잘 맞는 쓰기
 
@@ -298,7 +298,7 @@ AI는 요소가 "있으면" 위 점수를 주고, 선생님은 "완전히 충족
 
 ## 과제물은 이렇게 준비해요
 
-원문: https://guide.clipo.ai/guide/ch3.html
+원문: https://guide.clipo.ai/scoring/ch3.html
 
 ### 과제물 준비는 이 세 가지부터
 
@@ -403,7 +403,7 @@ AI는 요소가 "있으면" 위 점수를 주고, 선생님은 "완전히 충족
 
 ## 이런 답안까지 채점돼요
 
-원문: https://guide.clipo.ai/guide/ch4.html
+원문: https://guide.clipo.ai/scoring/ch4.html
 
 ### 답안 형태별로 한눈에 봐요
 
@@ -458,7 +458,7 @@ AI가 읽고 채점할 수 있는 답안 형태예요. 점수가 선생님 판�
 
 ## 결과가 다를 땐 이렇게 해요
 
-원문: https://guide.clipo.ai/guide/ch5.html
+원문: https://guide.clipo.ai/scoring/ch5.html
 
 ### 원인은 이 순서로 찾아요
 
@@ -523,7 +523,7 @@ AI가 읽고 채점할 수 있는 답안 형태예요. 점수가 선생님 판�
 
 ## 자주 묻는 질문
 
-원문: https://guide.clipo.ai/guide/ch6.html
+원문: https://guide.clipo.ai/scoring/ch6.html
 
 Q. 크레딧은 언제 얼마나 드나요?
 
@@ -554,7 +554,7 @@ A. 아니요. AI 채점은 실행할 때 고른 학생만 돌아요. 고르지 �
 
 ## 과목별 채점 예시
 
-원문: https://guide.clipo.ai/guide/examples.html
+원문: https://guide.clipo.ai/scoring/examples.html
 
 ### 국어 원고지와 손글씨를 읽고 핵심 요소를 찾아요
 
@@ -2639,7 +2639,7 @@ PAPS 체력 기록 이해 및 분석
 
 ## 선생님들이 찾은 채점기준 꿀팁
 
-원문: https://guide.clipo.ai/guide/contest.html
+원문: https://guide.clipo.ai/scoring/contest.html
 
 어떻게 찾았나요
 

@@ -355,7 +355,7 @@
     var gch = v.guide || (window.GUIDE_BY_CAT || {})[v.cat];
     if (gch && window.GUIDE_CH && GUIDE_CH[gch]) {
       var g = $('#v-guide'); g.style.display = '';
-      g.innerHTML = '<span class="ic">ⓘ</span><span>원리와 요령은 AI 채점 안내 <a href="guide/' + gch + '">' + esc(GUIDE_CH[gch]) + ' ›</a>에서 더 자세히 볼 수 있어요.</span>';
+      g.innerHTML = '<span class="ic">ⓘ</span><span>원리와 요령은 AI 채점 안내 <a href="scoring/' + gch + '">' + esc(GUIDE_CH[gch]) + ' ›</a>에서 더 자세히 볼 수 있어요.</span>';
     }
   }
 

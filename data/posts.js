@@ -282,7 +282,7 @@ window.POSTS = [
       + '<li><b>답안만으로 알 수 없는 것</b> 수업 태도나 참여도는 AI 채점 요소에서 빼고 선생님이 직접 점수를 넣어요.</li>'
       + '<li><b>한 요소에 여러 판단</b> "견해를 제시했는가", "근거를 활용했는가"처럼 요소를 나누면 더 잘 맞았어요.</li></ul>',
       '<p>채점기준을 처음 쓴다면 평가 설계의 AI 채점기준 생성으로 초안을 받아, 위 방식으로 다듬어 보세요. 점수와 피드백을 확정하는 건 언제나 선생님이에요.</p>',
-      '<a class="go-card" href="guide/ch2.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>AI 채점 안내 2장 · 채점기준은 이렇게 써요</b><span>실제 채점기준과 채점 근거, 고치기 전후 예시</span></span><span class="go-more">전체 보기 ›</span></a>'
+      '<a class="go-card" href="scoring/ch2.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>AI 채점 안내 2장 · 채점기준은 이렇게 써요</b><span>실제 채점기준과 채점 근거, 고치기 전후 예시</span></span><span class="go-more">전체 보기 ›</span></a>'
     ], videos: ['R1', 'B2'] },
 
   { id: 's-2610-worksheet', type: 'story', tag: '평가 팁', date: '2026-09-30', thumb: 'img/tip_2610_worksheet.jpg?v=2',
@@ -303,7 +303,7 @@ window.POSTS = [
       + '<li><b>선생님이 걷어서 스캔</b> 화질과 방향이 고르게 나와요. 학급 전체를 한 번에 스캔한 PDF도 올릴 수 있어요.</li>'
       + '<li><b>학생이 사진을 찍어 제출</b> 종이를 바로 세우고, 밝은 곳에서, 흔들리지 않게 찍도록 안내해 주세요.</li></ul>',
       '<p>파일은 JPG·PNG·PDF로, 학생 한 명당 하나예요. 여러 장이면 한 PDF로 합쳐 주세요.</p>',
-      '<a class="go-card" href="guide/ch3.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>AI 채점 안내 3장 · 과제물은 이렇게 준비해요</b><span>잘못 읽히는 표기와 권장 표기를 그림으로 비교</span></span><span class="go-more">전체 보기 ›</span></a>'
+      '<a class="go-card" href="scoring/ch3.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>AI 채점 안내 3장 · 과제물은 이렇게 준비해요</b><span>잘못 읽히는 표기와 권장 표기를 그림으로 비교</span></span><span class="go-more">전체 보기 ›</span></a>'
     ], videos: ['R2', 'C3', 'B5'] },
 
   { id: 's-2610-case-ele-social', type: 'story', tag: '활용 사례', date: '2026-10-20', draft: true, thumb: 'img/case_2610_ele_social.jpg?v=2',
@@ -321,7 +321,7 @@ window.POSTS = [
       '<h3>바꾸니 이렇게 됐어요</h3>',
       '<p>고친 기준으로 세 답안을 채점하자 요소별 점수가 모두 선생님이 확인한 점수와 같았어요(30점, 22점, 18점). AI 채점 근거도 기준 문장의 칸 이름을 그대로 짚어 설명했어요.</p>',
       '<p>채점기준 전체와 실제 과제물, 채점 결과는 사례 페이지에서 볼 수 있어요.</p>',
-      '<a class="go-card" href="guide/contest_4.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>선생님 사례 · 초등학교 4학년 사회</b><span>고치기 전후 채점기준, 과제물과 채점 결과</span></span><span class="go-more">전체 보기 ›</span></a>'
+      '<a class="go-card" href="scoring/contest_4.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>선생님 사례 · 초등학교 4학년 사회</b><span>고치기 전후 채점기준, 과제물과 채점 결과</span></span><span class="go-more">전체 보기 ›</span></a>'
     ], videos: ['R1'] },
 
   { id: 's-2610-training', type: 'story', tag: '현장', date: '2026-09-30', thumb: 'img/story_2610_training.jpg?v=2',
@@ -364,7 +364,7 @@ window.POSTS = [
       '<ul><li>지도 위에 적은 국가명·기호·순위</li>'
       + '<li>수업 태도와 참여도, 학생이 스스로 썼는지처럼 답안만으로는 알 수 없는 것</li></ul>',
       '<p>이런 요소는 AI 채점 요소에서 빼고 선생님이 직접 점수를 넣으면 돼요.</p>',
-      '<a class="go-card" href="guide/ch4.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>AI 채점 안내 4장 · 이런 답안까지 채점돼요</b><span>답안 형태별 실제 채점 화면</span></span><span class="go-more">전체 보기 ›</span></a>'
+      '<a class="go-card" href="scoring/ch4.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>AI 채점 안내 4장 · 이런 답안까지 채점돼요</b><span>답안 형태별 실제 채점 화면</span></span><span class="go-more">전체 보기 ›</span></a>'
     ], videos: ['D1', 'R2'] },
 
   { id: 's-2611-case-high-eng', type: 'story', tag: '활용 사례', date: '2026-11-03', draft: true, thumb: 'img/case_2611_high_eng.jpg?v=2',
@@ -380,7 +380,7 @@ window.POSTS = [
       + '<li><b>오류는 유형을 들고 개수로</b> 수 불일치, 시제 불일치처럼 어떤 오류를 셀지 괄호로 들고, 같은 오류가 반복되면 각각 센다고 적었어요.</li></ul>',
       '<h3>바꾸니 이렇게 됐어요</h3>',
       '<p>같은 여섯 명을 다시 채점하자 세 명이 선생님 점수와 같아졌어요. 나머지 세 명은 여전히 달랐어요. AI가 완전한 문장을 더 엄격하게 세거나, 주제와 무관한 내용을 세부 내용으로 본 경우였어요. 기준을 고쳐도 남는 차이가 어디서 생기는지까지 볼 수 있는 사례예요.</p>',
-      '<a class="go-card" href="guide/contest_6.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>선생님 사례 · 고등학교 1학년 영어</b><span>고치기 전후 채점기준, 학생별 점수 비교</span></span><span class="go-more">전체 보기 ›</span></a>'
+      '<a class="go-card" href="scoring/contest_6.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>선생님 사례 · 고등학교 1학년 영어</b><span>고치기 전후 채점기준, 학생별 점수 비교</span></span><span class="go-more">전체 보기 ›</span></a>'
     ], videos: ['R1'] },
 
   { id: 's-2611-case-mid-math', type: 'story', tag: '활용 사례', date: '2026-11-17', draft: true, thumb: 'img/case_2611_mid_math.jpg?v=2',
@@ -396,7 +396,7 @@ window.POSTS = [
       + '<li><b>배점을 단계가 분명하게</b> "기본점수 2점 + 풀이 3점"을 문항당 0~3점으로 바꿨어요.</li></ul>',
       '<h3>바꾸니 이렇게 됐어요</h3>',
       '<p>어긋났던 두 답안이 선생님 판단과 같아졌어요(1번 1점에서 2점, 2번 2점에서 3점). 선생님은 이 경험을 "AI 채점 정확도가 채점 기준의 명확도에 따라 갈린다"고 정리했어요. AI가 만든 기준도 채점 전에 한 번 읽어 보면 좋아요.</p>',
-      '<a class="go-card" href="guide/contest_5.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>선생님 사례 · 중학교 2학년 수학</b><span>고치기 전후 채점기준, 답안과 채점 결과</span></span><span class="go-more">전체 보기 ›</span></a>'
+      '<a class="go-card" href="scoring/contest_5.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>선생님 사례 · 중학교 2학년 수학</b><span>고치기 전후 채점기준, 답안과 채점 결과</span></span><span class="go-more">전체 보기 ›</span></a>'
     ], videos: ['B2', 'R1'] },
 
   // 출처: OECD, Results from TALIS 2024 (2025-10) 1장 'Teaching for today's world' — 수치는 2026-09-30 원문 대조. 중학교(lower secondary) 교사 기준, OECD 평균
@@ -429,7 +429,7 @@ window.POSTS = [
       + '<li><b>안내하지 않은 것은 감점하지 않기</b> 활동지에서 필수로 안내하지 않은 내용은 감점 기준에서 뺐어요.</li></ul>',
       '<h3>바꾸니 이렇게 됐어요</h3>',
       '<p>같은 답안의 AI 총점이 27점이 되어 선생님 채점(28점)과 1점 차이가 됐어요. 다섯 요소 중 네 요소는 점수가 같았어요. 점수가 낮아진 것보다, 학생이 잘한 곳과 부족한 곳이 요소별로 갈려 보이게 된 점이 달라졌어요. 답안 한 편에서 본 변화예요.</p>',
-      '<a class="go-card" href="guide/contest_3.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>선생님 사례 · 고등학교 1학년 미술</b><span>고치기 전후 채점기준, 요소별 점수 비교</span></span><span class="go-more">전체 보기 ›</span></a>'
+      '<a class="go-card" href="scoring/contest_3.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>선생님 사례 · 고등학교 1학년 미술</b><span>고치기 전후 채점기준, 요소별 점수 비교</span></span><span class="go-more">전체 보기 ›</span></a>'
     ], videos: ['R1'] },
 
   { id: 's-2611-diff', type: 'story', tag: '평가 팁', date: '2026-09-30', thumb: 'img/tip_2611_diff.jpg?v=2',
@@ -450,7 +450,7 @@ window.POSTS = [
       + '<li>다시 채점하면 AI 피드백은 새 결과로 바뀌고, 선생님이 저장한 점수는 그대로 남아요.</li>'
       + '<li>점수가 매번 조금씩 다를 수 있어요. 답안을 종합해 읽는 방식이라 그래요.</li></ul>',
       '<p>마지막에는 선생님이 점수를 직접 골라 저장해요. 저장한 점수가 최종이에요.</p>',
-      '<a class="go-card" href="guide/ch5.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>AI 채점 안내 5장 · 결과가 다를 땐 이렇게 해요</b><span>원인을 찾는 순서와 화면 위치</span></span><span class="go-more">전체 보기 ›</span></a>'
+      '<a class="go-card" href="scoring/ch5.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>AI 채점 안내 5장 · 결과가 다를 땐 이렇게 해요</b><span>원인을 찾는 순서와 화면 위치</span></span><span class="go-more">전체 보기 ›</span></a>'
     ], videos: ['D2', 'D1'] },
 
   { id: 's-2612-seteuk', type: 'story', tag: '평가 팁', date: '2026-09-30', thumb: 'img/tip_2612_seteuk.jpg?v=2',
@@ -486,7 +486,7 @@ window.POSTS = [
 
       '<h3>그래도 판단은 선생님이</h3>',
       '<p>AI가 채점을 대신한다는 뜻은 아니에요. 아낀 시간은 AI가 제안한 점수와 근거를 읽고, 선생님의 기준으로 확정하고, 학생 한 명 한 명에게 말을 거는 데 쓰일 때 의미가 있어요. 클리포도 같은 생각으로 만들었어요. AI가 점수와 기록을 정하지 않아요. 제안을 읽고 결정하는 건 언제나 선생님이에요.</p>',
-      '<p>AI 채점이 어떻게 동작하고, 채점기준을 어떻게 쓰면 선생님 점수와 잘 맞는지는 <a href="guide/">AI 채점 안내</a>에 정리해 두었어요.</p>',
+      '<p>AI 채점이 어떻게 동작하고, 채점기준을 어떻게 쓰면 선생님 점수와 잘 맞는지는 <a href="scoring/">AI 채점 안내</a>에 정리해 두었어요.</p>',
 
       '<p class="muted">출처: OECD, Results from TALIS 2024 (2025) · Gallup·Walton Family Foundation, Teaching for Tomorrow (2025.6.24, 미국 공립 K-12 교사 2,232명, 2025.3.18~4.11 조사). 수치는 각 조사 원문 기준이에요.</p>'
     ],
@@ -512,7 +512,7 @@ window.POSTS = [
       '<p><b>중3 영어</b> "대체로·일부" 같은 형용사를 오류 개수로 바꾸자, 네 답안 모두 AI 총점이 선생님 채점과 1~2점 차이 안으로 들어왔어요.</p>',
       '<p><b>고1 영어</b> 학교 알리미에 올리는 기준을 그대로 쓰다가, 실제로 세는 것(문장 수·오류 수)을 적자 선생님 점수와 같은 학생이 6명 중 0명에서 3명이 됐어요.</p>',
       '<p>바쁜 학기 중에 답안을 다시 채점하고 과정까지 정리해 주신 연구회 선생님들께 감사드려요. 선생님들이 찾은 방법은 영상 「채점기준 잘 쓰는 법」에도 담았어요.</p>',
-      '<a class="go-card" href="guide/contest.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>채점기준 꿀팁과 선생님 사례 12편</b><span>사례마다 고치기 전후 채점기준, 과제물과 채점 결과까지</span></span><span class="go-more">전체 보기 ›</span></a>'
+      '<a class="go-card" href="scoring/contest.html"><span class="ico" data-ic="bulb"></span><span class="go-t"><b>채점기준 꿀팁과 선생님 사례 12편</b><span>사례마다 고치기 전후 채점기준, 과제물과 채점 결과까지</span></span><span class="go-more">전체 보기 ›</span></a>'
     ] },
 
   { id: 's-2609-expo', type: 'story', tag: '현장', date: '2026-09-22', thumb: 'img/expo_2609_thumb.jpg?v=3',  // 목록 카드 = 부스 외관
@@ -524,7 +524,7 @@ window.POSTS = [
 
       '<h3>1. 손글씨, 그림, 수식도 읽나요?</h3>',
       '<p>가장 많이 받은 질문이에요. 부스 바인더에 담아 간 실제 답안으로 보여 드렸어요. 수학 풀이의 수식과 그래프, 과학 실험 그림, 한문·일본어 답안, 음악 악보까지 읽어요. 글씨가 많이 흐트러진 답안도 가져오셨는데, 클리포는 글자 하나하나보다 답안의 맥락으로 읽기 때문에 대부분 채점이 됐어요.</p>',
-      '<p>어떤 답안까지 채점되는지는 <a href="guide/ch4.html">AI 채점 안내 4장, 이런 답안까지 채점돼요</a>에 형태별로 정리돼 있어요.</p>',
+      '<p>어떤 답안까지 채점되는지는 <a href="scoring/ch4.html">AI 채점 안내 4장, 이런 답안까지 채점돼요</a>에 형태별로 정리돼 있어요.</p>',
 
       '<h3>2. 그게 돼요?</h3>',
       '<p>"이런 기능이 있으면 좋겠다"보다 "그게 돼요?"를 더 많이 들었어요. 이미 있는 기능인데 모르고 계신 경우예요. 부스에서 가장 반응이 컸던 것들이에요.</p>',
@@ -543,7 +543,7 @@ window.POSTS = [
 
       '<h3>4. AI 채점, 믿어도 되나요?</h3>',
       '<p>이 질문에는 부스에서 늘 같은 답을 드렸어요. AI가 점수와 기록을 정하지 않아요. 클리포는 선생님이 쓴 채점기준대로 예상 점수와 채점 근거를 보여 주고, 점수와 피드백을 확정하는 건 언제나 선생님이에요. 그래서 채점기준을 어떻게 쓰느냐가 결과를 가르고, 근거를 읽어 보면 어디서 다르게 봤는지 바로 알 수 있어요.</p>',
-      '<p>지금까지 5,600개가 넘는 학교에서 34,000명이 넘는 선생님이 400만 건 넘게 채점했고, 동료 교사에게 추천하겠다고 답한 비율은 91.2%예요. 채점기준을 쓰는 법과 결과가 다를 때 보는 순서는 <a href="guide/">AI 채점 안내</a>에 있어요.</p>',
+      '<p>지금까지 5,600개가 넘는 학교에서 34,000명이 넘는 선생님이 400만 건 넘게 채점했고, 동료 교사에게 추천하겠다고 답한 비율은 91.2%예요. 채점기준을 쓰는 법과 결과가 다를 때 보는 순서는 <a href="scoring/">AI 채점 안내</a>에 있어요.</p>',
 
       '<h3>5. 처음인데 어디서 시작하죠?</h3>',
       '<p>이용권 없이도 매일 쓸 수 있어요. 가입하면 6개월 동안 매일 AI 크레딧 50개, 그 뒤에도 매일 10개가 들어와요. AI 크레딧 1개는 학생 1명에게 AI 기능을 한 번 쓰는 양이에요. 흐름을 한 번에 보고 싶다면 <a href="video-S0.html">2분 40초 소개 영상</a>부터, 직접 해 보며 익히고 싶다면 매달 열리는 <a href="training.html">현직 선생님 연수</a>가 좋아요. 참가비는 없고 끝까지 들으면 크레딧 200개 쿠폰을 드려요.</p>',
