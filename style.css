@@ -609,3 +609,16 @@ body[data-page=home] .band-bg:before{animation:drift 18s ease-in-out infinite} b
 .prompt-h .btn-o{display:inline-flex;align-items:center;justify-content:center;line-height:1;vertical-align:middle}
 .prompt{margin:0;background:var(--bg);border-radius:12px;padding:16px 18px;font-family:inherit;font-size:15px;line-height:1.7;color:var(--ink-2);white-space:pre-wrap;word-break:keep-all;overflow-wrap:anywhere;max-height:420px;overflow:auto}
 .sec-note{margin-top:12px;font-size:15px;color:var(--mute)}
+
+/* 홈 「채점기준 쓸 때 참고하세요」 카드 2장 (10-22) — 타일과 같은 흰 카드·그림자, 아이콘 색은 해당 타일 색 */
+.feat2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.feat{display:flex;align-items:center;gap:16px;background:#fff;border-radius:var(--r-lg);box-shadow:var(--sh);padding:20px 22px;color:var(--ink);transition:transform .15s,box-shadow .15s}
+.feat:hover{transform:translateY(-2px)}
+.feat>.ico{width:48px;height:48px;border-radius:14px;background:var(--blue-bg);color:var(--blue);display:inline-flex;align-items:center;justify-content:center;padding:12px;flex-shrink:0}
+.feat>.ico svg{width:100%;height:100%}
+.feat .tx{display:flex;flex-direction:column;gap:4px;flex:1;min-width:0}
+.feat .tx b{font-size:18px;font-weight:700;word-break:keep-all}
+.feat .tx span{font-size:15px;color:var(--ink-2);word-break:keep-all}
+.feat .go{font-size:22px;color:var(--ink-3,#9aa0ad);flex-shrink:0;line-height:1}
+.feat:hover .tx b,.feat:hover .go{color:var(--blue)}
+@media (max-width:700px){.feat2{grid-template-columns:1fr}.feat{padding:16px 18px}}
