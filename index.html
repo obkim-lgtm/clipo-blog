@@ -27,7 +27,7 @@
 <meta name="twitter:image" content="https://guide.clipo.ai/og.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-gov.css" integrity="sha384-klXyWMjhBsc1T1Ep8bGAloOiKhy/97sHlSfndASeYaKd9dMP6lMT/Znzpq/iUnpk" crossorigin="anonymous">
 <link rel="alternate" type="application/rss+xml" title="클리포 가이드" href="https://guide.clipo.ai/rss.xml">
-<link rel="stylesheet" href="style.css?v=101">
+<link rel="stylesheet" href="style.css?v=112">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "클리포 가이드", "url": "https://guide.clipo.ai/", "inLanguage": "ko", "description": "클리포를 쓰는 선생님을 위한 사용법 영상, AI 채점 안내, 연수, 업데이트 소식을 한곳에 모았어요.", "publisher": {"@type": "Organization", "name": "클리포(CLIPO)", "url": "https://clipo.ai", "logo": {"@type": "ImageObject", "url": "https://guide.clipo.ai/icon-180.png"}}}</script>
 </head>
 <body data-page="home" data-hide-stories="1">
@@ -45,17 +45,18 @@
   </div>
 </div></header>
 <!-- 10-16 홈 개편(목업): 가이드 홈 = 목차. ① 검색 + 많이 묻는 질문 → ② 주제 타일 6(형식이 아니라 하려는 일로) → ③ 처음이세요? 한 줄 → ④ 연수 | 소식. 형식(영상·안내)별 칸은 없앰 -->
+<!-- 10-16 홈 개편(목업): 가이드 홈 = 목차. ① 검색 + 많이 묻는 질문 → ② 주제 타일 6(형식이 아니라 하려는 일로) → ③ 처음이세요? 한 줄 → ④ 연수 | 소식. 형식(영상·안내)별 칸은 없앰 -->
 <section class="band">
   <div class="band-bg" aria-hidden="true"></div>
   <div class="hero hero-q">
     <div class="hero-in">
       <h1>클리포 사용법, 필요한 것부터 찾아보세요</h1>
-      <p>수행평가 설계부터 AI 채점, 결과 확인, 생활기록부 초안까지. 사용법 영상과 안내, 과목별 채점 예시를 모았어요.</p>
+      <p>수행평가 설계부터 AI 채점, 결과 확인, 생활기록부 초안까지. 사용법 영상과 안내,<br>과목별 채점 예시를 모았어요.</p>
       <form class="hsearch" id="hsearch" role="search" autocomplete="off">
         <label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6d7381" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="hq" type="search" placeholder="무엇이 궁금하세요? 예: 채점기준, 손글씨 답안, 과목별 예시" aria-label="가이드 검색"></label>
         <div class="hs-res" id="hs-res" hidden></div>
       </form>
-      <div class="qchips"><span class="qchips-cap">선생님들이 자주 찾는 도움말<a href="faq.html">자주 묻는 질문 전체 ›</a></span>
+      <div class="qchips"><!-- 10-22 올립: 머리글 「선생님들이 자주 찾는 도움말」·「자주 묻는 질문 전체 ›」 뺌. FAQ 입구는 푸터·검색·크레딧 타일 -->
         <div class="qchips-row">
         <a class="qchip" href="scoring/ch4.html">손글씨·그림·수식 답안도 채점되나요?</a>
         <a class="qchip" href="video-C3.html">반 전체 스캔 PDF는 어떻게 올리나요?</a>
@@ -63,17 +64,11 @@
         <a class="qchip" href="scoring/ch5.html">AI 점수가 내 점수와 다르면 어떻게 하나요?</a>
         <a class="qchip" href="video-E0.html">세특 초안은 어떻게 만드나요?</a>
         <a class="qchip" href="scoring/examples.html">우리 과목 채점 예시도 있나요?</a>
+        <a class="qchip more" href="faq.html">자주 묻는 질문 더보기 ›</a><!-- 10-22 올립: 7번째 칩 = FAQ 공개판 입구(4+3줄로 균형) -->
         </div>
       </div>
     </div>
-    <svg class="art" viewBox="0 0 200 150" fill="none" aria-hidden="true">
-      <rect x="18" y="22" width="120" height="96" rx="14" fill="#fff" stroke="#416bff" stroke-width="4"/>
-      <path d="M40 52h76M40 70h76M40 88h48" stroke="#c7d7fe" stroke-width="5" stroke-linecap="round"/>
-      <path d="M40 52h76M40 70h50" stroke="#416bff" stroke-width="5" stroke-linecap="round"/>
-      <circle cx="150" cy="104" r="28" fill="#6d5cf6"/>
-      <path d="M137 104l9 9 18-19" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="166" cy="34" r="12" fill="#ffd166"/><circle cx="172" cy="66" r="5" fill="#f9a8d4"/><circle cx="14" cy="128" r="7" fill="#86efac"/>
-    </svg>
+    <div class="hero-mark" aria-hidden="true"><img src="img/clipo_symbol.svg?v=3" alt="" width="240" height="181"></div><!-- 10-22 올립: 문서 삽화 → 클리포 심볼을 오른쪽 위에("클리포 가이드"로 읽히게). 색은 파비콘 파랑, 옅게는 CSS opacity -->
   </div>
 </section>
 <main class="wrap">
@@ -156,6 +151,7 @@
   </div>
 </main>
 <script src="data/faq_cs.js?v=1"></script>
+<!-- 푸터 = 간소화(10-15 올립: 가이드라 회사 정보·약관 링크 없이 CLIPO 바로가기 + 카피라이트만). 모양은 style.css .ftr*, 가이드 탭은 build_guide.py가 같은 것을 붙임 -->
 <!-- 푸터 = 간소화(10-15 올립: 가이드라 회사 정보·약관 링크 없이 CLIPO 바로가기 + 카피라이트만). 모양은 style.css .ftr*, 가이드 탭은 build_guide.py가 같은 것을 붙임 -->
 <footer class="ftr"><p class="ftr-copy">© 2026. Datadriven Inc. All rights reserved.</p><a class="ftr-go" href="faq.html">자주 묻는 질문</a><a class="ftr-go" href="https://clipo.ai" target="_blank" rel="noopener">CLIPO 바로가기 ↗</a></footer>
 <script src="data/art.js?v=5"></script><script src="data/icons.js?v=2"></script><script src="data/videos.js?v=62"></script><script src="data/posts.js?v=43"></script><script src="data/trainings.js?v=6"></script><script src="data/search_extra.js?v=6"></script><script src="app.js?v=63"></script>

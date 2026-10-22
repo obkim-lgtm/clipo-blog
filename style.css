@@ -68,19 +68,21 @@ button,input{font-family:inherit;font-size:inherit}
 .empty{color:var(--mute);background:#fff;border:1px dashed var(--line-2);border-radius:var(--r);padding:28px;text-align:center;font-size:15px}
 
 /* 홈 히어로 — 화면 폭 전체 띠 */
-.band{background:linear-gradient(120deg,#e9efff 0%,#efe9ff 55%,#fff0f6 100%);border-bottom:1px solid var(--line);position:relative} /* overflow:hidden 뺌(10-16): 검색 결과 상자가 띠 밖으로 내려가야 해서. 장식 원은 .band-bg가 가둠 */
+.band{background:linear-gradient(120deg,#edf2ff 0%,#e4ecff 100%);border-bottom:1px solid var(--line);position:relative} /* 10-22: 로고 파랑 한 계열로만(보라·분홍 뺌) */ /* overflow:hidden 뺌(10-16): 검색 결과 상자가 띠 밖으로 내려가야 해서. 장식 원은 .band-bg가 가둠 */
 .band-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .band-bg:before,.band-bg:after{content:"";position:absolute;border-radius:50%;pointer-events:none}
-.band-bg:before{width:360px;height:360px;right:-100px;top:-160px;background:radial-gradient(circle at 30% 30%,#c7d7fe,transparent 70%)}
-.band-bg:after{width:260px;height:260px;right:300px;bottom:-170px;background:radial-gradient(circle at 50% 50%,#fbcfe8,transparent 70%)}
+.band-bg:before{width:520px;height:520px;right:calc(50% - 720px);top:-200px;background:radial-gradient(circle at 50% 50%,#cddcff,transparent 68%)} /* 심볼 뒤 은은한 빛 */
+.band-bg:after{display:none}
 .hero{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:56px 16px 52px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
 .hero h1{font-size:38px;font-weight:800;line-height:1.2}
 .hero p{color:var(--ink-2);margin-top:12px;font-size:18px}
 .hero .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
 .btn-o.play{gap:9px;box-shadow:var(--sh)}
 .btn-o.play .dur{font-size:13px;font-weight:600;color:var(--mute);margin-left:2px}
-.hero .art{width:220px;height:165px;flex-shrink:0}
-@media (max-width:700px){.hero{padding:36px 16px 32px}.hero h1{font-size:28px}.hero .art{display:none}}
+.hero-mark{position:absolute;right:16px;top:44px;width:240px;pointer-events:none} /* 오른쪽 위에 앉힌 심볼 — 제목 첫 줄 높이에 맞춤 */
+.hero-mark img{width:100%;height:auto;display:block;opacity:.3} /* 옅게는 img에 — 떠오르는 움직임이 바깥 상자 opacity를 1로 덮어쓰기 때문 */
+@media (max-width:1000px){.hero-mark{display:none}}
+@media (max-width:700px){.hero{padding:36px 16px 32px}.hero h1{font-size:28px}}
 .home-row{display:grid;grid-template-columns:1.35fr 1fr;gap:32px;align-items:stretch;margin-top:44px} /* 두 열 상자 높이를 맞춘다(10-15: 연수를 줄 목록으로 바꾸며. 이전엔 각자 제 높이) */ /* 위 섹션과 같은 간격(.sec) */
 .home-row>section{display:flex;flex-direction:column}
 .home-row>section>div:last-child{flex:1;display:flex;flex-direction:column}
@@ -550,6 +552,25 @@ button,input{font-family:inherit;font-size:inherit}
 .first-in b{font-size:16px}
 .first-in .tx span{font-size:14px;color:var(--ink-2)}
 .first-in .acts{display:flex;gap:10px;flex-wrap:wrap;margin:0}
+/* ---- 홈 히어로 가운데 정렬(10-22 올립: 오른쪽이 허전 → 도움말 센터 표준 꼴로). 심볼은 띠 오른쪽 위에 옅게만 ---- */
+body[data-page=home] .hero{justify-content:center;text-align:center;padding:56px 16px 52px} /* 10-22 올립: 44/40은 "좁좁" → 메인답게 56/52 */
+body[data-page=home] .hero h1{font-size:40px}
+body[data-page=home] .hsearch{margin-top:26px;max-width:680px}
+body[data-page=home] .hsearch .search{height:56px}
+body[data-page=home] .qchips{margin-top:22px}
+body[data-page=home] .qchips-row{gap:10px}
+body[data-page=home] .qchip{padding:10px 14px;font-size:15px;white-space:nowrap;flex:0 0 auto} /* 칩 안에서 글이 접히지 않게 */
+body[data-page=home] .hero-q .hero-in{max-width:1040px;display:flex;flex-direction:column;align-items:center}
+body[data-page=home] .hero p{max-width:640px}
+body[data-page=home] .hsearch{width:100%;max-width:640px}
+body[data-page=home] .qchips{width:100%;max-width:none} /* 10-22 올립: 가운데 정렬이니 칩 줄은 좁히지 않음 */
+body[data-page=home] .qchips-cap{max-width:none}
+body[data-page=home] .qchips-cap{justify-content:center}
+body[data-page=home] .qchips-row{justify-content:center;align-items:center}
+.qchip.more{margin:0;color:var(--blue);font-weight:600;background:#fff;border-color:var(--blue-bd)} /* margin:0 = 다른 곳의 .more(margin-top) 규칙이 묻지 않게 */ /* 더보기 칩: 같은 알약, 파란 글자 */
+body[data-page=home] .hero-mark{top:28px;width:200px;opacity:1}
+body[data-page=home] .hero-mark img{opacity:.22}
+@media (max-width:700px){body[data-page=home] .hero{padding:36px 16px 32px} body[data-page=home] .hero p br{display:none}} /* 좁은 화면은 줄바꿈 자리를 브라우저에 맡김 */
 /* ---- 홈 움직임(10-16 올립: "멈춤 느낌"). 홈에만. 들어올 때 히어로가 차례로 떠오르고, 그림이 떠다니고, 내려가면 칸이 하나씩 나타난다. 움직임 줄이기 설정이면 전부 끔 ---- */
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
@@ -557,8 +578,8 @@ button,input{font-family:inherit;font-size:inherit}
 @keyframes pop{from{opacity:0;transform:translateY(-6px) scale(.98)}to{opacity:1;transform:none}}
 body[data-page=home] .hero-in>*{animation:fadeUp .55s cubic-bezier(.2,.7,.2,1) both}
 body[data-page=home] .hero-in>h1{animation-delay:.05s} body[data-page=home] .hero-in>p{animation-delay:.15s} body[data-page=home] .hero-in>.hsearch{animation-delay:.25s} body[data-page=home] .hero-in>.qchips{animation-delay:.35s}
-body[data-page=home] .hero .art{animation:fadeUp .6s .2s both,floatY 6s 1s ease-in-out infinite}
-body[data-page=home] .band-bg:before{animation:drift 18s ease-in-out infinite} body[data-page=home] .band-bg:after{animation:drift 22s ease-in-out infinite reverse}
+body[data-page=home] .hero-mark{animation:fadeUp .6s .2s both,floatY 7s 1s ease-in-out infinite}
+body[data-page=home] .band-bg:before{animation:drift 22s ease-in-out infinite}
 .hs-res:not([hidden]){animation:pop .16s ease-out}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
 .reveal.in{opacity:1;transform:none}
@@ -571,7 +592,7 @@ body[data-page=home] .band-bg:before{animation:drift 18s ease-in-out infinite} b
 .first-in{transition:transform .15s,box-shadow .15s}
 .hsearch .search{transition:box-shadow .2s,border-color .2s}
 .hsearch .search:focus-within{box-shadow:0 0 0 4px var(--blue-bg),var(--sh-h)}
-@media (prefers-reduced-motion:reduce){body[data-page=home] .hero-in>*,body[data-page=home] .hero .art,body[data-page=home] .band-bg:before,body[data-page=home] .band-bg:after,.hs-res:not([hidden]){animation:none} .reveal{opacity:1;transform:none;transition:none} .tile:hover,.qchip:hover{transform:none}}
+@media (prefers-reduced-motion:reduce){body[data-page=home] .hero-in>*,body[data-page=home] .hero-mark,body[data-page=home] .band-bg:before,.hs-res:not([hidden]){animation:none} .reveal{opacity:1;transform:none;transition:none} .tile:hover,.qchip:hover{transform:none}}
 @media (max-width:900px){.tiles{grid-template-columns:1fr 1fr}}
 @media (max-width:600px){.tiles{grid-template-columns:1fr}
   .qchips-row{flex-wrap:nowrap;overflow-x:auto;margin:0 -16px;padding:0 16px 6px;scrollbar-width:none} .qchips-row::-webkit-scrollbar{display:none} .qchip{flex:0 0 auto} /* 좁은 화면: 칩 6개를 한 줄로 옆으로 밀어 봄(세로로 6줄 쌓이지 않게) */
