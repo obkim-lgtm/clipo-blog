@@ -557,7 +557,7 @@ button,input{font-family:inherit;font-size:inherit}
 .first-in .tx span{font-size:14px;color:var(--ink-2)}
 .first-in .acts{display:flex;gap:10px;flex-wrap:wrap;margin:0}
 /* ---- 홈 히어로 가운데 정렬(10-22 올립: 오른쪽이 허전 → 도움말 센터 표준 꼴로). 심볼은 띠 오른쪽 위에 옅게만 ---- */
-body[data-page=home] .hero{justify-content:center;text-align:center;padding:56px 16px 52px} /* 10-22 올립: 44/40은 "좁좁" → 메인답게 56/52 */
+body[data-page=home] .hero{justify-content:center;text-align:center;padding:76px 16px 68px} /* 10-22 올립: 44/40·56/52 모두 "좁좁" → 76/68 */
 body[data-page=home] .hero h1{font-size:40px}
 body[data-page=home] .hsearch{margin-top:26px;max-width:680px}
 body[data-page=home] .hsearch .search{height:56px}
@@ -574,7 +574,7 @@ body[data-page=home] .qchips-row{justify-content:center;align-items:center}
 .qchip.more{margin:0;color:var(--blue);font-weight:600;background:#fff;border-color:var(--blue-bd)} /* margin:0 = 다른 곳의 .more(margin-top) 규칙이 묻지 않게 */ /* 더보기 칩: 같은 알약, 파란 글자 */
 body[data-page=home] .hero-mark{top:28px;width:200px;opacity:1}
 body[data-page=home] .hero-mark img{opacity:.22}
-@media (max-width:700px){body[data-page=home] .hero{padding:36px 16px 32px} body[data-page=home] .hero p br{display:none}} /* 좁은 화면은 줄바꿈 자리를 브라우저에 맡김 */
+@media (max-width:700px){body[data-page=home] .hero{padding:44px 16px 40px} body[data-page=home] .hero p br{display:none}} /* 좁은 화면은 줄바꿈 자리를 브라우저에 맡김 */
 /* ---- 홈 움직임(10-16 올립: "멈춤 느낌"). 홈에만. 들어올 때 히어로가 차례로 떠오르고, 그림이 떠다니고, 내려가면 칸이 하나씩 나타난다. 움직임 줄이기 설정이면 전부 끔 ---- */
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
