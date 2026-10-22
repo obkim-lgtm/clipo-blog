@@ -64,7 +64,7 @@ window.VIDEOS = [
     summary: '채점기준 AI 생성 창에서 한두 문장으로 적거나, 활동지 이미지를 올리거나, 채점요소와 급간 수만 정하거나, 쓰던 채점기준표 사진을 올려 초안을 받아요. 쓸 것만 골라 적용해요.' },
   // 원칙 영상(2~3분) — AI 채점 가이드 2장 기반, 시연 계정 실제 화면. 영상 소스 clipo_promo_video `Learn-Rubric` (09-23 첫 게시, 내용은 다듬는 중)
   { id: 'R1', cat: 'design', art: 'compass', guide: 'contest.html#tips', next: 'R2', title: '채점기준 잘 쓰는 법', dur: '4:29', yt: null,
-    mp4: 'video/rubric.mp4?v=13', poster: 'video/rubric_poster.jpg?v=9', screen: '수행평가 설계', isNew: false,
+    mp4: 'video/rubric.mp4?v=14', poster: 'video/rubric_poster.jpg?v=9', screen: '수행평가 설계', isNew: false,
     summary: '초4 사회·고1 미술·고1 영어·중2 역사·중2 수학 선생님이 채점기준을 어떻게 고쳤고, 그랬더니 AI 채점이 어떻게 달라졌는지 봐요. 어디를 볼지, 어떻게 가를지, 만점을 어디까지 둘지 세 가지로 정리해요.' },
   // B5 = 직접 쓰는 과제 한 편에 다문항(09-22) + 작성 과정 기록을 함께
   { id: 'B5', cat: 'design', art: 'writing_log', since: '2026-09-22', title: '학생이 클리포에 직접 쓰는 과제 만들기', dur: '0:54', yt: null,
