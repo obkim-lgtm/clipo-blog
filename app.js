@@ -411,12 +411,18 @@
       t.textContent = msg; t.classList.add('on');
       clearTimeout(toast.t); toast.t = setTimeout(function () { t.classList.remove('on'); }, 2200);
     };
+    // 퍼지는지 보기(10-26 올립): 공유로 나간 링크엔 출처 표시(utm)를 붙여 GA에서 '공유로 들어온 방문'을 따로 센다.
+    // 휴대폰 공유 창 = guide_share / mobile, PC 링크 복사 = guide_share / copy. 공유 버튼 누름은 GA 'share' 이벤트로
+    var tagged = function (medium) { var u = new URL(surl); u.searchParams.set('utm_source', 'guide_share'); u.searchParams.set('utm_medium', medium); u.searchParams.set('utm_campaign', 'guide'); return u.href; };
+    var track = function (method) { if (window.gtag) gtag('event', 'share', { method: method, content_type: document.body.getAttribute('data-page') || '', item_id: sid || location.pathname }); };
     shareBtn.addEventListener('click', function () {
-      if (navigator.share && window.matchMedia('(pointer:coarse)').matches) { navigator.share({ title: document.title, url: surl }).catch(function () {}); return; }
+      if (navigator.share && window.matchMedia('(pointer:coarse)').matches) { track('mobile'); navigator.share({ title: document.title, url: tagged('mobile') }).catch(function () {}); return; }
+      track('copy');
+      var link = tagged('copy');
       var done = function () { toast('링크를 복사했어요'); };
       var fail = function () { toast('주소창의 주소를 복사해 주세요'); };
-      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(surl).then(done, fail);
-      else { var ta = document.createElement('textarea'); ta.value = surl; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); done(); } catch (e) { fail(); } ta.remove(); }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(link).then(done, fail);
+      else { var ta = document.createElement('textarea'); ta.value = link; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); done(); } catch (e) { fail(); } ta.remove(); }
     });
   }
 
