@@ -2,11 +2,9 @@
 // 다가오는 연수: title, date, dur, place, speaker, topic, form
 // 지난 연수:     title, date, tag(교과), speaker, topic, thumb, badge(영상·연수자료 제공 / 연수자료만 제공), materials(자료 링크)
 window.TRAININGS = [
-  { id: 't-2610-eng', title: '[10월] 영어과 실전 연수', date: '2026-10-28T19:00', dur: '90분',
-    place: 'Zoom 온라인 (신청 후 링크 발송)', speaker: '청북고 영어 선생님',
-    topic: '연수 주제는 곧 공개됩니다!',
-    form: 'https://forms.gle/fCQXhayc1euXwk9Z9' },
-
+  { id: 'p-2610-eng', title: '[10월] 영어과 실전 연수', date: '2026-10-28', tag: '영어', speaker: '청북고 영어 선생님',
+    topic: '시행착오로 배운 클리포 활용 팁, 선생님은 꽃길만 걸으세요. (학습지 구성부터 채점기준 정교화까지)', thumb: 'img/training/thumb_eng_october.png', badge: '영상·연수자료 제공',
+    materials: 'https://drive.google.com/drive/folders/1S-KSedcOgh34UCgV0-wusGTamGiA5rzG?usp=drive_link' },
   { id: 'p-2610-ele', title: '[10월] 초등과 실전 연수', date: '2026-10-22', tag: '초등', speaker: '광주부설초등학교 선생님',
     topic: '초등 서·논술형 평가, 클리포와 함께라면 채점 부담 없이 깊이 있게', thumb: 'img/training/thumb_ele_october.png', badge: '영상·연수자료 제공',
     materials: 'https://drive.google.com/drive/folders/1ClTokBmQPszc0nMb_ucPKSPne8pbBcA-?usp=drive_link' },
