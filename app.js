@@ -332,7 +332,7 @@
     document.title = v.title + ' · 클리포 가이드';
     if (v.id) document.body.setAttribute('data-share', videoUrl(v.id));
     $('#crumb').innerHTML = '<a href="learn.html">사용법 영상</a> › <a href="learn.html#' + v.cat + '">' + esc(CATS[v.cat].name) + '</a>';
-    $('#player').innerHTML = playerInner(v);
+    $('#player').innerHTML = playerInner(v, true); // 상세는 바로 재생 — 대표 이미지를 띄우지 않는다(잠깐 비쳐 옛 화면처럼 보임, 샐리 11-04)
     $('#v-title').textContent = v.title;
     $('#v-meta').innerHTML = '<span class="kind">' + esc(CATS[v.cat].name) + '</span><span>' + (v.dur ? esc(v.dur) : '준비 중') + '</span><span>관련 화면: ' + esc(v.screen) + '</span>';
     $('#v-body').innerHTML = v.summary ? '<p>' + esc(v.summary) + '</p>' : '<p>영상 요약은 대본이 확정되면 들어가요.</p>';
@@ -488,8 +488,10 @@
     vid.addEventListener('play', syncBtn);
     vid.muted = !wantSound;
     var pr = vid.play();
+    var showPoster = function () { var ps = vid.getAttribute('data-poster'); if (ps && vid.paused && !vid.currentTime) vid.setAttribute('poster', ps); };
     if (pr && pr.catch) pr.catch(function () {
-      if (!vid.muted) { vid.muted = true; var p3 = vid.play(); if (p3 && p3.catch) p3.catch(function () {}); }
+      if (!vid.muted) { vid.muted = true; var p3 = vid.play(); if (p3 && p3.catch) p3.catch(showPoster); }
+      else showPoster();
     });
     syncBtn();
     vid.addEventListener('ended', function () {
@@ -508,8 +510,9 @@
     vid.addEventListener('play', function () { var o = $('#player .endcard'); if (o) o.remove(); });
   }
 
-  function playerInner(v) {
-    if (v && v.mp4) return '<video controls preload="metadata" playsinline' + (v.poster ? ' poster="' + v.poster + '"' : '') + ' style="position:absolute;inset:0;width:100%;height:100%;background:#000"><source src="' + v.mp4 + '" type="video/mp4"></video>';
+  function playerInner(v, autoplay) {
+    // autoplay(상세 화면): 대표 이미지 없이, 영상 첫 장면(흰 바탕 제목 카드)과 같은 밝은 바탕으로 시작
+    if (v && v.mp4) return '<video controls preload="' + (autoplay ? 'auto' : 'metadata') + '" playsinline' + (v.poster && !autoplay ? ' poster="' + v.poster + '"' : '') + (v.poster ? ' data-poster="' + v.poster + '"' : '') + ' style="position:absolute;inset:0;width:100%;height:100%;background:' + (autoplay ? '#f7f9fd' : '#000') + '"><source src="' + v.mp4 + '" type="video/mp4"></video>';
     if (v && v.yt) return '<iframe src="https://www.youtube.com/embed/' + v.yt + '" title="' + esc(v.title) + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
     return '<div class="ico">' + PLAY + '</div><div>' + (v ? esc(v.title) : '') + '</div><div style="font-size:14px;opacity:.75;line-height:1.5;text-align:center">준비 중이에요.</div>';
   }
