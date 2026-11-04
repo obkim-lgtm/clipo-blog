@@ -125,7 +125,7 @@ window.VIDEOS = [
   // 학교 설정 — 제품 메뉴 [학교 설정](학생 · 선생님 · 학교 이용권 · 공유 크레딧). 목록은 다음 차례에 정의
   // 학교 설정 — 화면 탭 순서(학생 → 선생님 → 학교 이용권 → 공유 크레딧) + 소속 변경
   { id: 'D7', cat: 'coeval', art: 'quote', since: '2026-10-01', title: '공동 평가로 동료 선생님과 함께 검토하기', dur: '1:37', yt: null,
-    mp4: 'video/d7.mp4?v=1', poster: 'video/d7_poster.jpg?v=1', screen: '공동 평가', isNew: false,
+    mp4: 'video/d7.mp4?v=2', poster: 'video/d7_poster.jpg?v=1', screen: '공동 평가', isNew: false,
     summary: '내 수업을 같은 학교 선생님에게 공유하면, 그 선생님이 설계·채점·세특 화면을 보며 댓글로 의견을 남겨요. 점수와 기록은 수업을 맡은 선생님만 고쳐요. 공동 평가는 지금 Beta예요.' },
 
   { id: 'A1', cat: 'school', art: 'sheet', title: '학생 계정 만들기 (한 명씩·엑셀로)', dur: '0:43', yt: null,
