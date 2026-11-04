@@ -449,7 +449,7 @@
   fillIcons();
 
   // 영상 끝 '다음 영상 보기' — 다음 = v.next(묶음을 건너 잇는 이론 R0→R1→R2 등), 없으면 같은 묶음의 다음 영상.
-  // 마지막 영상이면 배우기 목록으로. 자동 넘김은 하지 않는다(선생님이 멈춰 따라 하는 흐름을 끊지 않게). ?play=1로 들어오면 바로 재생
+  // 마지막 영상이면 배우기 목록으로. 자동 넘김은 하지 않는다(선생님이 멈춰 따라 하는 흐름을 끊지 않게). 상세 화면은 열면 음소거로 바로 재생(11-04)
   function endCard(v, rel, fromStart) {
     var vid = $('#player video'); if (!vid) return;
     // 다음 영상 — 같은 목록의 다음 → 목록 끝이면 다음 탭의 첫 영상(마지막 탭이면 첫 탭으로)
@@ -465,7 +465,33 @@
         nx = VIDEOS.filter(function (x) { return x.cat === k && ready(x) && x.id !== v.id; })[0] || null;
       }
     }
-    if (qs('play')) { var pr = vid.play(); if (pr && pr.catch) pr.catch(function () {}); }
+    // 상세 화면을 열면 바로 재생 — 처음엔 음소거(갑자기 소리 나면 놀라니까, 올립 11-04). 왼쪽 위 「소리 켜기」로 켠다.
+    // 한 번 소리를 켜면 같은 창에서 다음 영상도 소리 켠 채로 시도하고, 브라우저가 막으면 음소거로 다시 재생한다
+    var SND = 'clipo_video_sound';
+    var wantSound = false; try { wantSound = sessionStorage.getItem(SND) === 'on'; } catch (e) {}
+    var unmuteBtn = document.createElement('button');
+    unmuteBtn.type = 'button'; unmuteBtn.className = 'unmute';
+    unmuteBtn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg>소리 켜기';
+    var syncBtn = function () {
+      if (vid.muted || vid.volume === 0) { if (!unmuteBtn.parentNode) $('#player').appendChild(unmuteBtn); }
+      else if (unmuteBtn.parentNode) unmuteBtn.remove();
+    };
+    unmuteBtn.addEventListener('click', function () {
+      vid.muted = false; if (vid.volume === 0) vid.volume = 1;
+      if (vid.paused) { var p2 = vid.play(); if (p2 && p2.catch) p2.catch(function () {}); }
+    });
+    vid.addEventListener('volumechange', function () {
+      try { sessionStorage.setItem(SND, vid.muted || vid.volume === 0 ? 'off' : 'on'); } catch (e) {}
+      syncBtn();
+    });
+    vid.addEventListener('ended', function () { if (unmuteBtn.parentNode) unmuteBtn.remove(); });
+    vid.addEventListener('play', syncBtn);
+    vid.muted = !wantSound;
+    var pr = vid.play();
+    if (pr && pr.catch) pr.catch(function () {
+      if (!vid.muted) { vid.muted = true; var p3 = vid.play(); if (p3 && p3.catch) p3.catch(function () {}); }
+    });
+    syncBtn();
     vid.addEventListener('ended', function () {
       var old = $('#player .endcard'); if (old) old.remove();
       var c = document.createElement('div'); c.className = 'endcard';
