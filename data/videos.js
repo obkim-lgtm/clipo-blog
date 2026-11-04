@@ -7,6 +7,7 @@ window.CATS = {
   files:   { name: '과제물 관리',   desc: '개별·일괄·스캔 업로드, 학생 제출' },
   grading: { name: '수행평가 채점', desc: 'AI 채점, 점수 확정, 피드백 공개' },
   record:  { name: '생기부',        desc: '세특·창체·행특 초안과 다듬기' },
+  coeval:  { name: '공동 평가',     desc: '같은 학교 선생님과 수업 공유, 댓글로 함께 검토' },
   school:  { name: '학교 설정',     desc: '학생 계정, 선생님 인증, 이용권, 소속 변경' },
   account: { name: '계정·이용권',   desc: '크레딧, 이용권, 학교 도입, 소속 변경' },
 };
@@ -123,6 +124,10 @@ window.VIDEOS = [
 
   // 학교 설정 — 제품 메뉴 [학교 설정](학생 · 선생님 · 학교 이용권 · 공유 크레딧). 목록은 다음 차례에 정의
   // 학교 설정 — 화면 탭 순서(학생 → 선생님 → 학교 이용권 → 공유 크레딧) + 소속 변경
+  { id: 'D7', cat: 'coeval', art: 'quote', since: '2026-10-01', title: '공동 평가로 동료 선생님과 함께 검토하기', dur: '1:37', yt: null,
+    mp4: 'video/d7.mp4?v=1', poster: 'video/d7_poster.jpg?v=1', screen: '공동 평가', isNew: false,
+    summary: '내 수업을 같은 학교 선생님에게 공유하면, 그 선생님이 설계·채점·세특 화면을 보며 댓글로 의견을 남겨요. 점수와 기록은 수업을 맡은 선생님만 고쳐요. 공동 평가는 지금 Beta예요.' },
+
   { id: 'A1', cat: 'school', art: 'sheet', title: '학생 계정 만들기 (한 명씩·엑셀로)', dur: '0:43', yt: null,
     mp4: 'video/a1.mp4?v=5', poster: 'video/a1_poster.jpg?v=4', screen: '학교 설정 · 학생', isNew: false,
     summary: '대표교사가 학교 설정의 학생에서 한 명씩 또는 엑셀 양식으로 학생 계정을 만들어요. 아이디와 초기 비밀번호는 자동으로 만들어져요.' },

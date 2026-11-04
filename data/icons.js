@@ -11,6 +11,7 @@
     files:   S('<path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/><path d="M12 17v-6M9.5 13.5L12 11l2.5 2.5"/>'),
     grading: S('<circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/>'),
     record:  S('<path d="M6 3h11a2 2 0 012 2v14a2 2 0 01-2 2H6z"/><path d="M6 3a2 2 0 00-2 2v14a2 2 0 002 2"/><path d="M9 8h7M9 12h7M9 16h4"/>'),
+    coeval:  S('<path d="M4 6a2 2 0 012-2h8a2 2 0 012 2v5a2 2 0 01-2 2H9l-3 3v-3H6a2 2 0 01-2-2z"/><path d="M16 9h2a2 2 0 012 2v5a2 2 0 01-2 2h-1v3l-3-3h-3a2 2 0 01-2-2v-1"/>'),
     account: S('<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3 10h18M7 15h4"/>'),
     // 연수
     calendar: S('<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>'),
