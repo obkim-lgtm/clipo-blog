@@ -6,6 +6,10 @@ window.TRAININGS = [
     place: 'Zoom 온라인 (신청 후 링크 발송)', speaker: '성서중학교 선생님',
     topic: '직접 해보며 익히는 클리포 실전 실습 (직접 따라하며 클리포 기능을 익히고, 기술교과 사례로 수업 적용 아이디어까지 얻는 연수)',
     form: 'https://forms.gle/JLW6CoKbPVS9oSbPA' },
+  { id: 't-2611-eng', title: '[11월] 영어과 실전 연수', date: '2026-11-30T19:00', dur: '90분',
+    place: 'Zoom 온라인 (신청 후 링크 발송)', speaker: '와우고등학교 선생님',
+    topic: '설계부터 채점, 기록까지 : 클리포로 완성하는 평가 사이클',
+    form: 'https://forms.gle/3PwsLAPPboxRupDR8' },
 
   { id: 'p-2610-eng', title: '[10월] 영어과 실전 연수', date: '2026-10-28', tag: '영어', speaker: '청북고 영어 선생님',
     topic: '시행착오로 배운 클리포 활용 팁, 선생님은 꽃길만 걸으세요. (학습지 구성부터 채점기준 정교화까지)', thumb: 'img/training/thumb_eng_october.png', badge: '영상·연수자료 제공',
