@@ -29,7 +29,7 @@ button,input{font-family:inherit;font-size:inherit}
 .btn,.btn-o{transition:transform .12s,background .12s,border-color .12s}
 
 /* 헤더 */
-.hdr{background:rgba(255,255,255,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.hdr{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10} /* 11-10 올립: 반투명+backdrop blur는 크롬에서 왼쪽 끝에 흐린 띠가 생겨 흰색이 꽉 안 차 보임 → 불투명 흰색 */
 .hdr-in{max-width:var(--max);margin:0 auto;padding:0 16px;height:68px;display:flex;align-items:center;gap:28px}
 .brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
 .brand img{height:20px}
