@@ -74,11 +74,11 @@ window.VIDEOS = [
 
   // 과제물 관리
   // 순서 = 올리는 방법(스캔 PDF · 여러 파일 · 한 명) → 학생 제출 보기 → 학생 화면 → 원칙. 과제물 인식(OCR) 확인은 채점 탭 D6
-  { id: 'C3', cat: 'files', art: 'scanner', guide: 'ch4.html', title: '반 전체 스캔 PDF 한 장으로 올리기', dur: '0:43', yt: null,
-    mp4: 'video/c3.mp4?v=5', poster: 'video/c3_poster.jpg?v=4', screen: '과제물 관리', isNew: false,
-    summary: '반 전체를 스캔한 PDF 한 개를 올리면 학생별로 나눠져요. 학생 한 명이 몇 장인지, 몇 쪽부터 과제인지 적고, 나뉜 결과가 다르면 고쳐서 등록해요.' },
+  { id: 'C3', cat: 'files', art: 'scanner', guide: 'ch4.html', title: '반 전체 스캔 PDF 한 장으로 올리기', dur: '1:05', yt: null,
+    mp4: 'video/c3.mp4?v=6', poster: 'video/c3_poster.jpg?v=5', screen: '과제물 관리', isNew: false,
+    summary: '반 전체를 스캔한 PDF 한 개를 올리면 학생별로 나눠져요. 과제가 시작되는 쪽과 학생 한 명당 장수를 적고, 미리 보며 페이지 수와 미제출을 고친 뒤 올려요.' },
   { id: 'C2', cat: 'files', art: 'upload_many', since: '2026-08-06', title: '여러 학생 파일 한 번에 올리기', dur: '0:43', yt: null,
-    mp4: 'video/c2.mp4?v=5', poster: 'video/c2_poster.jpg?v=4', screen: '과제물 관리', isNew: false,
+    mp4: 'video/c2.mp4?v=6', poster: 'video/c2_poster.jpg?v=4', screen: '과제물 관리', isNew: false,
     summary: '학생별로 나뉜 과제물 파일을 한 번에 올리면, 파일 이름의 학생 이름으로 자동으로 짝지어져요. 짝이 틀리면 매칭 수정으로 바꿔요.' },
   { id: 'C1', cat: 'files', art: 'upload_one', title: '학생 한 명 과제물 따로 올리거나 바꾸기', dur: '1:02', yt: null,
     mp4: 'video/c1.mp4?v=5', poster: 'video/c1_poster.jpg?v=4', screen: '과제물 관리', isNew: false,
@@ -90,7 +90,7 @@ window.VIDEOS = [
     mp4: 'video/c6.mp4?v=4', poster: 'video/c6_poster.jpg?v=3', screen: '학생 화면', isNew: false,
     summary: '학생은 과제 목록에서 제출하기를 눌러 과제 안내와 문항을 읽고 답을 써요. 다 쓰면 과제 제출을 누르고, 마감 전까지는 수정해서 다시 낼 수 있어요.' },
   { id: 'R2', cat: 'files', art: 'compass', guide: 'ch3.html', next: 'C3', title: 'AI가 잘 읽는 과제물 준비하기', dur: '1:39', yt: null,
-    mp4: 'video/prepare.mp4?v=6', poster: 'video/prepare_poster.jpg?v=4', screen: '과제물 관리', isNew: false,
+    mp4: 'video/prepare.mp4?v=7', poster: 'video/prepare_poster.jpg?v=4', screen: '과제물 관리', isNew: false,
     summary: '종이 과제물은 AI가 글씨를 먼저 읽어요. 활동지를 만들 때, 학생이 쓸 때, 걷어서 올릴 때, 잘못 읽히기 쉬운 것과 대신 할 것을 봐요.' },
 
   // 수행평가 채점
