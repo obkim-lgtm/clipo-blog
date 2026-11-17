@@ -99,7 +99,7 @@ window.VIDEOS = [
   // 수행평가 채점
   // 순서 = 채점 전 확인 → 점수 매기기(근거·고치기·재실행·확정) → 피드백·공개
   { id: 'D1', cat: 'grading', art: 'magnifier', guide: 'ch4.html', title: 'AI로 채점할 수 있는 답안', dur: '1:15', yt: null,
-    mp4: 'video/d1.mp4?v=6', poster: 'video/d1_poster.jpg?v=3', screen: '수행평가 채점', isNew: false,
+    mp4: 'video/d1.mp4?v=7', poster: 'video/d1_poster.jpg?v=3', screen: '수행평가 채점', isNew: false,
     summary: '줄글·수식·표·그림 답안은 채점돼요. 직접 그린 그래프나 개수 세기는 결과를 한 번 확인하고, 지도 위 표기는 아직 어려워요.' },
   { id: 'D2', cat: 'grading', art: 'bubble_score', guide: 'ch5.html', title: 'AI 채점하고 점수 확정하기', dur: '1:36', yt: null,
     mp4: 'video/d2.mp4?v=5', poster: 'video/d2_poster.jpg?v=3', screen: '수행평가 채점', isNew: false,
