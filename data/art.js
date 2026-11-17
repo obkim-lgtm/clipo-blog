@@ -18,6 +18,7 @@
     intro:       W('<rect x="12" y="18" width="72" height="50" rx="10"/><path d="M40 32l18 11-18 11z"' + SOLID + '/><path d="M36 82h24M48 68v14"/>'),
     signup:      W('<circle cx="36" cy="42" r="17"/><circle cx="36" cy="42" r="5"' + SOLID + ' opacity=".4"/><path d="M48 52l32 30"/><path d="M66 70l8-8M74 78l8-8"/>'),
     people_plus: W('<circle cx="38" cy="36" r="13"/><path d="M14 80c2-15 11-22 24-22s22 7 24 22"/><path d="M74 28v22M63 39h22"/>'),
+    person_in:   W('<circle cx="58" cy="34" r="13"/><path d="M36 80c2-15 10-22 22-22s20 7 22 22"/><path d="M8 52h26M26 44l8 8-8 8"/>'),  // 전학생: 밖에서 들어오는 사람(A11, 11-17)
     ruler_pen:   W('<rect x="14" y="54" width="68" height="22" rx="6"/><path d="M26 54v10M38 54v7M50 54v10M62 54v7M74 54v10" stroke-width="4"/><path d="M58 16l16 16-30 30-20 4 4-20z"/>'),
     paths:       W('<circle cx="18" cy="48" r="8"/><path d="M26 48h14"/><path d="M40 48c10 0 10-22 20-22h12M40 48h32M40 48c10 0 10 22 20 22h12"/><circle cx="80" cy="26" r="7"' + SOLID + ' opacity=".45"/><circle cx="80" cy="48" r="7"' + SOLID + ' opacity=".45"/><circle cx="80" cy="70" r="7"' + SOLID + ' opacity=".45"/>'),
     medal:       W('<circle cx="48" cy="42" r="26"/><path d="M36 42l9 9 17-18" stroke-width="6"/><path d="M34 64l-6 22 20-10 20 10-6-22"/>'),
