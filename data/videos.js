@@ -33,9 +33,9 @@ window.VIDEOS = [
     summary: '서·논술형 채점부터 생기부 기록까지, 선생님의 한 학기를 클리포로 어떻게 보내는지 2분 40초로 봐요. AI가 점수와 기록을 정하지 않아요. 제안을 읽고 결정하는 건 언제나 선생님이에요.' },
 
   // 수업·참여 학생 — 수업 단위. 학생 '계정'(등록·비밀번호)은 학교 설정 탭
-  { id: 'A8', cat: 'class', art: 'cat_class', title: '수업 만들고 수정·보관·삭제하기', dur: '0:57', yt: null,
-    mp4: 'video/a8.mp4?v=6', poster: 'video/a8_poster.jpg?v=5', screen: '홈 · 내 수업', isNew: false,
-    summary: '홈의 수업 만들기에서 학기·학년, 과목, 수업명을 정해요. 만든 수업은 카드 메뉴에서 고치고, 다 쓴 수업은 보관해요. 삭제한 수업은 복구할 수 없어요.' },
+  { id: 'A8', cat: 'class', art: 'cat_class', title: '수업 만들고 수정·보관·삭제하기', dur: '1:16', yt: null,
+    mp4: 'video/a8.mp4?v=7', poster: 'video/a8_poster.jpg?v=6', screen: '홈 · 내 수업', isNew: false,
+    summary: '홈의 수업 만들기에서 학기·학년, 과목, 수업명을 정하고 학생 등록 방식을 골라요. 학급 단위로 학급을 고르면 그 학급 학생이 함께 들어가고, 이동수업반은 학생 단위로 두고 반 이름을 적어요. 학생을 등록하기 전에도 수업을 먼저 만들 수 있어요. 만든 수업은 카드 메뉴에서 고치고, 다 쓴 수업은 보관해요. 삭제한 수업은 복구할 수 없어요.' },
   { id: 'A9', cat: 'class', art: 'people_plus', title: '참여 학생 더하고 빼기', dur: '0:47', yt: null,
     mp4: 'video/a9.mp4?v=6', poster: 'video/a9_poster.jpg?v=5', screen: '수업 홈 · 참여 학생 추가 / 제외', isNew: false,
     summary: '학교 설정에 등록된 학생만 수업에 넣을 수 있어요. 학생이 없으면 학교 설정에서 먼저 만들고, 수업 홈의 참여 학생 추가 / 제외에서 더하거나 빼요. 제외한 학생의 과제·평가 데이터는 지워져요.' },
