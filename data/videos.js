@@ -49,31 +49,31 @@ window.VIDEOS = [
   // 수행평가 설계 — 순서 = 제품 `수행평가 만들기` 메뉴(새로 만들기 · 복사해서 만들기 · 평가계획에서 가져오기) → 채점기준 AI → 원칙 → 직접 쓰는 과제
   // B1 = 새로 만들기 한 편에 성취기준 고르기(고르면 상·중·하 자동, 직접 고칠 수 있음) · 채점기준 직접 추가 · 미제출·미응시 처리까지(옛 B3·B7 합침)
   // 이론 묶음 R0 → R1 → R2. R0는 설계 탭 맨 앞. next = 영상 끝 '다음 영상 보기'가 묶음을 건너 잇는 곳
-  { id: 'R0', cat: 'design', art: 'compass', guide: 'ch1.html', next: 'R1', title: '수행평가, AI와 함께 제대로 하는 법', dur: '2:27', yt: null,
-    mp4: 'video/r0.mp4?v=5', poster: 'video/r0_poster.jpg?v=2', screen: '연수 자료 · 수행평가의 원칙', isNew: false,
-    summary: '서·논술형 수행평가가 왜 필요하고 왜 늘리기 어려운지, AI와 함께 어떤 원칙으로 풀지 짚어요. 답안을 읽고 초안을 만드는 건 클리포, 기준과 점수를 정하는 건 선생님이에요.' },
-  { id: 'B1', cat: 'design', art: 'target', title: '수행평가 새로 만들기', dur: '1:11', yt: null,
-    mp4: 'video/b1.mp4?v=6', poster: 'video/b1_poster.jpg?v=4', screen: '수행평가 설계', isNew: false,
-    summary: '이름과 성취기준을 넣고, 채점기준을 직접 적어 수행평가를 만들어요. 성취기준을 고르면 상·중·하 성취수준이 채워지고, 점수 산출 방법과 미제출·미응시 점수, 과제물 받는 방법까지 정한 뒤 저장해요.' },
+  { id: 'R0', cat: 'design', art: 'compass', guide: 'ch1.html', next: 'R1', title: '수행평가, AI와 함께 제대로 하는 법', dur: '2:22', yt: null,
+    mp4: 'video/r0.mp4?v=6', poster: 'video/r0_poster.jpg?v=3', screen: '연수 자료 · 수행평가의 원칙', isNew: false,
+    summary: '서·논술형 수행평가가 왜 필요하고 왜 늘리기 어려운지, AI와 함께 어떤 원칙으로 풀지 짚어요. 클리포는 답안을 읽고 피드백 초안을 만들고, 기준과 점수는 선생님이 정해요.' },
+  { id: 'B1', cat: 'design', art: 'target', title: '수행평가 새로 만들기', dur: '1:18', yt: null,
+    mp4: 'video/b1.mp4?v=7', poster: 'video/b1_poster.jpg?v=5', screen: '수행평가 설계', isNew: false,
+    summary: '수행평가 만들기 › 새로 만들기를 골라 이름과 공개 여부를 정해요. 성취기준을 검색해 고르면 성취수준이 함께 들어오고, 채점기준은 직접 추가로 채점요소와 급간마다 점수·기준을 적어요. 점수 산출 방법, 미제출·미응시 점수, 과제물 받는 방법을 정해 설계를 저장해요.' },
   // B6 = 복사는 평가계획 쪽(평가계획 만들기 → 복사해서 만들기, 다른 선생님의 평가계획) → 수행평가 설계에서 평가계획에서 가져오기
-  { id: 'B6', cat: 'design', art: 'book_tags', title: '다른 선생님 평가계획 복사해서 쓰기', dur: '0:40', yt: null,
-    mp4: 'video/b6.mp4?v=5', poster: 'video/b6_poster.jpg?v=4', screen: '평가계획 · 수행평가 설계', isNew: false,
-    summary: '평가계획의 복사해서 만들기에서 다른 선생님이 만든 평가계획을 찾아 복사해요. 복사한 계획은 수행평가 설계에서 평가계획에서 가져오기로 불러와요.' },
-  { id: 'P1', cat: 'design', art: 'clipboard', title: '평가계획에서 가져와 만들기', dur: '0:46', yt: null,
-    mp4: 'video/p1.mp4?v=5', poster: 'video/p1_poster.jpg?v=4', screen: '평가계획 · 수행평가 설계', isNew: false,
-    summary: '왼쪽 메뉴 평가계획에서 계획을 만들어 두면 여러 수행평가에서 쓸 수 있어요. 수행평가 설계에서 평가계획에서 가져오기로 골라 적용해요.' },
+  { id: 'B6', cat: 'design', art: 'book_tags', title: '다른 선생님 평가계획 복사해서 쓰기', dur: '1:06', yt: null,
+    mp4: 'video/b6.mp4?v=6', poster: 'video/b6_poster.jpg?v=5', screen: '평가계획 · 수행평가 설계', isNew: false,
+    summary: '평가계획 메뉴의 평가계획 만들기 › 복사해서 만들기에서 다른 선생님의 평가계획을 찾아 복사 생성해요. 내용이 채워진 채 열리면 우리 반에 맞게 고쳐 저장하고, 수업의 수행평가 설계에서 평가계획에서 가져오기로 불러와요.' },
+  { id: 'P1', cat: 'design', art: 'clipboard', title: '평가계획에서 가져와 만들기', dur: '1:08', yt: null,
+    mp4: 'video/p1.mp4?v=6', poster: 'video/p1_poster.jpg?v=5', screen: '평가계획 · 수행평가 설계', isNew: false,
+    summary: '평가계획 메뉴에서 성취기준과 채점기준을 담은 평가계획을 만들어 두면, 수업마다 수행평가 만들기 › 평가계획에서 가져오기로 불러와 시작할 수 있어요. 수업에서 만든 설계를 평가계획으로 내보낼 수도 있어요.' },
   // B2 = 채점기준 AI 생성 창의 방법들(한두 문장 · 활동지 올리기 · 쓰던 채점기준표 사진)을 한 편에(옛 B4·B8 합침)
-  { id: 'B2', cat: 'design', art: 'tags', guide: 'ch2.html', title: '채점기준 AI로 만들기: 문장·활동지·사진', dur: '1:00', yt: null,
-    mp4: 'video/b2.mp4?v=5', poster: 'video/b2_poster.jpg?v=4', screen: '수행평가 설계', isNew: false,
-    summary: '채점기준 AI 생성 창에서 한두 문장으로 적거나, 활동지 이미지를 올리거나, 채점요소와 급간 수만 정하거나, 쓰던 채점기준표 사진을 올려 초안을 받아요. 쓸 것만 골라 적용해요.' },
+  { id: 'B2', cat: 'design', art: 'tags', guide: 'ch2.html', title: '채점기준 AI로 만들기: 문장·활동지·사진', dur: '1:10', yt: null,
+    mp4: 'video/b2.mp4?v=6', poster: 'video/b2_poster.jpg?v=5', screen: '수행평가 설계', isNew: false,
+    summary: '채점기준 AI 생성 창에서 한두 문장으로 적거나, 활동지·채점기준표 사진을 올리거나, 채점요소와 급간 수만 정해 초안을 받아요. 받은 기준 가운데 쓸 것만 골라 담고, 선생님 기준으로 고쳐 써요.' },
   // 원칙 영상(2~3분) — AI 채점 가이드 2장 기반, 시연 계정 실제 화면. 영상 소스 clipo_promo_video `Learn-Rubric` (09-23 첫 게시, 내용은 다듬는 중)
-  { id: 'R1', cat: 'design', art: 'compass', guide: 'contest.html#tips', next: 'R2', title: '채점기준 잘 쓰는 법', dur: '4:36', yt: null,
-    mp4: 'video/rubric.mp4?v=15', poster: 'video/rubric_poster.jpg?v=9', screen: '수행평가 설계', isNew: false,
+  { id: 'R1', cat: 'design', art: 'compass', guide: 'contest.html#tips', next: 'R2', title: '채점기준 잘 쓰는 법', dur: '4:25', yt: null,
+    mp4: 'video/rubric.mp4?v=16', poster: 'video/rubric_poster.jpg?v=10', screen: '수행평가 설계', isNew: false,
     summary: '초4 사회·고1 미술·고1 영어·중2 역사·중2 수학 선생님이 채점기준을 어떻게 고쳤고, 그랬더니 AI 채점이 어떻게 달라졌는지 봐요. 어디를 볼지, 어떻게 가를지, 만점을 어디까지 둘지 세 가지로 정리해요.' },
   // B5 = 직접 쓰는 과제 한 편에 다문항(09-22) + 작성 과정 기록을 함께
-  { id: 'B5', cat: 'design', art: 'writing_log', since: '2026-09-22', title: '학생이 클리포에 직접 쓰는 과제 만들기', dur: '1:01', yt: null,
-    mp4: 'video/b5.mp4?v=5', poster: 'video/b5_poster.jpg?v=4', screen: '수행평가 설계 · 과제물 관리', isNew: false,
-    summary: '문항을 여러 개 나눠 내고, 학생은 클리포에서 문항마다 답을 써요. 제출 뒤에는 과제물 관리에서 글자 수가 어떻게 늘었는지, 쓰는 동안 다른 화면을 본 기록을 볼 수 있어요. 태도를 판단하는 근거가 아니라 답안을 이해하는 참고 정보예요.' },
+  { id: 'B5', cat: 'design', art: 'writing_log', since: '2026-09-22', title: '학생이 클리포에 직접 쓰는 과제 만들기', dur: '1:13', yt: null,
+    mp4: 'video/b5.mp4?v=6', poster: 'video/b5_poster.jpg?v=5', screen: '수행평가 설계 · 과제물 관리', isNew: false,
+    summary: '학생 직접 입력 또는 제출을 고르고 클리포에서 직접 작성으로 문항을 여러 개 낼 수 있어요. 문항마다 권장 글자 수, 붙여넣기 막기, 파일 제출, 학급별 제출 기간을 정해요. 제출 뒤에는 과제물 관리에서 작성 과정 기록을 답안을 이해하는 참고 정보로 볼 수 있어요.' },
 
   // 과제물 관리
   // 순서 = 올리는 방법(스캔 PDF · 여러 파일 · 한 명) → 학생 제출 보기 → 학생 화면 → 원칙. 과제물 인식(OCR) 확인은 채점 탭 D6
