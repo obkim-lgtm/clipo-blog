@@ -118,15 +118,15 @@ window.VIDEOS = [
   { id: 'E1', cat: 'record', art: 'compass', since: '2026-07-22', title: '세특 초안 다듬기', dur: '0:49', yt: null,
     mp4: 'video/e1.mp4?v=4', poster: 'video/e1_poster.jpg?v=3', screen: '세부능력 및 특기사항 지원 · 세특 간편 생성기', isNew: false,
     summary: 'AI 기록 다듬기에서 학생을 여러 명 고르고 "분량을 줄여 줘"처럼 방향을 적으면 다시 써 줘요. 화살표로 다듬기 전 기록과 비교해요.' },
-  { id: 'E2', cat: 'record', art: 'book_tags', title: '채점 없이 세특 만들기 (간편 생성기)', dur: '1:07', yt: null,
-    mp4: 'video/e2.mp4?v=3', poster: 'video/e2_poster.jpg?v=3', screen: '세특 간편 생성기', isNew: false,
-    summary: '채점한 과제물이 없어도 과목·성취기준과 학생별 키워드·활동, 자기평가서 같은 자료로 세특 초안을 만들어요. 엑셀로 내려받아 나이스에 올려요.' },
+  { id: 'E2', cat: 'record', art: 'book_tags', title: '채점 없이 세특 만들기 (간편 생성기)', dur: '1:21', yt: null,
+    mp4: 'video/e2.mp4?v=4', poster: 'video/e2_poster.jpg?v=4', screen: '세특 간편 생성기', isNew: false,
+    summary: '채점한 과제물이 없어도 그룹을 만들고 과목·성취기준을 골라요. 학생마다 자기평가서를 올려 활동을 뽑거나 키워드와 활동 한 문장을 적으면 초안이 나와요. 다듬어 저장하고 엑셀로 내려받아요.' },
   { id: 'E3', cat: 'record', art: 'clipboard', since: '2026-11-10', title: '활동지·설문 올려 창체 초안 만들기', dur: '2:01', yt: null,
     mp4: 'video/e3.mp4?v=5', poster: 'video/e3_poster.jpg?v=4', screen: '창의적 체험활동', isNew: false,
     summary: '활동을 만들 때 한 학급 전체를 넣거나 여러 학급에서 학생을 골라요. 학생마다 낸 활동지·설문을 한 번에 올리면 AI가 한꺼번에 분석해 기록할 활동을 추천하고, 고른 활동으로 초안을 만들어 엑셀로 내려받아요.' },
-  { id: 'E4', cat: 'record', art: 'quote', title: '키워드와 일화로 행특 초안 만들기', dur: '1:26', yt: null,
-    mp4: 'video/e4.mp4?v=6', poster: 'video/e4_poster.jpg?v=4', screen: '행동특성 및 종합기록 지원', isNew: false,
-    summary: '학생 그룹을 만들고 키워드 사전에서 고르거나 일화를 적으면 행특 초안이 나와요. 가져와서 선생님 말로 다듬어 저장하고, 엑셀로 내려받아요.' },
+  { id: 'E4', cat: 'record', art: 'quote', title: '키워드와 일화로 행특 초안 만들기', dur: '1:23', yt: null,
+    mp4: 'video/e4.mp4?v=7', poster: 'video/e4_poster.jpg?v=5', screen: '행동특성 및 종합기록 지원', isNew: false,
+    summary: '학생 그룹을 만들고 학생마다 키워드와 일화를 남겨요. 바로 적거나 엑셀로 한 번에 올릴 수 있어요. 학생을 골라 초안을 받고, 가져와 선생님 말로 고쳐 저장한 뒤 엑셀로 내려받아요.' },
 
   // 학교 설정 — 제품 메뉴 [학교 설정](학생 · 선생님 · 학교 이용권 · 공유 크레딧). 목록은 다음 차례에 정의
   // 학교 설정 — 화면 탭 순서(학생 → 선생님 → 학교 이용권 → 공유 크레딧) + 소속 변경
