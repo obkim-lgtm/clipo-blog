@@ -107,6 +107,12 @@ window.VIDEOS = [
   { id: 'D6', cat: 'grading', art: 'refresh', since: '2026-11-17', title: '인식 결과 확인하고 다시 채점하기', dur: '1:26', yt: null,
     mp4: 'video/d6.mp4?v=3', poster: 'video/d6_poster.jpg?v=3', screen: '수행평가 채점 · 학생 상세 · 인식 결과', isNew: false,
     summary: '점수가 생각과 다르면 인식 결과 탭에서 AI가 읽은 답을 먼저 살펴봐요. 확인 필요가 붙은 문항부터 원본과 맞춰 보고, 잘못 읽힌 곳은 결과 수정에서 바로잡아 다시 채점해요. 읽은 답이 맞으면 다시 채점에서 점수 수준을 조정해요.' },
+  { id: 'D9', cat: 'grading', art: 'export', title: '채점 결과 엑셀로 받기', dur: '0:54', yt: null,
+    mp4: 'video/d9.mp4?v=1', poster: 'video/d9_poster.jpg?v=1', screen: '수행평가 채점 · 학급 채점 현황', isNew: true,
+    summary: '채점 목록의 결과 확인에서 학급 점수 분포를 먼저 보고, 학급 채점 현황의 채점 결과 다운로드로 엑셀을 받아요. 학생마다 총점과 채점요소 점수, 선생님 작성 피드백이 들어 있어요. 선생님이 점수를 정해 저장한 학생만 점수가 채워져요.' },
+  { id: 'D11', cat: 'grading', art: 'lock', title: '수행평가 마감하고 마감 취소하기', dur: '0:58', yt: null,
+    mp4: 'video/d11.mp4?v=1', poster: 'video/d11_poster.jpg?v=1', screen: '수행평가 채점', isNew: true,
+    summary: '채점을 마쳤으면 채점 목록에서 마감을 눌러요. 마감한 수행평가로 세특 초안을 만들 수 있어요. 마감 중에는 과제물 저장, 다시 채점, 점수 고치기가 잠겨요. 늦게 낸 답안이 생기면 마감 취소로 다시 열어 올리고 채점한 뒤 다시 마감해요.' },
   { id: 'D3', cat: 'grading', art: 'bubble_pen', title: '피드백 다듬고 학생에게 공개하기', dur: '1:35', yt: null,
     mp4: 'video/d3.mp4?v=6', poster: 'video/d3_poster.jpg?v=4', screen: '수행평가 채점', isNew: false,
     summary: 'AI 피드백 초안을 선생님 피드백 칸으로 옮겨 다듬어요. 결과 공개에서 클리포로 볼지 PDF로 받을지 정하고, 공개할 학생과 항목 · 기간을 골라 미리보기로 확인한 뒤 저장해요.' },
@@ -127,6 +133,9 @@ window.VIDEOS = [
   { id: 'E4', cat: 'record', art: 'quote', title: '키워드와 일화로 행특 초안 만들기', dur: '1:23', yt: null,
     mp4: 'video/e4.mp4?v=7', poster: 'video/e4_poster.jpg?v=5', screen: '행동특성 및 종합기록 지원', isNew: false,
     summary: '학생 그룹을 만들고 학생마다 키워드와 일화를 남겨요. 바로 적거나 엑셀로 한 번에 올릴 수 있어요. 학생을 골라 초안을 받고, 가져와 선생님 말로 고쳐 저장한 뒤 엑셀로 내려받아요.' },
+  { id: 'E5', cat: 'record', art: 'checklist', title: '수업 중 관찰 기록 남기기', dur: '1:06', yt: null,
+    mp4: 'video/e5.mp4?v=1', poster: 'video/e5_poster.jpg?v=1', screen: '수업 홈 · 관찰 기록', isNew: true,
+    summary: '수업 홈의 관찰 기록에서 학생을 고르고 키워드를 누르거나 본 모습을 한 줄로 적어 등록해요. 상세 보기에서 키워드를 바꾸고, 잘못 남긴 기록을 지우고, 엑셀로 받아요. 남긴 관찰 기록은 세특 초안을 만들 때 기록 근거로 함께 쓰여요.' },
 
   // 학교 설정 — 제품 메뉴 [학교 설정](학생 · 선생님 · 학교 이용권 · 공유 크레딧). 목록은 다음 차례에 정의
   // 학교 설정 — 화면 탭 순서(학생 → 선생님 → 학교 이용권 → 공유 크레딧) + 소속 변경
