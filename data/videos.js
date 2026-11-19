@@ -99,13 +99,13 @@ window.VIDEOS = [
   // 수행평가 채점
   // 순서 = 채점 전 확인 → 점수 매기기(근거·고치기·재실행·확정) → 피드백·공개
   { id: 'D1', cat: 'grading', art: 'magnifier', guide: 'ch4.html', title: 'AI로 채점할 수 있는 답안', dur: '1:15', yt: null,
-    mp4: 'video/d1.mp4?v=7', poster: 'video/d1_poster.jpg?v=3', screen: '수행평가 채점', isNew: false,
+    mp4: 'video/d1.mp4?v=8', poster: 'video/d1_poster.jpg?v=4', screen: '수행평가 채점', isNew: false,
     summary: '줄글·수식·표·그림 답안은 채점돼요. 직접 그린 그래프나 개수 세기는 결과를 한 번 확인하고, 지도 위 표기는 아직 어려워요.' },
   { id: 'D2', cat: 'grading', art: 'bubble_score', guide: 'ch5.html', title: 'AI 채점하고 점수 확정하기', dur: '1:36', yt: null,
     mp4: 'video/d2.mp4?v=5', poster: 'video/d2_poster.jpg?v=3', screen: '수행평가 채점', isNew: false,
     summary: '학급 단위로 AI 채점을 돌리고 채점 근거를 읽으며 점수를 고쳐요. 결과가 많이 다르면 재실행하고, 마지막에 점수를 일괄 확정해요.' },
   { id: 'D6', cat: 'grading', art: 'refresh', since: '2026-11-17', title: '인식 결과 확인하고 다시 채점하기', dur: '1:26', yt: null,
-    mp4: 'video/d6.mp4?v=2', poster: 'video/d6_poster.jpg?v=2', screen: '수행평가 채점 · 학생 상세 · 인식 결과', isNew: false,
+    mp4: 'video/d6.mp4?v=3', poster: 'video/d6_poster.jpg?v=3', screen: '수행평가 채점 · 학생 상세 · 인식 결과', isNew: false,
     summary: '점수가 생각과 다르면 인식 결과 탭에서 AI가 읽은 답을 먼저 살펴봐요. 확인 필요가 붙은 문항부터 원본과 맞춰 보고, 잘못 읽힌 곳은 결과 수정에서 바로잡아 다시 채점해요. 읽은 답이 맞으면 다시 채점에서 점수 수준을 조정해요.' },
   { id: 'D3', cat: 'grading', art: 'bubble_pen', title: '피드백 다듬고 학생에게 공개하기', dur: '1:30', yt: null,
     mp4: 'video/d3.mp4?v=5', poster: 'video/d3_poster.jpg?v=3', screen: '수행평가 채점', isNew: false,
@@ -130,9 +130,9 @@ window.VIDEOS = [
 
   // 학교 설정 — 제품 메뉴 [학교 설정](학생 · 선생님 · 학교 이용권 · 공유 크레딧). 목록은 다음 차례에 정의
   // 학교 설정 — 화면 탭 순서(학생 → 선생님 → 학교 이용권 → 공유 크레딧) + 소속 변경
-  { id: 'D7', cat: 'coeval', art: 'quote', since: '2026-10-01', title: '공동 평가로 동료 선생님과 함께 검토하기', dur: '1:33', yt: null,
-    mp4: 'video/d7.mp4?v=3', poster: 'video/d7_poster.jpg?v=1', screen: '공동 평가', isNew: false,
-    summary: '내 수업을 같은 학교 선생님에게 공유하면, 그 선생님이 설계·채점·세특 화면을 보며 댓글로 의견을 남겨요. 점수와 기록은 수업을 맡은 선생님만 고쳐요. 공동 평가는 지금 Beta예요.' },
+  { id: 'D7', cat: 'coeval', art: 'quote', since: '2026-10-01', title: '공동 평가로 동료 선생님과 함께 검토하기', dur: '1:41', yt: null,
+    mp4: 'video/d7.mp4?v=4', poster: 'video/d7_poster.jpg?v=2', screen: '공동 평가', isNew: false,
+    summary: '내 수업을 같은 학교 선생님에게 공유하면, 그 선생님은 홈에서 공유 받은 수업 보기를 켜고 설계·채점·세특 화면을 보며 댓글로 의견을 남겨요. 점수와 기록은 수업을 맡은 선생님만 고쳐요. 공동 평가는 지금 Beta예요.' },
 
   { id: 'A1', cat: 'school', art: 'sheet', title: '학생 계정 만들기 (한 명씩·엑셀로)', dur: '0:43', yt: null,
     mp4: 'video/a1.mp4?v=5', poster: 'video/a1_poster.jpg?v=4', screen: '학교 설정 · 학생', isNew: false,
