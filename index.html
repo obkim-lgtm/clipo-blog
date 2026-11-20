@@ -28,17 +28,16 @@ if(!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)){var s=document
 <meta name="twitter:image" content="https://guide.clipo.ai/og.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-gov.css" integrity="sha384-klXyWMjhBsc1T1Ep8bGAloOiKhy/97sHlSfndASeYaKd9dMP6lMT/Znzpq/iUnpk" crossorigin="anonymous">
 <link rel="alternate" type="application/rss+xml" title="클리포 가이드" href="https://guide.clipo.ai/rss.xml">
-<link rel="stylesheet" href="style.css?v=119">
+<link rel="stylesheet" href="style.css?v=129">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "클리포 가이드", "url": "https://guide.clipo.ai/", "inLanguage": "ko", "description": "클리포를 쓰는 선생님을 위한 사용법 영상, AI 채점 안내, 연수, 업데이트 소식을 한곳에 모았어요.", "publisher": {"@type": "Organization", "name": "클리포(CLIPO)", "url": "https://clipo.ai", "logo": {"@type": "ImageObject", "url": "https://guide.clipo.ai/icon-180.png"}}}</script>
 </head>
 <body data-page="home" data-hide-stories="1">
 <header class="hdr"><div class="hdr-in">
   <a class="brand" href="index.html"><img src="clipo_wordmark.svg" alt="CLIPO"><span class="site">가이드</span></a>
   <nav class="nav">
-    <a class="tab" data-nav="home" href="index.html">홈</a>
-    <a class="tab" data-nav="learn" href="learn.html">사용법 영상</a>
-    <a class="tab" data-nav="guide" href="scoring/">AI 채점 안내</a>
-    <a class="tab" data-nav="training" href="training.html">연수 안내</a>
+    <a class="tab" data-nav="learn" href="learn.html">사용법</a>
+    <a class="tab" data-nav="guide" href="scoring/">채점 가이드</a>
+    <a class="tab" data-nav="training" href="training.html">연수</a>
     <a class="tab" data-nav="news" href="news.html">소식</a>
   </nav>
   <div class="hdr-r">
@@ -52,7 +51,7 @@ if(!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)){var s=document
   <div class="hero hero-q">
     <div class="hero-in">
       <h1>클리포 사용법, 필요한 것부터 찾아보세요</h1>
-      <p>수행평가 설계부터 AI 채점, 결과 확인, 생활기록부 초안까지. 사용법 영상과 안내, <br>과목별 채점 예시를 모았어요.</p>
+      <p>수행평가 설계부터 AI 채점, 결과 확인, 생활기록부 초안까지. 사용법 영상과 매뉴얼, 자주 묻는 질문, 과목별 채점 예시를 모았어요.</p>
       <form class="hsearch" id="hsearch" role="search" autocomplete="off">
         <label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6d7381" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="hq" type="search" placeholder="무엇이 궁금하세요? 예: 채점기준, 손글씨 답안, 과목별 예시" aria-label="가이드 검색"></label>
         <div class="hs-res" id="hs-res" hidden></div>
@@ -82,71 +81,75 @@ if(!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)){var s=document
   </section>
 
   <section class="sec">
-    <div class="sec-h"><h2>기능별 이용 방법</h2><p class="sub">쓰려는 기능을 고르면 영상, 안내, 예시로 바로 가요.</p></div>
+    <div class="sec-h"><h2>기능별 이용 방법</h2></div>
+    <!-- 11-20 올립: 처음이라면 띠는 기능별 이용 방법 단 안, 타일 위 -->
+    <div class="first-in in-sec">
+      <span class="ico" data-ic="start"></span>
+      <div class="tx"><b>클리포가 처음이라면</b><span>클리포가 어떤 서비스인지 보고, 첫 평가를 만드는 과정을 따라 해 보세요.</span></div>
+      <div class="acts"><a class="btn-o play" href="video-S0.html"><svg width="12" height="14" viewBox="0 0 10 12" fill="currentColor" aria-hidden="true"><path d="M0 0l10 6-10 6z"/></svg>소개 영상<span class="dur">2:39</span></a><a class="btn sm" href="learn.html#start">시작하기 재생목록 ›</a></div>
+    </div>
     <div class="tiles">
       <div class="tile" data-tint="class">
         <a class="tile-h" href="learn.html#class"><span class="ico" data-ic="class"></span><b>수업·학생 등록</b></a>
         <ul>
-          <li><a href="learn.html#class">수업·참여 학생 영상<span class="n" data-count="class"></span></a></li>
-          <li><a href="learn.html#school">학교 설정 영상<span class="n" data-count="school"></span></a></li>
+          <li><a data-k="v" href="learn.html#class">수업·참여 학생 영상<span class="n" data-count="class"></span></a></li>
+          <li><a data-k="v" href="learn.html#school">학교 설정 영상<span class="n" data-count="school"></span></a></li>
+          <li><a data-k="m" href="manual.html#m04">내 수업 매뉴얼<span class="n">PDF 10쪽</span></a></li><li><a data-k="m" href="manual.html#m02">학교 설정 매뉴얼<span class="n">PDF 10쪽</span></a></li><li><a data-k="q" href="faq.html#c-수업-관리">자주 묻는 질문<span class="n">11개</span></a></li>
         </ul>
       </div>
       <div class="tile" data-tint="design">
         <a class="tile-h" href="learn.html#design"><span class="ico" data-ic="design"></span><b>수행평가 설계·채점기준</b></a>
         <ul>
-          <li><a href="learn.html#design">수행평가 설계 영상<span class="n" data-count="design"></span></a></li>
-          <li><a href="scoring/ch2.html">채점기준은 이렇게 써요<span class="n">안내</span></a></li>
-          <li><a href="video-R1.html">채점기준 잘 쓰는 법<span class="n">영상 4:29</span></a></li>
+          <li><a data-k="v" href="learn.html#design">수행평가 설계 영상<span class="n" data-count="design"></span></a></li>
+          <li><a data-k="g" href="scoring/ch2.html">채점기준은 이렇게 써요<span class="n">안내</span></a></li>
+          <li><a data-k="v" href="video-R1.html">채점기준 잘 쓰는 법<span class="n">영상 4:29</span></a></li>
+          <li><a data-k="m" href="manual.html#m05">수행평가 설계 매뉴얼<span class="n">PDF 10쪽</span></a></li><li><a data-k="q" href="faq.html#c-수행평가-설계">자주 묻는 질문<span class="n">5개</span></a></li>
         </ul>
       </div>
       <div class="tile" data-tint="files">
         <a class="tile-h" href="learn.html#files"><span class="ico" data-ic="files"></span><b>과제물 등록</b></a>
         <ul>
-          <li><a href="learn.html#files">과제물 관리 영상<span class="n" data-count="files"></span></a></li>
-          <li><a href="scoring/ch3.html">과제물은 이렇게 준비해요<span class="n">안내</span></a></li>
-          <li><a href="scoring/ch4.html">이런 답안까지 채점돼요<span class="n">안내</span></a></li>
+          <li><a data-k="v" href="learn.html#files">과제물 관리 영상<span class="n" data-count="files"></span></a></li>
+          <li><a data-k="g" href="scoring/ch3.html">과제물은 이렇게 준비해요<span class="n">안내</span></a></li>
+          <li><a data-k="g" href="scoring/ch4.html">이런 답안까지 채점돼요<span class="n">안내</span></a></li>
+          <li><a data-k="m" href="manual.html#m06">과제물 관리 매뉴얼<span class="n">PDF 8쪽</span></a></li><li><a data-k="q" href="faq.html#c-과제물-관리">자주 묻는 질문<span class="n">10개</span></a></li>
         </ul>
       </div>
       <div class="tile" data-tint="grading">
         <a class="tile-h" href="learn.html#grading"><span class="ico" data-ic="grading"></span><b>AI 채점·결과 확인</b></a>
         <ul>
-          <li><a href="learn.html#grading">수행평가 채점 영상<span class="n" data-count="grading"></span></a></li>
-          <li><a href="scoring/ch1.html">AI는 이렇게 채점해요<span class="n">안내</span></a></li>
-          <li><a href="scoring/ch5.html">결과가 다를 땐 이렇게 해요<span class="n">안내</span></a></li>
+          <li><a data-k="v" href="learn.html#grading">수행평가 채점 영상<span class="n" data-count="grading"></span></a></li>
+          <li><a data-k="g" href="scoring/ch1.html">AI는 이렇게 채점해요<span class="n">안내</span></a></li>
+          <li><a data-k="g" href="scoring/ch5.html">결과가 다를 땐 이렇게 해요<span class="n">안내</span></a></li>
+          <li><a data-k="m" href="manual.html#m07">수행평가 채점 매뉴얼<span class="n">PDF 14쪽</span></a></li><li><a data-k="q" href="faq.html#c-수행평가-채점">자주 묻는 질문<span class="n">29개</span></a></li>
         </ul>
       </div>
       <div class="tile" data-tint="record">
         <a class="tile-h" href="learn.html#record"><span class="ico" data-ic="record"></span><b>생활기록부 초안</b></a>
         <ul>
-          <li><a href="learn.html#record">생기부 영상<span class="n" data-count="record"></span></a></li>
-          <li><a href="video-E2.html">채점 없이 세특 만들기<span class="n">영상 1:00</span></a></li>
+          <li><a data-k="v" href="learn.html#record">생기부 영상<span class="n" data-count="record"></span></a></li>
+          <li><a data-k="v" href="video-E2.html">채점 없이 세특 만들기<span class="n">영상 1:00</span></a></li>
+          <li><a data-k="m" href="manual.html#m08">세부능력 및 특기사항 지원 매뉴얼<span class="n">PDF 8쪽</span></a></li><li><a data-k="q" href="faq.html#c-세부능력-및-특기사항-지원">자주 묻는 질문<span class="n">7개</span></a></li>
         </ul>
       </div>
       <div class="tile" data-tint="account">
         <a class="tile-h" href="learn.html#account"><span class="ico" data-ic="account"></span><b>크레딧·이용권</b></a>
         <ul>
-          <li><a href="learn.html#account">계정·이용권 영상<span class="n" data-count="account"></span></a></li>
-          <li><a href="faq.html#c-요금제-AI-크레딧">자주 묻는 질문<span class="n">FAQ</span></a></li>
+          <li><a data-k="v" href="learn.html#account">계정·이용권 영상<span class="n" data-count="account"></span></a></li>
+          <li><a data-k="m" href="manual.html#m13">AI 크레딧 관리 매뉴얼<span class="n">PDF 5쪽</span></a></li><li><a data-k="q" href="faq.html#c-요금제-AI-크레딧">자주 묻는 질문<span class="n">10개</span></a></li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="sec first">
-    <div class="first-in">
-      <span class="ico" data-ic="start"></span>
-      <div class="tx"><b>클리포가 처음이라면</b><span>클리포가 어떤 서비스인지 보고, 첫 평가를 만드는 과정을 따라 해 보세요.</span></div>
-      <div class="acts"><a class="btn-o play" href="video-S0.html"><svg width="12" height="14" viewBox="0 0 10 12" fill="currentColor" aria-hidden="true"><path d="M0 0l10 6-10 6z"/></svg>소개 영상<span class="dur">2:39</span></a><a class="btn sm" href="learn.html#start">시작하기 재생목록 ›</a></div>
-    </div>
-  </section>
 
   <div class="home-row">
     <section>
-      <div class="sec-h"><h2>연수 안내</h2><a href="training.html">전체 보기 ›</a><p class="sub">지금 신청할 수 있는 연수예요.</p></div>
+      <div class="sec-h"><h2>연수</h2><a href="training.html">전체 보기 ›</a></div>
       <div id="home-training"></div>
     </section>
     <section>
-      <div class="sec-h"><h2>소식</h2><a href="news.html">전체 보기 ›</a><p class="sub">달라진 점을 전해요.</p></div>
+      <div class="sec-h"><h2>소식</h2><a href="news.html">전체 보기 ›</a></div>
       <div id="home-updates"></div>
     </section>
   </div>
@@ -154,8 +157,8 @@ if(!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)){var s=document
 <script src="data/faq_cs.js?v=2"></script>
 <!-- 푸터 = 간소화(10-15 올립: 가이드라 회사 정보·약관 링크 없이 CLIPO 바로가기 + 카피라이트만). 모양은 style.css .ftr*, 가이드 탭은 build_guide.py가 같은 것을 붙임 -->
 <!-- 푸터 = 간소화(10-15 올립: 가이드라 회사 정보·약관 링크 없이 CLIPO 바로가기 + 카피라이트만). 모양은 style.css .ftr*, 가이드 탭은 build_guide.py가 같은 것을 붙임 -->
-<footer class="ftr"><p class="ftr-copy">© 2026. Datadriven Inc. All rights reserved.</p><a class="ftr-go" href="faq.html">자주 묻는 질문</a><a class="ftr-go" href="https://training.clipo.ai/" target="_blank" rel="noopener">연수센터 바로가기 ↗</a><a class="ftr-go" href="https://clipo.ai" target="_blank" rel="noopener">CLIPO 바로가기 ↗</a></footer>
-<script src="data/art.js?v=6"></script><script src="data/icons.js?v=3"></script><script src="data/videos.js?v=88"></script><script src="data/posts.js?v=48"></script><script src="data/trainings.js?v=11"></script><script src="data/search_extra.js?v=6"></script><script src="app.js?v=67"></script>
-<script>(function(){var p=document.body.getAttribute('data-page');var m={video:'learn',post:'news'};var k=m[p]||p;var a=document.querySelector('[data-nav="'+k+'"]');if(a)a.classList.add('on');})();</script>
+<footer class="ftr"><p class="ftr-copy">© 2026. Datadriven Inc. All rights reserved.</p><a class="ftr-go" href="learn.html">사용법 영상</a><a class="ftr-go" href="manual.html">매뉴얼</a><a class="ftr-go" href="faq.html">자주 묻는 질문</a><a class="ftr-go" href="https://training.clipo.ai/" target="_blank" rel="noopener">연수센터 바로가기 ↗</a><a class="ftr-go" href="https://clipo.ai" target="_blank" rel="noopener">CLIPO 바로가기 ↗</a></footer>
+<script src="data/art.js?v=7"></script><script src="data/icons.js?v=3"></script><script src="data/videos.js?v=89"></script><script src="data/posts.js?v=48"></script><script src="data/trainings.js?v=11"></script><script src="data/search_extra.js?v=8"></script><script src="data/manual.js?v=2"></script><script src="app.js?v=76"></script>
+<script>(function(){var p=document.body.getAttribute('data-page');var m={video:'learn',post:'news',manual:'learn',faq:'learn'};var k=m[p]||p;var a=document.querySelector('[data-nav="'+k+'"]');if(a)a.classList.add('on');})();</script>
 </body>
 </html>

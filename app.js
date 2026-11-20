@@ -121,6 +121,7 @@
       .concat(published(POSTS).filter(function (p) { return p.type === 'update'; }).map(function (p) { return { k: '업데이트', t: p.title, s: p.summary || '', m: fmtDate(p.date), u: postUrl(p.id) }; }));
     INDEX = (window.SEARCH_EXTRA || []).concat(INDEX)  // 과목별 채점 예시·선생님 사례(build_guide.py가 만듦)를 앞에: '영어'처럼 과목을 치면 예시가 먼저
       .concat((window.FAQ_CS || []).map(function (f) { return { k: '자주 묻는 질문', t: f.q, s: f.c + ' ' + f.s, m: f.c, u: 'faq.html#' + f.id }; }))  // 고객센터 FAQ 공개판(faq.html)
+      .concat((window.MANUAL || []).map(function (c) { return { k: '매뉴얼', t: c.name, s: c.desc + ' ' + c.secs.join(' '), m: c.pages + '쪽', u: 'manual.html#' + c.id }; }))  // 매뉴얼 장별 PDF(11-20): 장 이름·차례로 찾는다
       .concat(TRAININGS.map(function (tr) { var past = new Date(tr.date) < new Date(); return { k: past ? '지난 연수' : '모집 중 연수', t: tr.title + (tr.tag ? ' · ' + tr.tag : ''), s: tr.topic || '', m: fmtDate(tr.date), u: past ? 'training.html#past' : 'training.html#open' }; }));
     var hsel = -1;
     var hsearch = function () {
@@ -128,7 +129,7 @@
       if (!q) { hres.hidden = true; hres.innerHTML = ''; return; }
       var hit = INDEX.map(function (it) {
         var tl = it.t.toLowerCase(), ti = tl.indexOf(q), si = it.s.toLowerCase().indexOf(q);
-        var top = { '채점 예시': 0, '선생님 사례': 0, '모집 중 연수': 0, '자주 묻는 질문': 0, '영상': 1, 'AI 채점 안내': 1, '업데이트': 2, '지난 연수': 2 };
+        var top = { '채점 예시': 0, '선생님 사례': 0, '모집 중 연수': 0, '자주 묻는 질문': 0, '영상': 1, '채점 가이드': 1, '업데이트': 2, '지난 연수': 2 };
         return { it: it, r: ti >= 0 ? top[it.k] : si >= 0 ? 3 + (top[it.k] || 0) / 2 : 9 };
       }).filter(function (x) { return x.r < 9; }).sort(function (a, b) { return a.r - b.r; }).slice(0, 10);
       hres.innerHTML = hit.length
@@ -172,7 +173,7 @@
     var keys = Object.keys(CATS);
     side.innerHTML = keys.map(function (k) {
       var n = k === 'start' ? startList().length : VIDEOS.filter(function (v) { return v.cat === k; }).length;
-      return '<a href="#' + k + '" data-cat="' + k + '"><span class="ico" data-ic="' + k + '" style="color:var(--i-' + k + ')"></span>' + esc(CATS[k].name) + '<span class="n">' + n + '</span></a>';
+      return '<a href="#' + k + '" data-cat="' + k + '"><span class="ico" data-ic="' + k + '" style="color:var(--i-' + k + ')"></span>' + esc(CATS[k].name) + '</a>';
     }).join('');
 
     // 추천 재생목록 = 시작하기
@@ -188,7 +189,7 @@
     var recent = VIDEOS.filter(function (v) { return v.since && new Date(v.since).getTime() >= cut; }).sort(function (a, b) { return a.since < b.since ? 1 : -1; });
     if (recent.length) {
       var startLink = side.querySelector('a[data-cat="start"]');
-      startLink.insertAdjacentHTML('afterend', '<a href="#recent" data-cat="recent"><span class="ico" data-ic="recent" style="color:var(--blue)"></span>새 기능<span class="n">' + recent.length + '</span></a>');
+      startLink.insertAdjacentHTML('afterend', '<a href="#recent" data-cat="recent"><span class="ico" data-ic="recent" style="color:var(--blue)"></span>새 기능</a>');
     }
     if (recent.length) html += '<section class="sec recent" id="recent"><div class="sec-h"><h2>새 기능<small>' + recent.length + '개</small></h2><a href="news.html#update">업데이트 소식 보기 ›</a></div>'
       + '<div class="grid">' + recent.map(vcard).join('') + '</div></section>';
@@ -263,11 +264,22 @@
     subtabs(['open', 'past', 'practice', 'school', 'instructor', 'adopt']);
   }
 
+  // 사용법 갈래(영상 · 매뉴얼 · 자주 묻는 질문)를 바꿔도 보던 기능에 머문다(11-20). 대응표 = data/manual.js HELP_MAP
+  var subnav = document.querySelector('.sub');
+  if (subnav && window.HELP_MAP) subnav.addEventListener('click', function (ev) {
+    var a = ev.target.closest('a'); if (!a || a.classList.contains('on')) return;
+    var K = { learn: 'v', manual: 'm', faq: 'f' }, to = a.getAttribute('href').replace('.html', '');
+    var on = document.querySelector('.side .cats a.on');
+    var cur = page === 'learn' ? location.hash.replace('#', '') : ((window.scrollY > 40 || location.hash) && on ? on.getAttribute('data-cat') : '');
+    var t = (HELP_MAP[K[page] + '2' + K[to]] || {})[decodeURIComponent(cur)];
+    if (t) { ev.preventDefault(); location.href = a.getAttribute('href') + '#' + t; }
+  });
+
   if (page === 'faq') {
     // 왼쪽 분류 목록 활성 표시 + 주소(#q-…)로 들어오면 그 질문을 펼쳐서 보여 준다
     var fside = $('#faq-cats');
     var fmark = function () {
-      var h = location.hash.replace('#', '');
+      var h = location.hash.replace('#', ''); try { h = decodeURIComponent(h); } catch (e) {}   // 한글 분류 주소(#c-수행평가-채점)는 인코딩돼 온다
       var d = h && document.getElementById(h);
       if (d && d.tagName === 'DETAILS') { d.open = true; h = d.closest('section').id; }
       if (!h) h = fside.querySelector('a') ? fside.querySelector('a').getAttribute('data-cat') : '';
@@ -292,6 +304,37 @@
         var a = fside.querySelector('a[data-cat="' + sec.id + '"]'); if (a) { a.style.display = vis ? '' : 'none'; var n = a.querySelector('.n'); if (n) n.textContent = vis; }
       });
       fnone.hidden = !(s && total === 0);
+    });
+  }
+
+  if (page === 'manual') {
+    // 왼쪽 장 목록 활성 표시(주소 #m07 또는 화면에 보이는 장)
+    var mside = $('#man-cats'), mcards = [].slice.call(document.querySelectorAll('#man-main .mcard[id]'));
+    var mset = function (id) { mside.querySelectorAll('a').forEach(function (a) { a.classList.toggle('on', a.getAttribute('data-cat') === id); }); };
+    var mlock = 0;   // 목록을 눌러 이동한 직후에는 누른 장을 그대로 표시(맨 아래 장은 화면 위까지 못 올라온다)
+    var mscroll = function () {
+      if (Date.now() < mlock) return;
+      var cur = mcards[0];
+      mcards.forEach(function (c) { if (c.getBoundingClientRect().top < 200) cur = c; });
+      if (cur) mset(cur.id);
+    };
+    mside.addEventListener('click', function (ev) {
+      var a = ev.target.closest('a[data-cat]'); if (!a) return;
+      mlock = Date.now() + 900; mset(a.getAttribute('data-cat'));
+    });
+    window.addEventListener('scroll', mscroll, { passive: true }); mscroll();
+    // 검색(11-20): 장 이름 · 설명 · 차례 · 같은 기능의 영상 제목으로 거른다(영상 · FAQ 갈래의 검색과 같은 방식). 안 걸린 장은 왼쪽 목록에서도 숨김
+    var mq = $('#mq'), mnone = $('#man-none'), mall = document.querySelector('#man-main .mcard-all');
+    mq.addEventListener('input', function () {
+      var s = mq.value.trim().toLowerCase(), total = 0;
+      mcards.forEach(function (c) {
+        var hit = !s || c.textContent.toLowerCase().indexOf(s) >= 0;
+        c.style.display = hit ? '' : 'none'; if (hit) total++;
+        var a = mside.querySelector('a[data-cat="' + c.id + '"]'); if (a) a.style.display = hit ? '' : 'none';
+      });
+      if (mall) mall.style.display = s ? 'none' : '';
+      mnone.hidden = !(s && total === 0);
+      mscroll();
     });
   }
 
@@ -331,7 +374,7 @@
     var fromStart = qs('from') === 'start' || v.cat === 'start';
     document.title = v.title + ' · 클리포 가이드';
     if (v.id) document.body.setAttribute('data-share', videoUrl(v.id));
-    $('#crumb').innerHTML = '<a href="learn.html">사용법 영상</a> › <a href="learn.html#' + v.cat + '">' + esc(CATS[v.cat].name) + '</a>';
+    $('#crumb').innerHTML = '<a href="learn.html">사용법</a> › <a href="learn.html">영상</a> › <a href="learn.html#' + v.cat + '">' + esc(CATS[v.cat].name) + '</a>';
     $('#player').innerHTML = playerInner(v, true); // 상세는 바로 재생 — 대표 이미지를 띄우지 않는다(잠깐 비쳐 옛 화면처럼 보임, 샐리 11-04)
     $('#v-title').textContent = v.title;
     $('#v-meta').innerHTML = '<span class="kind">' + esc(CATS[v.cat].name) + '</span><span>' + (v.dur ? esc(v.dur) : '준비 중') + '</span><span>관련 화면: ' + esc(v.screen) + '</span>';
@@ -355,7 +398,7 @@
     var gch = v.guide || (window.GUIDE_BY_CAT || {})[v.cat];
     if (gch && window.GUIDE_CH && GUIDE_CH[gch]) {
       var g = $('#v-guide'); g.style.display = '';
-      g.innerHTML = '<span class="ic">ⓘ</span><span>원리와 요령은 AI 채점 안내 <a href="scoring/' + gch + '">' + esc(GUIDE_CH[gch]) + ' ›</a>에서 더 자세히 볼 수 있어요.</span>';
+      g.innerHTML = '<span class="ic">ⓘ</span><span>원리와 요령은 채점 가이드의 <a href="scoring/' + gch + '">' + esc(GUIDE_CH[gch]) + ' ›</a>에서 더 자세히 볼 수 있어요.</span>';
     }
   }
 

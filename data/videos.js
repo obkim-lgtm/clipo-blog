@@ -104,7 +104,7 @@ window.VIDEOS = [
   { id: 'D2', cat: 'grading', art: 'bubble_score', guide: 'ch5.html', title: 'AI 채점하고 점수 확정하기', dur: '1:38', yt: null,
     mp4: 'video/d2.mp4?v=6', poster: 'video/d2_poster.jpg?v=4', screen: '수행평가 채점', isNew: false,
     summary: '학급 채점 현황 1단계에서 AI 채점을 돌리면 학생마다 AI 점수와 근거가 나와요. 상세 보기에서 근거를 읽고 점수를 직접 고른 뒤, 2단계에서 살펴본 학생의 점수를 한 번에 확정해요.' },
-  { id: 'D6', cat: 'grading', art: 'refresh', since: '2026-11-17', title: '인식 결과 확인하고 다시 채점하기', dur: '1:26', yt: null,
+  { id: 'D6', cat: 'grading', art: 'scan_text', since: '2026-11-17', title: '인식 결과 확인하고 다시 채점하기', dur: '1:26', yt: null,
     mp4: 'video/d6.mp4?v=3', poster: 'video/d6_poster.jpg?v=3', screen: '수행평가 채점 · 학생 상세 · 인식 결과', isNew: false,
     summary: '점수가 생각과 다르면 인식 결과 탭에서 AI가 읽은 답을 먼저 살펴봐요. 확인 필요가 붙은 문항부터 원본과 맞춰 보고, 잘못 읽힌 곳은 결과 수정에서 바로잡아 다시 채점해요. 읽은 답이 맞으면 다시 채점에서 점수 수준을 조정해요.' },
   { id: 'D9', cat: 'grading', art: 'export', title: '채점 결과 엑셀로 받기', dur: '0:54', yt: null,

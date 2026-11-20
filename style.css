@@ -51,7 +51,15 @@ button,input{font-family:inherit;font-size:inherit}
 
 /* 레이아웃 */
 .wrap{max-width:var(--max);margin:0 auto;padding:36px 16px 72px}
-.page-h{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:28px}
+.page-h{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:28px;flex-wrap:wrap}
+.page-h>div{flex:1 1 320px;min-width:0}
+/* 사용법 갈래 줄(영상 · 매뉴얼 · 자주 묻는 질문, 11-20): 세 페이지 같은 자리 · 켜져도 폭이 안 바뀐다 */
+.sub{display:flex;gap:32px;margin:-4px 0 28px;box-shadow:inset 0 -1px 0 var(--line-2);overflow-x:auto;overflow-y:hidden}
+.sub a{display:inline-flex;align-items:center;justify-content:center;line-height:1;vertical-align:middle;white-space:nowrap;padding:14px 2px 15px;font-size:19px;font-weight:700;color:var(--mute);border-bottom:3px solid transparent;transition:color .12s,border-color .12s}
+.sub a .n{font-size:14px;font-weight:500;color:var(--mute);margin-left:7px}
+.sub a:hover{color:var(--blue)}
+.sub a.on,.sub a.on:hover{color:var(--ink);border-bottom-color:var(--blue)}
+@media (max-width:600px){.sub{gap:22px}.sub a{font-size:17px}}
 .page-h h1{font-size:34px;font-weight:800}
 .page-h p{color:var(--mute);margin-top:8px;font-size:17px}
 .sec{margin-top:44px}
@@ -322,10 +330,34 @@ button,input{font-family:inherit;font-size:inherit}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary:after{content:"+";color:var(--mute);font-weight:400;font-size:20px;line-height:1}
 .faq details[open] summary:after{content:"\2013"}
-.faq details>div{padding:0 0 16px;color:#52525b;font-size:14px}
+.faq details>div{padding:0 0 16px;color:#52525b;font-size:16px}
 .faq details>div p{margin:0 0 8px;line-height:1.7} .faq details>div p:last-child{margin-bottom:0}
 .faq details:target{box-shadow:0 0 0 2px var(--blue-bd),var(--sh)} /* 주소로 열린 질문 표시 */
-#faq-main .sec:first-child{margin-top:0}
+#faq-main .sec:first-of-type{margin-top:0}
+/* FAQ 답 모양(11-20): 문장은 시트 그대로, 단계 머리·목록·버튼 이름만 눈에 띄게 */
+.faq details>div p.st{margin-top:14px;color:var(--ink,#18181b);font-weight:700}
+.faq details>div p.st:first-child{margin-top:0}
+.faq details>div p.sp{padding-left:1.3em;text-indent:-1.3em}
+.faq details>div ul{margin:0 0 8px;padding-left:20px;line-height:1.7}
+.faq details>div li{margin-bottom:4px}
+.faq details>div b{color:#3f3f46;font-weight:600}
+/* 매뉴얼 장별 PDF(11-20) */
+.mcard{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:22px 24px;margin-bottom:14px;scroll-margin-top:92px}
+.mcard-h{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mcard-h h2{font-size:20px;font-weight:700;display:flex;align-items:center;gap:10px;word-break:keep-all}
+.mnum{color:var(--blue);font-variant-numeric:tabular-nums}
+.mdesc{margin:8px 0 0;font-size:16px;color:#52525b;line-height:1.6}
+.msecs{margin:6px 0 0;font-size:14px;color:var(--mute);line-height:1.7;word-break:keep-all}
+.mrel{display:grid;grid-template-columns:104px minmax(0,1fr);gap:8px 12px;align-items:baseline;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.mrel+.mrel{margin-top:10px;padding-top:0;border-top:0}
+.mrel-k{font-size:14px;font-weight:600;color:var(--mute)}
+.mrel-l{display:flex;flex-wrap:wrap;gap:6px 18px}
+.mrel-l a{font-size:16px;color:#27272a;line-height:1.5}
+.mrel-l a:hover{color:var(--blue)}
+.mrel-l a i{font-style:normal;font-size:13px;color:var(--mute);margin-left:6px}
+.mcard-all{background:var(--blue-bg);box-shadow:none}
+@media (max-width:600px){.mcard{padding:18px 16px}.mrel{grid-template-columns:1fr}}
+
 .cta-box{background:var(--blue-bg);border-radius:var(--r);padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .cta-box b{display:block;font-size:16px;font-weight:800}
 .cta-box span{font-size:14px;color:var(--ink-2)}
@@ -551,8 +583,18 @@ button,input{font-family:inherit;font-size:inherit}
 .tile ul{list-style:none;margin:0;padding:10px 0 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
 .tile li a{font-size:14px;color:var(--ink-2);display:flex;justify-content:space-between;align-items:baseline;gap:8px}
 .tile li a:hover{color:var(--blue)}
+/* 타일 줄 종류 표시(11-20): 영상 · 안내 · 매뉴얼 · 자주 묻는 질문을 같은 글 줄에서 한눈에 가르게 */
+.tile li a{justify-content:flex-start;align-items:center}
+.tile li a .n{margin-left:auto}
+.tile li a[data-k]::before{content:"";width:16px;height:16px;flex-shrink:0;background:var(--i);opacity:.85;-webkit-mask:var(--k) center/contain no-repeat;mask:var(--k) center/contain no-repeat}
+.tile li a[data-k=v]{--k:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M10 8.5l5.5 3.5-5.5 3.5z' fill='black'/%3E%3C/svg%3E")}
+.tile li a[data-k=g]{--k:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2z'/%3E%3Cpath d='M4 21a2 2 0 012-2h13'/%3E%3Cpath d='M9 8h6'/%3E%3C/svg%3E")}
+.tile li a[data-k=m]{--k:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z'/%3E%3Cpath d='M14 3v5h5'/%3E%3Cpath d='M12 11v6M9.5 14.5L12 17l2.500-2.500'/%3E%3C/svg%3E")}
+.tile li a[data-k=q]{--k:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M9.500 9.500a2.500 2.500 0 115 0c0 1.700-2.500 2-2.500 4'/%3E%3Cpath d='M12 17h.01'/%3E%3C/svg%3E")}
+
 .tile li a .n{color:var(--mute);font-size:13px;white-space:nowrap}
 .first{margin-top:24px}
+.first-in.in-sec{margin-bottom:18px}
 .first-in{background:var(--t-start);border-radius:var(--r-lg);box-shadow:var(--sh);padding:16px 22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap} /* 처음 온 선생님 눈에 띄게 연보라(시작하기 묶음 색) */
 .first-in>.ico{width:40px;height:40px;border-radius:12px;background:#fff;color:var(--i-start);display:inline-flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0}
 .first-in>.ico svg{width:100%;height:100%}

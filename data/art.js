@@ -53,6 +53,7 @@
     bubble_score: W('<path d="M16 20h64v44H44L26 80V64H16z"/><text x="48" y="53" text-anchor="middle" font-size="24" font-weight="800" font-family="Pretendard GOV,sans-serif"' + SOLID + '>92</text>'),
     bubble_pen:  W('<path d="M16 20h64v44H44L26 80V64H16z"/><path d="M36 50l18-18 6 6-18 18-8 2z"' + SOLID + ' opacity=".5"/>'),
     refresh:     W('<path d="M74 40a28 28 0 10 6 20"/><path d="M78 16v24H54"/>'),
+    scan_text:   W('<rect x="16" y="16" width="64" height="64" rx="10" stroke="none"/><path fill="none" d="M16 34V24a8 8 0 018-8h10M62 16h10a8 8 0 018 8v10M80 62v10a8 8 0 01-8 8H62M34 80H24a8 8 0 01-8-8V62"/><path d="M30 36h36M30 60h22" stroke-width="4" opacity=".6"/><rect x="30" y="43" width="26" height="10" rx="5"' + SOLID + ' opacity=".5"/>'),  // 인식 결과 확인(D6, 11-20): 읽는 틀 안의 글줄, 고칠 낱말 하나 강조
     export:      W('<path d="M20 60v14a6 6 0 006 6h44a6 6 0 006-6V60"/><path d="M48 14v44M32 42l16 16 16-16"/>'),
 
     // ---- 생기부 ----
