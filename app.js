@@ -229,7 +229,7 @@
     var pastT = TRAININGS.filter(function (t) { return !t.form || new Date(t.date) < now; }).sort(function (a, b) { return a.date < b.date ? 1 : -1; });
     $('#t-open').innerHTML = openT.length ? '<div class="tlist">' + openT.map(tcard).join('') + '</div>' : '<div class="empty">' + NO_TRAINING + '</div>';
     $('#t-past').innerHTML = pastT.length ? '<div class="grid">' + pastT.map(acard).join('') + '</div>' : '<div class="empty">지난 연수 자료가 아직 없어요.</div>';
-    $('#n-open').textContent = openT.length; $('#n-past').textContent = pastT.length;
+    
     // 과목 필터 (지난 연수)
     var subjects = [];
     pastT.forEach(function (t) { if (t.tag && subjects.indexOf(t.tag) < 0) subjects.push(t.tag); });

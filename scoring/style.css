@@ -797,6 +797,7 @@ h2[data-n]::before,.doc-body h3[data-n="📋"]::before,.doc-body h3[data-n="📝
 .tbl{margin:0}
 .pager a:hover,.doclist a:hover{background:#fff;box-shadow:0 2px 4px rgba(31,35,51,.05),0 18px 40px -16px rgba(65,107,255,.28)}
 .doclist li.soon a,.row.soon{background:#fff;box-shadow:none}
+.side .num{width:22px;height:22px;font-size:14px} /* 11-20: 번호도 레이블 14px 기준 */
 /* 좁은 화면: 블로그 다른 탭(style.css)과 같은 규칙 — 햄버거·서랍 없이 왼쪽 목록을 제목 아래로 내리고 칩으로 */
 .hdr.blog-hdr .menu-btn{display:none!important}
 @media (max-width:900px){
@@ -805,7 +806,7 @@ h2[data-n]::before,.doc-body h3[data-n="📋"]::before,.doc-body h3[data-n="📝
   .side ul{display:flex;flex-wrap:wrap;gap:8px}
   .side a{border:1px solid #d9dce4;border-radius:999px;padding:8px 12px;min-height:0;font-size:14px;line-height:1.2;background:#fff;gap:6px}
   .side a.active{border-color:#416bff}
-  .side .num{width:18px;height:18px;font-size:11px;border-radius:6px}
+  .side .num{width:22px;height:22px;font-size:14px;border-radius:6px}
   .side .num.emoji svg{width:16px;height:16px}
   .side .grp{margin:16px 0 8px;padding:14px 0 0}
   .wrap > .hero.lab{margin-bottom:28px} .wrap > .hero.lab .lead{white-space:normal}
